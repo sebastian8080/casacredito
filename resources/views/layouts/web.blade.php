@@ -11,22 +11,28 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <style>
+        body, html{
+            width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg position-fixed w-100 bg-transparent">
+        <nav class="navbar navbar-expand-lg position-fixed w-100 bg-transparent" style="z-index: 3">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">LOGO</a>
+              <a class="navbar-brand" href="{{ route('web.home') }}">LOGO</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse w-100" id="navbarNav">
                 <ul class="navbar-nav d-flex gap-4 justify-content-end w-100">
                   <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('web.home') }}">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="#">Créditos</a>
+                    <a class="nav-link text-white fw-bold" href="{{ route('web.creditos') }}">Créditos</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="#">Notaría</a>

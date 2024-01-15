@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [WebController::class, 'home'])->name('web.home');
-Route::get('/calculadora-de-credito', [WebController::class, 'calculadora'])->name('web.calculadora');
+Route::get('/creditos', [WebController::class, 'creditos'])->name('web.creditos');
+Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
+Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 
 Auth::routes();
 

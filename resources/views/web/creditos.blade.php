@@ -18,7 +18,7 @@
 
 @section('content')
     <section style="background-color: #68676841;">
-        <section class="row" style="z-index: 3000">
+        <section class="row">
             <article class="col-sm-4 h-full w-full d-flex align-items-center justify-content-center">
                 <div>
                     <p style="line-height: 40px"> <span style="font-size: 40px">Conozca cuanto</span> <br> <span style="font-size: 50px">pagaría</span> <br> <span style="font-size: 40px">mensualmente</span></p>
@@ -28,10 +28,10 @@
             <article class="col-sm-8">
                 <div class="position-relative">
                     <div class="position-absolute top-50 start-50 translate-middle">
-                        <p style="font-family: Montserrat; z-index: -1" class="display-1 text-white">CREDITOS</p>
+                        <p style="font-family: Montserrat;" class="display-1 text-white">CREDITOS</p>
                     </div>
-                    <div style="z-index: 2">
-                        <img width="90%" style="margin-bottom: -100px;" class="img-fluid" src="{{ asset('img/calcule-su-credito-en-linea.png') }}" alt="">
+                    <div>
+                        <img width="90%" style="margin-bottom: -100px; z-index: -100" class="img-fluid" src="{{ asset('img/calcule-su-credito-en-linea.png') }}" alt="">
                     </div>
                 </div>
             </article>
@@ -39,7 +39,7 @@
     </section>
     <section style="background-color: #68676822; height: 100px"></section>
 
-    <section class="container">
+    <section class="container mt-5">
         <section>
             <h2 class="text-center">Calcule su cuota mensual</h2>
             <p class="text-center">Elija el tipo de credito que se ajusta a sus necesidades</p>
@@ -88,7 +88,7 @@
                     <div class="position-relative">
                         <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
                         <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">VIVIENDA DE <br> INTERÉS PÚBLICO</h3>
+                            <h3 class="text-center fw-bold">VIVIENDA DE <br> INTERÉS POPULAR</h3>
                             <p class="text-center">Adquiera una casa nueva</p>
                             <p class="text-center">Tasa de interes referencial 9,45%</p>
                             <div class="d-flex justify-content-center">
@@ -115,8 +115,23 @@
     </section>
 
     <section class="container py-5">
-        <section class="row">
-            <article class="col-sm-4">
+        <section class="row justify-content-center">
+            <section class="text-center py-5">
+                <article>
+                    <h2>Seleccione el tipo de crédito que desea calcular</h2>
+                    <div class="d-flex justify-content-center">
+                        <select id="selTypeCredit" class="form-select w-auto">
+                            <option value="">Seleccione</option>
+                            <option value="1">Microcreditos</option>
+                            <option value="2">Hipotecarios</option>
+                            <option value="3">De Construccion</option>
+                            <option value="4">Vivienda de Interes Popular</option>
+                            <option value="5">De Consumo</option>
+                        </select>
+                    </div>
+                </article>
+            </section>
+            <article class="col-sm-4 d-none" id="sectionPropertyValue">
                 <div>
                     <p>¿Cuanto cuesta la vivienda que desea comprar?</p>
                     <input type="number" class="form-control border" id="valor_propiedad" placeholder="Min. $15.000">
@@ -152,28 +167,28 @@
         <section class="row w-full py-5">
             <div class="d-flex gap-4 w-100">
                 <div class="text-center w-100">
-                    <span style="font-size: large">$40,00</span> <br>
-                    <span style="font-size: x-small">Capit + interes</span>
+                    <span id="spanCapital" style="font-size: large">$0,00</span> <br>
+                    <span style="font-size: x-small">Capital</span>
                 </div>
                 <div class="w-100 text-center">
                     <span>+</span>
                 </div>
                 <div class="w-100 text-center">
-                    <span style="font-size: large">$0,00</span> <br>
+                    <span id="spanInteres" style="font-size: large">$0,00</span> <br>
                     <span style="font-size: x-small">Tasa de interes</span>
                 </div>
                 <div class="w-100 text-center">
-                    <span>+</span>
+                    <span>/</span>
                 </div>
                 <div class="w-100 text-center">
-                    <span style="font-size: large">0</span> <br>
+                    <span id="spanAnios" style="font-size: large">0</span> <br>
                     <span style="font-size: x-small">Años</span>
                 </div>
                 <div class="w-100 text-center">
                     <span>=</span>
                 </div>
                 <div class="w-100 text-center">
-                    <span style="font-size: large">$0,00</span> <br>
+                    <span id="spanCuota" style="font-size: large">$0,00</span> <br>
                     <span style="font-size: x-small">Cuota mensual</span>
                 </div>
             </div>
@@ -183,7 +198,7 @@
         </section>
         <section class="row justify-content-center py-3">
             <p class="h4 text-center fw-bold">Convierta sus sueños en realidad hoy mismo</p>
-            <button class="btn text-white w-auto" style="background-color: #c61617">EMPEZAR AHORA</button>
+            <button class="btn text-white w-auto" style="background-color: #c61617" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">EMPEZAR AHORA</button>
         </section>
     </section>
 
@@ -249,10 +264,124 @@
             </article>
         </section>
     </section>
+
+    <!-- modals -->
+    <div class="modal fade" id="modalEmpezarCredito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form action="{{ route('sendlead') }}" method="POST">
+                @csrf
+                <div class="modal-content">
+                    <div class="modal-header text-white" style="background-color: #c61617">
+                        <h5 class="modal-title" id="exampleModalLabel">Inicie su credito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Complete su información para tramitar su crédito</p>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <input class="form-control" type="text" placeholder="Nombre" name="name">
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <input class="form-control" type="text" placeholder="Apellido" name="lastname">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <input class="form-control" type="number" placeholder="Telefono/Celular" name="phone">
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <input class="form-control" type="email" placeholder="Correo electrónico" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <select id="selState" class="form-select text-muted" name="state">
+                                            <option value="">Provincia</option>
+                                            @foreach ($states as $state)
+                                                <option value="{{ $state->name }}" data-id="{{ $state->id}}">{{ $state->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <select id="selCity" class="form-select text-muted" name="city">
+                                            <option value="">Ciudad</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 mb-3">
+                                        <select class="form-select text-muted" name="type">
+                                            <option value="">Tipo de Credito</option>
+                                            <option value="Microcreditos">Microcreditos</option>
+                                            <option value="Hipotecarios">Hipotecarios</option>
+                                            <option value="De Construccion">De Construccion</option>
+                                            <option value="Vivienda de Interes Popular">Vivienda de Interes Popular</option>
+                                            <option value="De Consumo">De Consumo</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <input type="number" class="form-control" placeholder="Monto a Solicitar" name="mount">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <textarea  id="" rows="4" class="form-control" placeholder="Mensaje" name="message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" class="btn text-white" style="background-color: #c61617">Solicitar mi crédito</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
     <script>
+
+        let selTipoCredito = document.getElementById('selTypeCredit');
+
+        //variables para mostrar los valores calculados
+        let spanCapital = document.getElementById('spanCapital');
+        let spanInteres = document.getElementById('spanInteres');
+        let spanAnios = document.getElementById('spanAnios');
+        let spanCuota = document.getElementById('spanCuota');
+
+        //variables de formulario
+        let selState = document.getElementById('selState');
+        let selCities = document.getElementById('selCity');
+
+        selState.addEventListener('change', async () => {
+            selCities.options.length = 0;
+            let id = selState.options[selState.selectedIndex].dataset.id;
+            const response = await fetch("{{url('getcities')}}/"+id );
+            const cities = await response.json();
+            
+            let opt = document.createElement('option');
+                opt.appendChild( document.createTextNode('Ciudad') );
+                opt.value = '';
+                selCities.appendChild(opt);
+            cities.forEach(city => {
+                var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(city.name) );
+                opt.value = city.name;
+                selCities.appendChild(opt);
+            });
+        });
+
         const changeValueRangePrice = () => {
             let rangeInpAnios = document.getElementById('rangeAnios');
             let texto;
@@ -261,6 +390,12 @@
         }
 
         const calcular = () => {
+
+            if(selTipoCredito.value == null || selTipoCredito.value == ""){
+                alert('Seleccione el tipo de credito');
+                return;
+            } 
+
             let cantidad = document.getElementById('cantidad');
             let anios = document.getElementById('rangeAnios');
             
@@ -270,14 +405,30 @@
             }
 
             let total_interes = cantidad.value * 0.15;
-            console.log(total_interes);
             let total_mas_interes = Number(total_interes) + Number(cantidad.value);
-            console.log(total_mas_interes);
             let monto_mensual = total_mas_interes / (anios.value * 12);
-            console.log(anios.value);
 
             console.log(monto_mensual.toFixed(2));
+
+            spanCapital.textContent = "$"+cantidad.value;
+            spanInteres.textContent = "$"+total_interes;
+            spanAnios.textContent = anios.value;
+            spanCuota.textContent = "$"+monto_mensual.toFixed(2);
+            
         }
+
+        selTipoCredito.addEventListener('change', () => {
+            switch (selTipoCredito.value) {
+                case "2":
+                case "4":
+                    document.getElementById('sectionPropertyValue').classList.remove('d-none');    
+                break;
+            
+                default:
+                    document.getElementById('sectionPropertyValue').classList.add('d-none');
+                break;
+            }
+        })
 
         window.addEventListener('load', () => {
             document.getElementById('textRange').textContent = document.getElementById('rangeAnios').value + " años";
