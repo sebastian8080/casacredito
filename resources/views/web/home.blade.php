@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <section style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/creditos-en-ecuador.png') }}')">
+    <section style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/creditos-en-ecuador.webp') }}')">
         <section class="d-flex align-items-center justify-content-center" style="height: 750px">
             <div class="text-center">   
                 <h1 class="text-white display-6">Créditos para Ecuatorianos <br> migrantes en EE.UU.</h1>
