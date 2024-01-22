@@ -15,7 +15,7 @@
         <section class="d-flex align-items-center justify-content-center" style="height: 750px">
             <div class="text-center">   
                 <h1 class="text-white display-6">Créditos para Ecuatorianos <br> migrantes en EE.UU.</h1>
-                <button class="btn text-white" style="background-color: #c61617">INICIAR CRÉDITO</button>
+                <button class="btn text-white" style="background-color: #c61617" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">INICIAR CRÉDITO</button>
             </div>
         </section>
     </section>
@@ -36,7 +36,7 @@
                             <p style="padding-right: 40% !important;">Creditos hipotecarios para ecuatorianos residentes</p>
                         </div>
                         <div class="position-absolute w-100 px-4" style="bottom: 20px;">
-                            <button class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</button>
+                            <a href="{{ Request::url() }}/creditos#calculadora" class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</a>
                         </div>
                     </div>
                 </article>
@@ -51,7 +51,7 @@
                             <p style="padding-right: 40% !important;">Creditos adaptados a sus necesidades y metas personales</p>
                         </div>
                         <div class="position-absolute w-100 px-4" style="bottom: 20px;">
-                            <button class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</button>
+                            <a href="{{ Request::url() }}/creditos#calculadora" class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</a>
                         </div>
                     </div>
                 </article>
@@ -66,7 +66,7 @@
                             <p style="padding-right: 40% !important; ">El respaldo necesario para hacer realidad su proyecto</p>
                         </div>
                         <div class="position-absolute w-100 px-4" style="bottom: 20px;">
-                            <button class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</button>
+                            <a href="{{ Request::url() }}/creditos#calculadora" class="btn text-white btn-block rounded-0 w-100" style="background-color: #c61617;">CALCULAR MI CREDITO</a>
                         </div>
                     </div>
                 </article>
@@ -85,7 +85,7 @@
                     <h2 class="fw-bold">Creditos hipotecarios para ecuatorianos residentes en EE.UU.</h2>
                     <p>Nuestros créditos están diseñados para brindarle oportunidades de propiedad, facilitando el camino hacia la estabilidad financiera y la realización de sus sueños.</p>
                     <p>Le brindamos asesoramiento y acompañamiento, nuestra notaría crea las condiciones necesarias para un trámite ágil y eficaz, estamos comprometidos a ser su socio confiable en esta trascendental etapa de su vida.</p>
-                    <button class="btn" style="border: 1px solid #c61617; color: #c61617;">INICIAR</button>
+                    <button class="btn" style="border: 1px solid #c61617; color: #c61617;" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">INICIAR</button>
                 </div>
             </article>
         </section>
@@ -96,9 +96,13 @@
             <p class="display-6 fw-bold">Calcule su credito</p>
             <p class="mt-4" style="padding-left: 25%; padding-right: 25%">Pruebe nuestra calculador de amortizacion, nuestra herramienta le proporcionara un desglose referencial y detallado de sus pagos mensuales, intereses y amortizacion</p>
             <p class="fw-bold">Haga clic en el boton 'Ir a Calculadora' para comenzar</p>
-            <button class="btn mt-4 text-white" style="background-color: #c61617">IR A CALCULADORA</button>
+            <a href="{{ Request::url()}}/creditos#calculadora" class="btn mt-4 text-white" style="background-color: #c61617">IR A CALCULADORA</a>
         </article>
     </section>
+
+    {{-- modals --}}
+    @include('components.form')
+
 @endsection
 
 @section('scripts')

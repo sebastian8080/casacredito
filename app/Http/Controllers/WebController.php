@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\DB;
 class WebController extends Controller
 {
     public function home(){
-        return view('web.home');
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.home', compact('states'));
     }
 
     public function creditos(){

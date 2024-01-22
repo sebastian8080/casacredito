@@ -15,6 +15,7 @@
         body, html{
             width: 100%;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -22,7 +23,9 @@
     <header>
         <nav class="navbar navbar-expand-lg position-fixed w-100 bg-transparent" style="z-index: 3">
             <div class="container-fluid">
-              <a class="navbar-brand" href="{{ route('web.home') }}">LOGO</a>
+                <a class="navbar-brand" href="{{ route('web.home') }}">
+                    <img width="130px" height="55px" src="{{ asset('img/logo-casa-credito.png') }}" alt="">
+                </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -44,7 +47,7 @@
                     <a class="nav-link text-white fw-bold" href="#">Contactos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-danger text-white" href="#">Calcular mi crédito</a>
+                    <a class="nav-link bg-danger text-white" href="{{ Request::url() }}/creditos#calculadora">Calcular mi crédito</a>
                   </li>
                 </ul>
               </div>

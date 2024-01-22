@@ -114,7 +114,7 @@
         </section>
     </section>
 
-    <section class="container py-5">
+    <section class="container py-5" id="calculadora">
         <section class="row justify-content-center">
             <section class="text-center py-5">
                 <article>
@@ -266,87 +266,8 @@
     </section>
 
     <!-- modals -->
-    <div class="modal fade" id="modalEmpezarCredito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form action="{{ route('sendlead') }}" method="POST">
-                @csrf
-                <div class="modal-content">
-                    <div class="modal-header text-white" style="background-color: #c61617">
-                        <h5 class="modal-title" id="exampleModalLabel">Inicie su credito</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Complete su información para tramitar su crédito</p>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <input class="form-control" type="text" placeholder="Nombre" name="name">
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input class="form-control" type="text" placeholder="Apellido" name="lastname">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <input class="form-control" type="number" placeholder="Telefono/Celular" name="phone">
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input class="form-control" type="email" placeholder="Correo electrónico" name="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <select id="selState" class="form-select text-muted" name="state">
-                                            <option value="">Provincia</option>
-                                            @foreach ($states as $state)
-                                                <option value="{{ $state->name }}" data-id="{{ $state->id}}">{{ $state->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <select id="selCity" class="form-select text-muted" name="city">
-                                            <option value="">Ciudad</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <select class="form-select text-muted" name="type">
-                                            <option value="">Tipo de Credito</option>
-                                            <option value="Microcreditos">Microcreditos</option>
-                                            <option value="Hipotecarios">Hipotecarios</option>
-                                            <option value="De Construccion">De Construccion</option>
-                                            <option value="Vivienda de Interes Popular">Vivienda de Interes Popular</option>
-                                            <option value="De Consumo">De Consumo</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input type="number" class="form-control" placeholder="Monto a Solicitar" name="mount">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <textarea  id="" rows="4" class="form-control" placeholder="Mensaje" name="message"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn text-white" style="background-color: #c61617">Solicitar mi crédito</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+    @include('components.form')
+        
 @endsection
 
 @section('scripts')
