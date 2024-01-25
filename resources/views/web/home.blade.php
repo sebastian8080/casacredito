@@ -130,7 +130,7 @@
                 <div class="carousel-item position-relative active">
                     <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile) {{ asset('img/banner1-mobile.jpg') }} @else {{ asset('img/banner1.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
-                        <div>
+                        <div data-aos="fade-right">
                             <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos en</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Ecuador</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">desde Estados Unidos</span> </h1>
                             <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
@@ -242,11 +242,11 @@
                     <p>Le brindamos asesoramiento y acompañamiento profesional, estamos comprometidos a ser su socio confiable en esta trascendental etapa de su vida.</p>
                     <details>
                         <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Revisión de buro de crédito</summary>
-                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                        <p class="py-3">Evalue el historial financiero de una persona o empresa. Esto se hace para determinar su capacidad de pago al solicitar un préstamo o servicio financiero. </p>
                     </details>
                     <details>
                         <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Reparación de buro de créditos</summary>
-                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                        <p class="py-3">Proceso destinado a corregir y mejorar la información financiera de un individuo. Cuando se identifican errores o situaciones negativas en el historial crediticio, este proceso busca rectificar esas inexactitudes.</p>
                     </details>
                     <button class="btn btn-danger btn-sm rounded-pill mt-4" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                 </div>
@@ -382,11 +382,11 @@
                     <p>Pruebe nuestra Calculadora de Amortización, esta herramienta le proporcionará un desglose referencial de sus pagos mensuales e intereses.</p>
                     <details class="pt-2">
                         <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Francés</summary>
-                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                        <p class="py-3">En este sistema, la cuota mensual que paga el prestatario se divide en dos partes: una parte se destina al pago de los intereses acumulados sobre el capital pendiente, y la otra parte se utiliza para amortizar el capital prestado.</p>
                     </details>
                     <details class="pb-2">
                         <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Alemán</summary>
-                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                        <p class="py-3">En este método, la cuota mensual que paga el prestatario se compone principalmente de una porción constante destinada a amortizar el capital prestado, mientras que los intereses se calculan sobre el saldo pendiente.</p>
                     </details>
                     <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR A CALCULADORA</a>
                 </div>
