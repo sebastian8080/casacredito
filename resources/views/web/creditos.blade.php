@@ -22,7 +22,7 @@
             <article class="col-sm-4 h-full w-full d-flex align-items-center justify-content-center">
                 <div>
                     <p style="line-height: 40px"> <span style="font-size: 40px">Conozca cuanto</span> <br> <span style="font-size: 50px">pagaría</span> <br> <span style="font-size: 40px">mensualmente</span></p>
-                    <button class="btn text-white" style="background-color: #c61617">CALCULAR</button>
+                    <a href="#form" class="btn text-white" style="background-color: #c61617">CALCULAR</a>
                 </div>
             </article>
             <article class="col-sm-8">

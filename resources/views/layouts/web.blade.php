@@ -11,43 +11,64 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,500;1,700&display=swap" rel="stylesheet">
+
     <style>
         body, html{
             width: 100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
+
+        /* Set the border color */
+         
+        .navbar-toggler .navbar-toggler-icon {
+            border-color: rgb(255, 255, 255);
+        }
+        /* Setting the stroke to green using rgb values (0, 128, 0) */
+         
+        .navbar-toggler .navbar-toggler-icon {
+            background-image: url(
+            "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg position-fixed w-100 bg-transparent" style="z-index: 3">
+        <nav class="navbar navbar-expand-lg w-100 container" style="z-index: 3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('web.home') }}">
                     <img width="130px" height="55px" src="{{ asset('img/logo-casa-credito.png') }}" alt="">
                 </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #ffffff"></span>
               </button>
               <div class="collapse navbar-collapse w-100" id="navbarNav">
                 <ul class="navbar-nav d-flex gap-4 justify-content-end w-100">
                   <li class="nav-item">
-                    <a class="nav-link active text-white fw-bold" aria-current="page" href="{{ route('web.home') }}">Inicio</a>
+                    <a class="nav-link active fw-bold" aria-current="page" href="{{ route('web.home') }}">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="{{ route('web.creditos') }}">Créditos</a>
+                    <a class="nav-link fw-bold" href="{{ route('web.creditos') }}">Créditos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="#">Notaría</a>
+                    <a class="nav-link fw-bold" href="#">Notaría</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="#">Nosotros</a>
+                    <a class="nav-link fw-bold" href="#">Nosotros</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="#">Contactos</a>
+                    <a class="nav-link fw-bold" href="#">Contactos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-danger text-white" href="{{ Request::url() }}/creditos#calculadora">Calcular mi crédito</a>
+                    <a class="nav-link bg-danger rounded-pill text-white btn btn-sm" href="{{ Request::url() }}/creditos#calculadora">Calcular mi crédito</a>
                   </li>
                 </ul>
               </div>

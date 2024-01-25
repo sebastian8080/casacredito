@@ -1,26 +1,409 @@
 @extends('layouts.web')
 
 @section('head')
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Casa Crédito - La mejor opción para realizar su crédito en Ecuador</title>
 
     <style>
+        body, html{
+            font-family: 'Montserrat' !important;
+        }
         @media screen and (max-width: 1200px){
             /* .min-width{width: 250px !important} */
+        }
+        @media screen and (max-width: 580px){
+            .min-height-banner{
+                height: 550px !important;
+            }
+            .parent-banner{
+                height: 580px !important;
+            }
+            .f-size-min-2{
+                font-size: 1.4rem !important;
+            }
+            .f-size-min-3{
+                font-size: 3.5rem !important;
+            }
+            .left-10px{
+                left: 25px !important;
+                top: 60px !important;
+            }
+            .margin-left-0{
+                margin-left: 0px !important;
+            } 
+            .w-auto-mobile{
+                width: auto !important;
+            }
+            .d-none-mobile{
+                display: none !important;
+            }
+            .margin-top-mobile{
+                margin-top: 5px !important;
+            }
+            .text-banner{
+                display: block !important;
+            }
+            .carousel-indicators{
+                text-align: center !important;
+                margin-bottom: -50px !important;
+            }
+            .carousel-indicators button{
+                background-color: rgb(0, 0, 0) !important;
+            }
+            .min-height-cards{
+                height: 250px !important;
+            }
+            .left-cards{
+                left: 20px !important;
+            }
+            .right-cards{
+                right: 20px !important;
+            }
+            .font-size-cards{
+                font-size: 130px !important;
+            }
+            .padding-x-cards-footer{
+                padding: 10px 25px 10px 25px !important;
+            }
+            .card-cuota-mensual{
+                width: 100% !important;
+                margin-left: 0px !important;
+            }
+            .icons-creditos{
+                display: flex !important;
+                align-items: center !important;
+            }
+        }
+        .margin-top-mobile{
+            margin-top: 5%;
+        }
+        .carousel-indicators{
+            display: block !important;
+            margin-left: 12% !important;
+            padding-bottom: 1% !important;
+        }
+        .carousel-indicators button{
+            width: 10px !important;
+            height: 10px !important;
+            border: none !important;
+            background-color: black;
+        }
+        summary {
+            position: relative;
+        }
+        summary::marker {
+            content: none;
+        }
+        summary::before,
+        summary::after {
+            content: '';
+        }
+        summary::before,
+        summary::after {
+            width: .65em;
+            height: 0;
+            border-bottom: 2px solid;
+            position: absolute;
+            top: calc(50% - 1px);
+            right: 0;
+            transform: translateY(-50%);
+        }
+        summary::after {
+            transform: rotate(90deg);
+            transform-origin: 50% 50%;
+        }
+        [open] summary::after {
+            transform: rotate(0deg);
         }
     </style>
 @endsection
 
 @section('content')
-    <section style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/creditos-en-ecuador.webp') }}')">
+    <section style="height: 750px;" class="min-height-banner parent-banner">
+        <div style="height: 750px;" id="carouselExampleFade" class="carousel slide carousel-fade min-height-banner" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active rounded-pill" aria-current="true" aria-label="Slide 1"></button>
+                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div style="height: 750px;" class="carousel-inner min-height-banner">
+                <div class="carousel-item position-relative active">
+                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile) {{ asset('img/banner1-mobile.jpg') }} @else {{ asset('img/banner1.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                        <div>
+                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos en</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Ecuador</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">desde Estados Unidos</span> </h1>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item position-relative">
+                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile){{ asset('img/banner2-mobile.jpg') }} @else {{ asset('img/banner2.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                        <div>
+                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar que</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Mereces</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito hipotecario</span> </h1>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item position-relative">
+                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile){{ asset('img/banner3-mobile.jpg') }} @else {{ asset('img/banner3.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                        <div>
+                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus sueños</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito de consumo</span> </h1>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <section class="container">
+        <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span style="color: gray">Encuentra el crédito ideal</span> <br> <span style="color: red">para tus necesidades</span></h2>
+        <section class="row">
+            <article class="col-sm-4">
+                <div data-aos="fade-right" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;" class="font-size-cards">1</span>
+                    </div>
+                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img src="{{ asset('img/iconohipotecario.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
+                                <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
+                                <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                    <a href="#" style="font-size: small">MAS INFO</a>
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4">
+                <div data-aos="fade-up" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">2</span>
+                    </div>
+                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img src="{{ asset('img/iconovip.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Créditos <br> VIP</h3>
+                                <p style="padding-right: 20%">Obtenga su primera casa o departamento.</p>
+                                <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                    <a href="#" style="font-size: small">MAS INFO</a>
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4">
+                <div data-aos="fade-left" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">3</span>
+                    </div>
+                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img src="{{ asset('img/iconoconsumo.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Créditos <br> de Consumo</h3>
+                                <p style="padding-right: 20%">Solvente sus gastos personales fácilmente.</p>
+                                <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                    <a href="#" style="font-size: small">MAS INFO</a>
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="row justify-content-center my-5">
+            <a class="btn btn-danger rounded-pill w-auto" href="{{ route('web.creditos') }}">MÁS INFORMACIÓN</a>
+        </section>
+    </section>
+
+    <section class="container">
+        <section class="row">
+            <article class="col-sm-4" style="z-index: 3;" data-aos="fade-right">
+                <div class="border p-5 bg-white margin-left-0 w-auto-mobile" style="height: auto; width: 500px; margin-top: 6%; margin-left: 50px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span style="color: red; font-size: 25px">CRÉDITOS PARA</span> <br> <span style="color: gray">ECUATORIANOS EN EE.UU</span></h2>
+                    <p>Los créditos están diseñados para brindarle oportunidades de crecimiento, facilitando el camino hacia la estabilidad financiera y la realización de sus sueños.</p>
+                    <p>Le brindamos asesoramiento y acompañamiento profesional, estamos comprometidos a ser su socio confiable en esta trascendental etapa de su vida.</p>
+                    <details>
+                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Revisión de buro de crédito</summary>
+                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                    </details>
+                    <details>
+                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Reparación de buro de créditos</summary>
+                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                    </details>
+                    <button class="btn btn-danger btn-sm rounded-pill mt-4" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                </div>
+            </article>
+            <article class="col-sm-8 d-none-mobile">
+                <img class="img-fluid" src="{{ asset('img/creditosecuatorianos.png') }}" alt="">
+            </article>
+        </section>
+    </section>
+
+    <section class="container" style="padding-top: 7%; padding-bottom: 7%">
+        <section class="row">
+            <article class="col-sm-3" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                            <img src="{{ asset('img/iconoexperiencia.png') }}" alt="">
+                        </div>
+                    </div>
+                    <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Experiencia</h3>
+                    <p>Confiabilidad y seguridad en el sector financiero</p>
+                </div>
+            </article>
+            <article class="col-sm-3" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                            <img src="{{ asset('img/iconoprocesoagil.png') }}" alt="">
+                        </div>
+                    </div>
+                    <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Proceso Ágil</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </article>
+            <article class="col-sm-3" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                            <img src="{{ asset('img/iconoapoyo.png') }}" alt="">
+                        </div>
+                    </div>
+                    <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Apoyo Integral</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </article>
+            <article class="col-sm-3" data-aos="fade-up">
+                <div class="text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                            <img src="{{ asset('img/iconocompromiso.png') }}" alt="">
+                        </div>
+                    </div>
+                    <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Compromiso</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section class="container">
+        <section class="row">
+            <article class="col-sm-6 mb-4" data-aos="zoom-in">
+                <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="row">
+                        <div class="col-sm-4 px-4 py-3">
+                            <img class="img-fluid" src="{{ asset('img/quienesomos.png') }}" alt="">
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
+                            <div>
+                                <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">¿Quienes somos?</h3>
+                                <p class="text-muted">Somos un equipo dedicado a ofrecer soluciones a medida para cada uno de nuestros clientes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-6 mb-4" data-aos="zoom-in">
+                <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="row">
+                        <div class="col-sm-4 px-4 py-3">
+                            <img class="img-fluid" src="{{ asset('img/nuestrosvalores.png') }}" alt="">
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
+                            <div>
+                                <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestros Valores</h3>
+                                <p class="text-muted">Construyendo relaciones basadas en la confianza y el compromiso con nuestros clientes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-6 mb-4" data-aos="zoom-in">
+                <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="row">
+                        <div class="col-sm-4 px-4 py-3">
+                            <img class="img-fluid" src="{{ asset('img/nuestraexperiencia.png') }}" alt="">
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
+                            <div>
+                                <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestra Experiencia</h3>
+                                <p class="text-muted">Casa Crédito ofrece una experiencia probada que respalda cada transacción.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-6 mb-4" data-aos="zoom-in">
+                <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="row">
+                        <div class="col-sm-4 px-4 py-3">
+                            <img class="img-fluid" src="{{ asset('img/nuestrosasesores.png') }}" alt="">
+                        </div>
+                        <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
+                            <div>
+                                <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestros Asesores</h3>
+                                <p class="text-muted">Brindamos orientación personalizada para asegurar soluciones eficaces y exitosas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section class="container py-5">
+        <section class="row">
+            <article class="col-sm-8">
+                <img class="img-fluid" src="{{ asset('img/calcularcredito.png') }}" alt="">
+            </article>
+            <article class="col-sm-4 d-flex align-items-center" data-aos="fade-left">
+                <div class="border p-5 bg-white card-cuota-mensual" style="height: auto; width: 540px; margin-top: 6%; margin-left: -150px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span style="color: red; font-size: 25px">CALCULE SU</span> <br> <span style="color: gray">CUOTA MENSUAL</span></h2>
+                    <p>Pruebe nuestra Calculadora de Amortización, esta herramienta le proporcionará un desglose referencial de sus pagos mensuales e intereses.</p>
+                    <details class="pt-2">
+                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Francés</summary>
+                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                    </details>
+                    <details class="pb-2">
+                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Alemán</summary>
+                        <p class="py-3">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p>
+                    </details>
+                    <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR A CALCULADORA</a>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    {{-- <section style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/creditos-en-ecuador.webp') }}')">
         <section class="d-flex align-items-center justify-content-center" style="height: 750px">
             <div class="text-center">   
                 <h1 class="text-white display-6">Créditos para Ecuatorianos <br> migrantes en EE.UU.</h1>
                 <button class="btn text-white" style="background-color: #c61617" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">INICIAR CRÉDITO</button>
             </div>
         </section>
-    </section>
+    </section> --}}
 
-    <section class="container py-5">
+    {{-- <section class="container py-5">
         <section>
             <p class="text-center">Somos su socio de confianza</p>
             <h2 class="text-center">Servicios que ofrecemos</h2>
@@ -72,9 +455,9 @@
                 </article>
             </section>
         </section>
-    </section>
+    </section> --}}
 
-    <section class="bg-light">
+    {{-- <section class="bg-light">
         <section class="row">
             <article class="col-sm-5">
                 <img class="img-fluid" src="{{ asset('img/como-obtener-un-credito-en-ecuador.png') }}" alt="">
@@ -89,16 +472,16 @@
                 </div>
             </article>
         </section>
-    </section>
+    </section> --}}
 
-    <section class="container py-5">
+    {{-- <section class="container py-5">
         <article class="text-center py-5">
             <p class="display-6 fw-bold">Calcule su credito</p>
             <p class="mt-4" style="padding-left: 25%; padding-right: 25%">Pruebe nuestra calculador de amortizacion, nuestra herramienta le proporcionara un desglose referencial y detallado de sus pagos mensuales, intereses y amortizacion</p>
             <p class="fw-bold">Haga clic en el boton 'Ir a Calculadora' para comenzar</p>
             <a href="{{ Request::url()}}/creditos#calculadora" class="btn mt-4 text-white" style="background-color: #c61617">IR A CALCULADORA</a>
         </article>
-    </section>
+    </section> --}}
 
     {{-- modals --}}
     @include('components.form')
@@ -106,5 +489,8 @@
 @endsection
 
 @section('scripts')
-    
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 @endsection

@@ -9,9 +9,11 @@ class WebController extends Controller
 {
     public function home(){
 
+        $mobile = $this->isMobile();
+
         $states = DB::table('info_states')->where('country_id', 63)->get();
 
-        return view('web.home', compact('states'));
+        return view('web.home', compact('states', 'mobile'));
     }
 
     public function creditos(){
@@ -48,6 +50,10 @@ class WebController extends Controller
 
         return "mail enviado";
 
+    }
+
+    public function isMobile(){
+        return is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); 
     }
 
 }
