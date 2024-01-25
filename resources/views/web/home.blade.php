@@ -128,7 +128,7 @@
             </div>
             <div style="height: 750px;" class="carousel-inner min-height-banner">
                 <div class="carousel-item position-relative active">
-                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile) {{ asset('img/banner1-mobile.jpg') }} @else {{ asset('img/banner1.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
+                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile) {{ asset('img/banner1-mobile.jpg') }} @else {{ asset('img/banner1.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
                             <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos en</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Ecuador</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">desde Estados Unidos</span> </h1>
@@ -137,19 +137,19 @@
                     </div>
                 </div>
                 <div class="carousel-item position-relative">
-                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile){{ asset('img/banner2-mobile.jpg') }} @else {{ asset('img/banner2.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
+                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile){{ asset('img/banner2-mobile.jpg') }} @else {{ asset('img/banner2.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
-                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar que</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Mereces</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito hipotecario</span> </h1>
+                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar que</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Mereces</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito hipotecario</span> </h2>
                             <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item position-relative">
-                    <img height="750px" style="object-fit: contain; object-position: center" src="@if($mobile){{ asset('img/banner3-mobile.jpg') }} @else {{ asset('img/banner3.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
+                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile){{ asset('img/banner3-mobile.jpg') }} @else {{ asset('img/banner3.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
-                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus sueños</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito de consumo</span> </h1>
+                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus sueños</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito de consumo</span> </h2>
                             <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
                     </div>
