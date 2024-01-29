@@ -40,6 +40,9 @@
         }
     </style>
 </head>
+@php
+    $ismobile = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"));
+@endphp
 <body>
     <header>
         <nav class="navbar navbar-expand-lg w-100 container" style="z-index: 3">
@@ -55,9 +58,24 @@
                   <li class="nav-item">
                     <a class="nav-link active fw-bold" aria-current="page" href="{{ route('web.home') }}">Inicio</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{ route('web.creditos') }}">Créditos</a>
+                  @if($ismobile)
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Servicios
+                    </a>
+                    <ul class="dropdown-menu border-0 border-bottom" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{{ route('web.creditos') }}">Créditos</a></li>
+                    </ul>
                   </li>
+                  @else
+                  <li class="nav-item position-relative">
+                    <span id="tab_services" class="nav-link fw-bold" style="cursor: pointer">Servicios</span>
+                    <div id="drop_services" class="bg-white d-none position-absolute p-4 rounded shadow" style="width: 20rem; margin-left: -110px">
+                        <h2 class="h6 text-muted fw-bold" style="color: #676667; font-family: 'Montserrat', 'serif'">NUESTROS SERVICIOS</h2>
+                        <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Créditos</a></p>
+                    </div>
+                  </li>
+                  @endif
                   <li class="nav-item">
                     <a class="nav-link fw-bold" href="#">Notaría</a>
                   </li>
@@ -209,5 +227,21 @@
     </footer>
 
     @yield('scripts')
+
+    <script>
+        let tab_services = document.getElementById('tab_services');
+        let drop_services = document.getElementById('drop_services');
+
+        tab_services ? tab_services.addEventListener('mouseover', showtab) : null;
+        tab_services ? tab_services.addEventListener('mouseout', showtab) : null;
+
+        drop_services ? drop_services.addEventListener('mouseover', showtab) : null;
+        drop_services ? drop_services.addEventListener('mouseout', showtab) : null;
+
+        function showtab(){
+            drop_services.classList.contains('d-none') ? drop_services.classList.remove('d-none') : drop_services.classList.add('d-none');
+        }
+
+    </script>
 </body>
 </html>
