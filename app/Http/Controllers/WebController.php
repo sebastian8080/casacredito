@@ -23,6 +23,13 @@ class WebController extends Controller
         return view('web.creditos', compact('states'));
     }
 
+    public function creditos_hipotecarios(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.credit_h', compact('states'));
+    }
+
     public function getcities($idState){
         $cities = DB::table('info_cities')->where('state_id', $idState)->get();
         return response()->json($cities);
@@ -46,7 +53,7 @@ class WebController extends Controller
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         //mail('mvargas@casacredito.com,info@casacredito.com','Lead CasaCredito: '.strip_tags($request->leadName), $message, $header);
-        mail('sebas31051999@gmail.com', 'Lead CasaCredito: ' . strip_tags($request->name), $message, $header);
+        mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
 
         return "mail enviado";
 

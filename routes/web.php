@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WebController::class, 'home'])->name('web.home');
 Route::get('/creditos', [WebController::class, 'creditos'])->name('web.creditos');
+Route::get('/creditos-hipotecarios', [WebController::class, 'creditos_hipotecarios'])->name('web.creditos.hipoetacarios');
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 
