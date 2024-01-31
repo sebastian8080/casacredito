@@ -115,6 +115,16 @@
         [open] summary::after {
             transform: rotate(0deg);
         }
+        .card-creditos:hover{
+            background-color: #c61617;
+            color: #ffffff;
+        }
+        .card-creditos:hover > div > div > div > div > p > a{
+            color: #ffffff !important;
+        }
+        .card-creditos:hover > div > div > div > img{
+            filter: brightness(0) invert(1) !important;
+        }
     </style>
 @endsection
 
@@ -162,26 +172,28 @@
         <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span style="color: gray">Encuentra el crédito ideal</span> <br> <span style="color: red">para tus necesidades</span></h2>
         <section class="row">
             <article class="col-sm-4">
-                <div data-aos="fade-right" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;" class="font-size-cards">1</span>
-                    </div>
-                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
-                        <div class="icons-creditos">
-                            <div>
-                                <img src="{{ asset('img/iconohipotecario.png') }}" alt="">
-                            </div>
-                            <div>
-                                <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
-                                <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
-                                <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <a href="#" style="font-size: small">MAS INFO</a>
-                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}
+                    <div data-aos="fade-right" class="position-relative min-height-cards card-creditos" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                        <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                            <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;" class="font-size-cards">1</span>
+                        </div>
+                        <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                            <div class="icons-creditos">
+                                <div>
+                                    <img src="{{ asset('img/iconohipotecario.png') }}" alt="">
+                                </div>
+                                <div>
+                                    <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
+                                    <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
+                                    <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
+                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}" style="text-decoration: none; color: #676667"><i class="fa-solid fa-arrow-right"></i></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {{-- </a> --}}
             </article>
             <article class="col-sm-4">
                 <div data-aos="fade-up" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
