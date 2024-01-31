@@ -83,7 +83,7 @@
                     <a class="nav-link fw-bold" href="#">Notaría</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="#">Nosotros</a>
+                    <a class="nav-link fw-bold" href="{{ route('web.about') }}">Nosotros</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link fw-bold" href="#">Contactos</a>

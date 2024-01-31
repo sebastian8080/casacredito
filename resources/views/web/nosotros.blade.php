@@ -3,6 +3,28 @@
 @section('head')
     <title>Calcule su credito en linea | Casa Credito</title>
     <style>
+        @media screen and (max-width: 580px){
+            .height-banner-mobile{
+                height: 550px !important;
+            }
+            .bg-image-banner-mobile{
+                background-position: left !important;
+            }
+            .padding-left-banner-mobile{
+                padding-left: 10% !important;
+            }
+            .f-size-min-2{
+                font-size: 1.4rem !important;
+            }
+            .f-size-min-3{
+                font-size: 3.5rem !important;
+            }
+            .card-cuota-mensual{
+                width: 100% !important;
+                margin-left: 0px !important;
+                margin-top: 25px !important;
+            }
+        }
         /* codigo banner #686768 opacidad 21%*/
         @font-face {
             font-family: 'Montserrat';
@@ -17,249 +39,151 @@
 @endsection
 
 @section('content')
-    <section style="background-color: #68676841;">
-        <section class="row">
-            <article class="col-sm-4 h-full w-full d-flex align-items-center justify-content-center">
-                <div>
-                    <p style="line-height: 40px"> <span style="font-size: 40px">Conozca cuanto</span> <br> <span style="font-size: 50px">pagaría</span> <br> <span style="font-size: 40px">mensualmente</span></p>
-                    <a href="#form" class="btn text-white" style="background-color: #c61617">CALCULAR</a>
-                </div>
-            </article>
-            <article class="col-sm-8">
-                <div class="position-relative">
-                    <div class="position-absolute top-50 start-50 translate-middle">
-                        <p style="font-family: Montserrat;" class="display-1 text-white">CREDITOS</p>
-                    </div>
-                    <div>
-                        <img width="90%" style="margin-bottom: -100px; z-index: -100" class="img-fluid" src="{{ asset('img/calcule-su-credito-en-linea.png') }}" alt="">
-                    </div>
-                </div>
-            </article>
+    <section class="height-banner-mobile bg-image-banner-mobile" style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/banner-somos.jpg') }}')">
+        <section class="height-banner-mobile padding-left-banner-mobile d-flex align-items-center justify-content-start" style="height: 750px; padding-left: 13%">
+            <div>
+                <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Descubre quienes</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">somos</span> </h1>
+                <button class="btn btn-danger rounded-pill mt-5" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+            </div>
         </section>
     </section>
-    <section style="background-color: #68676822; height: 100px"></section>
 
     <section class="container mt-5">
-        <section>
-            <h2 class="text-center">Calcule su cuota mensual</h2>
-            <p class="text-center">Elija el tipo de credito que se ajusta a sus necesidades</p>
-
-            <section class="row justify-content-center">
-                <article class="col-sm-4">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
-                        <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">MICROCRÉDITOS</h3>
-                            <p class="text-center">Inicie su historial crediticio</p>
-                            <p class="text-center">Tasa de interes referencial 9,45%</p>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn text-white" style="background-color: #c61617">Ver mas</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-sm-4">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
-                        <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">HIPOTECARIOS</h3>
-                            <p class="text-center">Compra de una propiedad</p>
-                            <p class="text-center">Tasa de interés referencial 9,45%</p>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn text-white" style="background-color: #c61617">Ver mas</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-sm-4">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
-                        <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">DE CONSTRUCCIÓN</h3>
-                            <p class="text-center">Construcción de una propiedad</p>
-                            <p class="text-center">Tasa de interes referencial 9,45%</p>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn text-white" style="background-color: #c61617">Ver mas</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-sm-4">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
-                        <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">VIVIENDA DE <br> INTERÉS POPULAR</h3>
-                            <p class="text-center">Adquiera una casa nueva</p>
-                            <p class="text-center">Tasa de interes referencial 9,45%</p>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn text-white" style="background-color: #c61617">Ver mas</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-sm-4">
-                    <div class="position-relative">
-                        <img class="img-fluid" src="{{ asset('img/bg-tipo-credito.png') }}" alt="">
-                        <div class="position-absolute top-50 start-50 translate-middle w-100">
-                            <h3 class="text-center fw-bold">CONSUMO</h3>
-                            <p class="text-center">Financie sus gastos diversos</p>
-                            <p class="text-center">Tasa de interes referencial 9,45%</p>
-                            <div class="d-flex justify-content-center">
-                                <button class="btn text-white" style="background-color: #c61617">Ver mas</button>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </section>
-        </section>
-    </section>
-
-    <section class="container py-5" id="calculadora">
-        <section class="row justify-content-center">
-            <section class="text-center py-5">
-                <article>
-                    <h2>Seleccione el tipo de crédito que desea calcular</h2>
-                    <div class="d-flex justify-content-center">
-                        <select id="selTypeCredit" class="form-select w-auto">
-                            <option value="">Seleccione</option>
-                            <option value="1">Microcreditos</option>
-                            <option value="2">Hipotecarios</option>
-                            <option value="3">De Construccion</option>
-                            <option value="4">Vivienda de Interes Popular</option>
-                            <option value="5">De Consumo</option>
-                        </select>
-                    </div>
-                </article>
-            </section>
-            <article class="col-sm-4 d-none" id="sectionPropertyValue">
-                <div>
-                    <p>¿Cuanto cuesta la vivienda que desea comprar?</p>
-                    <input type="number" class="form-control border" id="valor_propiedad" placeholder="Min. $15.000">
-                </div>
-            </article>
-            <div class="col-sm-4">
-                <div>
-                    <p>¿Cuanto necesita para el crédito?</p>
-                    <input type="number" class="form-control border" id="cantidad" placeholder="Min. $3.000">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div>
-                    <p>Plazo de pago</p>
-                    <div class="d-flex justify-content-center">
-                        <span class="text-center fw-bold" id="textRange"></span>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <span class="mt-3">1</span>
-                        <input type="range" oninput="changeValueRangePrice()" class="form-range" min="1" max="20" value="10" id="rangeAnios" step="1">
-                        <span class="mt-3">20</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="row justify-content-center mt-5">
-            <button class="btn w-auto text-white fw-bold" style="background-color: #c61617" onclick="calcular()">CALCULAR</button>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2 class="text-center">Su pago mensual referencial sería:</h2>
-        <section class="row w-full py-5">
-            <div class="d-flex gap-4 w-100">
-                <div class="text-center w-100">
-                    <span id="spanCapital" style="font-size: large">$0,00</span> <br>
-                    <span style="font-size: x-small">Capital</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span>+</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span id="spanInteres" style="font-size: large">$0,00</span> <br>
-                    <span style="font-size: x-small">Tasa de interes</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span>/</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span id="spanAnios" style="font-size: large">0</span> <br>
-                    <span style="font-size: x-small">Años</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span>=</span>
-                </div>
-                <div class="w-100 text-center">
-                    <span id="spanCuota" style="font-size: large">$0,00</span> <br>
-                    <span style="font-size: x-small">Cuota mensual</span>
-                </div>
-            </div>
-        </section>
-        <section>
-            <p class="px-5 text-center">El cálculo de la cuota está basado en el sistema de amortización frances e incluye gastos legales. Los resultados de esta simulación son referenciales, por tanto no constituyen una pre-aprobación del crédito ni otorgamiento del mismo</p>
-        </section>
-        <section class="row justify-content-center py-3">
-            <p class="h4 text-center fw-bold">Convierta sus sueños en realidad hoy mismo</p>
-            <button class="btn text-white w-auto" style="background-color: #c61617" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">EMPEZAR AHORA</button>
-        </section>
-    </section>
-
-    <section class="container py-5">
-        <h2 class="text-center">¿Por qué elegir Casa Crédito?</h2>
-        <section class="row py-5">
-            <article class="col-sm-3">
-                <div class="text-center">
-                    <img width="70px" src="{{ asset('img/experiencia-icon.png') }}" alt="">
-                    <h3>Experiencia</h3>
-                    <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
-                </div>
-            </article>
-            <article class="col-sm-3">
-                <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/proceso-icon.png') }}" alt="">
-                    <h3>Proceso Agil</h3>
-                    <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
-                </div>
-            </article>
-            <article class="col-sm-3">
-                <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/apoyo-icon.png') }}" alt="">
-                    <h3>Apoyo Integral</h3>
-                    <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
-                </div>
-            </article>
-            <article class="col-sm-3">
-                <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/compromiso-icon.png') }}" alt="">
-                    <h3>Compromiso</h3>
-                    <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
-                </div>
-            </article>
-        </section>
-    </section>
-
-    <section style="background-color: #68676822">
         <section class="row">
-            <article class="col-sm-5">
-                <img class="img-fluid" src="{{ asset('img/pareja.png') }}" alt="">
+            <article class="col-sm-4">
+                {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}
+                    <div data-aos="fade-right" class="position-relative min-height-cards card-creditos" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                        <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                            <div class="icons-creditos">
+                                <div>
+                                    <img width="60px" src="{{ asset('img/iconoquienes.png') }}" alt="">
+                                </div>
+                                <div>
+                                    <h3 class="mt-3 mb-4">Quiénes somos</h3>
+                                    <p style="padding-right: 20%">Somos un equipo dedicado a ofrecer soluciones a medida para cada uno de nuestros clientes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{-- </a> --}}
             </article>
-            <article class="col-sm-7 h-full d-flex justify-content-center align-items-center">
-                <div class="h-full">
-                    <p>LOGO</p>
-                    <p class="h4 py-3 fw-bold">¿Cuáles son los pasos para realizar un crédito?</p>
-                    <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">1</span>
-                        <span>Revise su historial crediticio antes de solicitar un crédito</span>
+            <article class="col-sm-4">
+                <div data-aos="fade-up" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img width="60px" src="{{ asset('img/iconovalores.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Nuestros valores</h3>
+                                <p style="padding-right: 20%">Construyendo relaciones basadas en la confianza y el compromiso con nuestros clientes.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">2</span>
-                        <span>Examine su capacidad financiera actual y futura para realizar los pagos del crédito</span>
+                </div>
+            </article>
+            <article class="col-sm-4">
+                <div data-aos="fade-left" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img width="60px" src="{{ asset('img/iconoexperienciaquienes.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Nuestra experiencia</h3>
+                                <p style="padding-right: 20%">Casa Crédito ofrece una experiencia probada que respalda cada transacción.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">3</span>
-                        <span>Antes de firmar cualquier contrato, lea detenidamente y comprenda los términos y condiciones del crédito</span>
-                    </div>
-                    <div class="mt-4">
-                        <button class="btn text-white fw-bold" style="background-color: #c61617">MAS INFORMACIÓN</button>
-                    </div>
+                </div>
+            </article>
+        </section>
+    </section>
+
+    <section class="container py-5 mt-5">
+        <h2 style="font-family: 'Bitter', 'serif'; font-weight: 600"><span style="color: #676667">Nuestros</span><span style="color: #c61617"> Asesores</span></h2>
+        <p>Asesores especialistas en créditos, quienes brindan acompañamiento personalizado para encontrar la mejor solución financiera para ti. Analizamos tus necesidades y objetivos, guiándote paso a paso en el proceso para obtener el crédito que se ajuste a tus metas. ¡Haz realidad tus proyectos con el respaldo de expertos en finanzas!</p>
+    </section>
+
+    <section class="container py-5 mt-5">
+        <section class="row">
+            <article class="col-sm-8">
+                <img class="img-fluid" src="{{ asset('img/banner3-creditos.jpg') }}" alt="">
+            </article>
+            <article class="col-sm-4 d-flex align-items-center" data-aos="fade-left">
+                <div class="border p-5 bg-white card-cuota-mensual" style="height: auto; width: 540px; margin-left: -150px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span style="color: gray">Realizar Consulta</span></h2>
+                    <form action="{{ route('sendlead') }}" method="POST">
+                        @csrf
+                        <div>
+                            <div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3">
+                                            <input class="form-control border-0 rounded-0" type="text" placeholder="Nombre" name="name" required>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <input class="form-control border-0 rounded-0" type="text" placeholder="Apellido" name="lastname" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3">
+                                            <input class="form-control border-0 rounded-0" type="number" placeholder="Telefono/Celular" name="phone" required>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <input class="form-control border-0 rounded-0" type="email" placeholder="Correo electrónico" name="email" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3">
+                                            <select id="selState" class="form-select text-muted border-0 rounded-0" name="state" required>
+                                                <option value="">Provincia</option>
+                                                @foreach ($states as $state)
+                                                    <option value="{{ $state->name }}" data-id="{{ $state->id}}">{{ $state->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <select id="selCity" class="form-select text-muted border-0 rounded-0" name="city" required>
+                                                <option value="">Ciudad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 mb-3">
+                                            <select class="form-select text-muted border-0 rounded-0" name="type" required>
+                                                <option value="">Tipo de Credito</option>
+                                                <option value="Microcreditos">Microcreditos</option>
+                                                <option value="Hipotecarios">Hipotecarios</option>
+                                                <option value="De Construccion">De Construccion</option>
+                                                <option value="Vivienda de Interes Popular">Vivienda de Interes Popular</option>
+                                                <option value="De Consumo">De Consumo</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <input type="number" class="form-control border-0 rounded-0" placeholder="Monto a Solicitar" name="mount" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <textarea  id="" rows="4" class="form-control border-0 rounded-0" placeholder="Mensaje" name="message" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>                  
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn rounded-pill text-white px-4" style="background-color: #c61617" type="submit">ENVIAR</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </article>
         </section>
