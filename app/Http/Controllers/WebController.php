@@ -54,6 +54,7 @@ class WebController extends Controller
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         //mail('mvargas@casacredito.com,info@casacredito.com','Lead CasaCredito: '.strip_tags($request->leadName), $message, $header);
         mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+        mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
 
         return "mail enviado";
 
