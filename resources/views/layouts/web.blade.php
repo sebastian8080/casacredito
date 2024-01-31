@@ -20,6 +20,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,500;1,700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
         body, html{
             width: 100%;
@@ -231,7 +233,9 @@
 
     @yield('scripts')
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        AOS.init();
         let tab_services = document.getElementById('tab_services');
         let drop_services = document.getElementById('drop_services');
 

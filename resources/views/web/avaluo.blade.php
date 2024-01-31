@@ -58,7 +58,7 @@
 
 <section class="height-banner-mobile bg-image-banner-mobile" style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/banner1-creditos.jpg') }}')">
     <section class="height-banner-mobile padding-left-banner-mobile d-flex align-items-center justify-content-start" style="height: 750px; padding-left: 13%">
-        <div>
+        <div data-aos="fade-right">
             <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Conoce el</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Valor de</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">tu Propiedad</span> </h1>
             <button class="btn btn-danger rounded-pill mt-5" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
         </div>
@@ -69,7 +69,7 @@
     <section class="row">
         <article class="col-sm-3" style="z-index: 4">
             <div class="d-flex justify-content-center align-items-center h-100 margin-right-mobile" style="margin-right: -175px;">
-                <div class="px-5 py-4 bg-white w-sm-100" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                <div data-aos="fade-right" class="px-5 py-4 bg-white w-sm-100" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <img src="{{ asset('img/iconohipotecario.png') }}" alt="">
                     <h2 style="font-family: 'Bitter', 'serif'; color: #676667; font-weight: 600">Avalúo de  <br> Propiedades</h2>
                 </div>
@@ -94,7 +94,7 @@
     </section>
     <section class="row py-3">
         <article class="col-sm-6 mb-4">
-            <div class="d-flex gap-4">
+            <div class="d-flex gap-4" data-aos="fade-up">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                         <img src="{{ asset('img/iconogarantia.png') }}" alt="">
@@ -107,7 +107,7 @@
             </div>
         </article>
         <article class="col-sm-6 mb-4">
-            <div class="d-flex gap-4">
+            <div class="d-flex gap-4" data-aos="fade-up">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                         <img src="{{ asset('img/iconoplaoz.png') }}" alt="">
@@ -120,7 +120,7 @@
             </div>
         </article>
         <article class="col-sm-6 mb-4">
-            <div class="d-flex gap-4">
+            <div class="d-flex gap-4" data-aos="fade-up">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                         <img src="{{ asset('img/iconopago.png') }}" alt="">
@@ -133,7 +133,7 @@
             </div>
         </article>
         <article class="col-sm-6 mb-4">
-            <div class="d-flex gap-4">
+            <div class="d-flex gap-4" data-aos="fade-up">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                         <img src="{{ asset('img/iconorequisitos.png') }}" alt="">

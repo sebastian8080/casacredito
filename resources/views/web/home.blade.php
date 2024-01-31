@@ -1,7 +1,6 @@
 @extends('layouts.web')
 
 @section('head')
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>Casa Crédito - La mejor opción para realizar su crédito en Ecuador</title>
 
     <style>
@@ -501,9 +500,9 @@
 @endsection
 
 @section('scripts')
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 <script>
-    AOS.init();
+    
 
     const selState  = document.getElementById('selState');
     const selCities = document.getElementById('selCity');
