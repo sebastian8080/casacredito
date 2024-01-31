@@ -23,6 +23,20 @@ class WebController extends Controller
         return view('web.creditos', compact('states'));
     }
 
+    public function about(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.nosotros', compact('states'));
+    }
+
+    public function avaluo(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.avaluo', compact('states'));
+    }
+
     public function creditos_hipotecarios(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();

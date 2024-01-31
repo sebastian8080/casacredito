@@ -70,9 +70,12 @@
                   @else
                   <li class="nav-item position-relative">
                     <span id="tab_services" class="nav-link fw-bold" style="cursor: pointer">Servicios</span>
-                    <div id="drop_services" class="bg-white d-none position-absolute p-4 rounded shadow" style="width: 20rem; margin-left: -110px">
+                    <div id="drop_services" class="bg-white d-none position-absolute p-4 rounded shadow" style="width: 25rem; margin-left: -110px">
                         <h2 class="h6 text-muted fw-bold" style="color: #676667; font-family: 'Montserrat', 'serif'">NUESTROS SERVICIOS</h2>
-                        <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Créditos</a></p>
+                        <div class="d-flex justify-content-between">
+                            <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Créditos</a></p>
+                            <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a style="text-decoration: none; color: #676667" href="{{ route('web.avaluo') }}">Avalúo de Propiedades</a></p>
+                        </div>
                     </div>
                   </li>
                   @endif

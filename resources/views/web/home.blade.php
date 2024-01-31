@@ -180,7 +180,7 @@
                         <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                             <div class="icons-creditos">
                                 <div>
-                                    <img src="{{ asset('img/iconohipotecario.png') }}" alt="">
+                                    <img width="60px" src="{{ asset('img/iconohipotecario2.png') }}" alt="">
                                 </div>
                                 <div>
                                     <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
