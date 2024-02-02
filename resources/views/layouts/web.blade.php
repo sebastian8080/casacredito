@@ -91,7 +91,7 @@
                     <a class="nav-link fw-bold" href="#">Contactos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-danger rounded-pill text-white btn btn-sm" href="{{ Request::url() }}/creditos#calculadora">Calcular mi crédito</a>
+                    <a class="nav-link bg-danger rounded-pill text-white btn btn-sm" href="{{ route('web.creditos') }}/#calculadora">Calcular mi crédito</a>
                   </li>
                 </ul>
               </div>
