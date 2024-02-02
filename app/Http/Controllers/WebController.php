@@ -44,6 +44,13 @@ class WebController extends Controller
         return view('web.credit_h', compact('states'));
     }
 
+    public function vip(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.vip', compact('states'));
+    }
+
     public function amortizacion(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
