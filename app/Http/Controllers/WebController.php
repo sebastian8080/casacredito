@@ -51,6 +51,14 @@ class WebController extends Controller
         return view('web.vip', compact('states'));
     }
 
+    public function consumo(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.consumo', compact('states'));
+
+    }
+
     public function amortizacion(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();

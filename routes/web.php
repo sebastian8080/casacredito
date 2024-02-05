@@ -23,6 +23,7 @@ Route::get('/avaluo-de-propiedad', [WebController::class, 'avaluo'])->name('web.
 //CREDITOS
 Route::get('/creditos-hipotecarios', [WebController::class, 'creditos_hipotecarios'])->name('web.creditos.hipoetacarios');
 Route::get('/credito-vip', [WebController::class, 'vip'])->name('web.credito.vip');
+Route::get('/creditos-de-consumo', [WebController::class, 'consumo'])->name('web.credito.consumo');
 
 Route::get('/tabla-de-amortizacion', [WebController::class, 'amortizacion'])->name('web.amortizacion');
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
