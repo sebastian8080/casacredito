@@ -25,6 +25,7 @@ Route::get('/creditos-hipotecarios', [WebController::class, 'creditos_hipotecari
 Route::get('/credito-vip', [WebController::class, 'vip'])->name('web.credito.vip');
 Route::get('/creditos-de-consumo', [WebController::class, 'consumo'])->name('web.credito.consumo');
 Route::get('creditos-de-construccion', [WebController::class, 'construccion'])->name('web.credito.construccion');
+Route::get('/creditos-de-consumo-hipotecario', [WebController::class, 'consumo_hipotecario'])->name('web.credito.consumo.hipotecario');
 
 Route::get('/tabla-de-amortizacion', [WebController::class, 'amortizacion'])->name('web.amortizacion');
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');

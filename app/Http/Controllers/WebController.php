@@ -67,6 +67,13 @@ class WebController extends Controller
 
     }
 
+    public function consumo_hipotecario(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.consumo-hipotecario', compact('states'));
+    }
+
     public function amortizacion(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
