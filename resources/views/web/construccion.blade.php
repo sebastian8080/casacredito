@@ -152,7 +152,7 @@
 <section class="container py-5 mt-5">
     <section class="row">
         <article class="col-sm-8">
-            <img class="img-fluid" src="{{ asset('img/consultarconsumo.jpg') }}" alt="">
+            <img class="img-fluid" src="{{ asset('img/consultarconstruccion.jpg') }}" alt="">
         </article>
         <article class="col-sm-4 d-flex align-items-center" data-aos="fade-left">
             <div class="border p-5 bg-white card-cuota-mensual" style="height: auto; width: 540px; margin-left: -150px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
