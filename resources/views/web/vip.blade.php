@@ -58,7 +58,7 @@
 
 <section class="height-banner-mobile bg-image-banner-mobile" style="height: 750px; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url('{{ asset('img/banner1-creditos.jpg') }}')">
     <section class="height-banner-mobile padding-left-banner-mobile d-flex align-items-center justify-content-start" style="height: 750px; padding-left: 13%">
-        <div>
+        <div data-aos="fade-right">
             <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Descubre</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">nuestros</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">diferentes créditos</span> </h1>
             <button class="btn btn-danger rounded-pill mt-5" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
         </div>
