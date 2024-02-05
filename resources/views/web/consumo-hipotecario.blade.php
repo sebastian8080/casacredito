@@ -69,7 +69,7 @@
     <section class="row">
         <article class="col-sm-3" style="z-index: 4">
             <div class="d-flex justify-content-center align-items-center h-100 margin-right-mobile" style="margin-right: -175px;">
-                <div class="px-5 py-4 bg-white w-sm-100" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36); width: 350px">
+                <div data-aos="fade-right" class="px-5 py-4 bg-white w-sm-100" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36); width: 350px">
                     <img width="65px" src="{{ asset('img/iconoconsumohipotecario.png') }}" alt="creditos de consumo hipotecario">
                     <h2 class="mt-2" style="font-family: 'Bitter', 'serif'; color: #676667; font-weight: 600">Créditos <br> de consumo <br> hipotecario</h2>
                 </div>
@@ -92,7 +92,7 @@
         <p style="font-family: 'Montserrat', 'serif'; text-align: justify">Los créditos de consumo hipotecario son préstamos que combinan características de ambos tipos de créditos: el de consumo y el hipotecario. Esto significa que se utilizan para financiar gastos personales, pero están respaldados por una garantía hipotecaria, generalmente una propiedad de inmueble. Aquí hay algunas características destacadas:</p>
     </section>
     <section class="row py-3">
-        <article class="col-sm-6 mb-4">
+        <article class="col-sm-6 mb-4" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -105,7 +105,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4">
+        <article class="col-sm-6 mb-4" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -118,7 +118,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4">
+        <article class="col-sm-6 mb-4" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4">
+        <article class="col-sm-6 mb-4" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
