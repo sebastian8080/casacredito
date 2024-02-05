@@ -74,6 +74,13 @@ class WebController extends Controller
         return view('web.consumo-hipotecario', compact('states'));
     }
 
+    public function microcreditos(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.microcreditos', compact('states'));
+    }
+
     public function amortizacion(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
