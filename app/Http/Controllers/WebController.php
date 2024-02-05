@@ -59,6 +59,14 @@ class WebController extends Controller
 
     }
 
+    public function construccion(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.construccion', compact('states'));
+
+    }
+
     public function amortizacion(){
 
         $states = DB::table('info_states')->where('country_id', 63)->get();

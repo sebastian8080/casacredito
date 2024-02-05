@@ -98,7 +98,7 @@
                                 <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Crédito Hipotecario de Consumo</a></p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Crédito de Construcción</a></p>
+                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.credito.construccion') }}">Crédito de Construcción</a></p>
                             </div>
                             <div class="col-sm-6">
                                 <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.creditos') }}">Microcréditos</a></p>
