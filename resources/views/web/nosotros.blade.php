@@ -160,7 +160,7 @@
                 <div class="position-relative">
                     <img class="img-fluid" src="{{ asset('img/asesores/asesor5.jpg') }}" alt="">
                     <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important">
-                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Fernanda Parra</p>
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Andrea Hurtado</p>
                         <hr class="my-0 py-0 mx-5">
                         <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
                     </div>
