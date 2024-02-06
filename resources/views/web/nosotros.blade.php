@@ -3,6 +3,12 @@
 @section('head')
     <title>Calcule su credito en linea | Casa Credito</title>
     <style>
+        .d-carousel-mobile{
+            display: none;
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon{
+            filter: invert(100%);
+        }
         @media screen and (max-width: 580px){
             .height-banner-mobile{
                 height: 550px !important;
@@ -23,6 +29,12 @@
                 width: 100% !important;
                 margin-left: 0px !important;
                 margin-top: 25px !important;
+            }
+            .d-cards-desktop{
+                display: none !important;
+            }
+            .d-carousel-mobile{
+                display: block !important;
             }
         }
         /* codigo banner #686768 opacidad 21%*/
@@ -100,9 +112,118 @@
         </section>
     </section>
 
-    <section class="container py-5 mt-5">
+    <section class="container pt-5 mt-5">
         <h2 style="font-family: 'Bitter', 'serif'; font-weight: 600"><span style="color: #676667">Nuestros</span><span style="color: #c61617"> Asesores</span></h2>
         <p>Asesores especialistas en créditos, quienes brindan acompañamiento personalizado para encontrar la mejor solución financiera para ti. Analizamos tus necesidades y objetivos, guiándote paso a paso en el proceso para obtener el crédito que se ajuste a tus metas. ¡Haz realidad tus proyectos con el respaldo de expertos en finanzas!</p>
+        <section class="row mt-5 justify-content-center d-cards-desktop">
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/asesor1.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important; bottom: -50px">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Melissa Mora</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/asesor2.jpg') }}" alt="">
+                    <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Karla Arias</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/asesor3.jpg') }}" alt="">
+                    <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Fernanda Parra</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/asesor4.jpg') }}" alt="">
+                    <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Michelle Cordero</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/asesor5.jpg') }}" alt="">
+                    <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2" style="z-index: 1000 !important">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Fernanda Parra</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        {{-- carousel to mobile --}}
+        <section class="d-carousel-mobile mt-5">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active position-relative" style="height: 470px">
+                    <img class="d-block w-100" src="{{ asset('img/asesores/asesor1.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1" style="bottom: 0px; width: 90%">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Melissa Mora</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item position-relative" style="height: 470px">
+                    <img class="d-block w-100" src="{{ asset('img/asesores/asesor2.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1" style="bottom: 0px; width: 90%">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Karla Arias</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item position-relative" style="height: 470px">
+                    <img class="d-block w-100" src="{{ asset('img/asesores/asesor3.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1" style="bottom: 0px; width: 90%">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Fernanda Parra</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item position-relative" style="height: 470px">
+                    <img class="d-block w-100" src="{{ asset('img/asesores/asesor4.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1" style="bottom: 0px; width: 90%">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Michelle Cordero</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item position-relative" style="height: 470px">
+                    <img class="d-block w-100" src="{{ asset('img/asesores/asesor5.jpg') }}" alt="">
+                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1" style="bottom: 0px; width: 90%">
+                        <p class="my-0" style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">Andrea Hurtado</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2" style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">Asesora de Créditos</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </section>
+        {{-- end carousel to mobile --}}
     </section>
 
     <section class="container py-5 mt-5">
