@@ -97,6 +97,12 @@ class WebController extends Controller
 
     }
 
+    public function thank(){
+
+        return view('web.thank');
+
+    }
+
     public function getcities($idState){
         $cities = DB::table('info_cities')->where('state_id', $idState)->get();
         return response()->json($cities);
@@ -123,7 +129,7 @@ class WebController extends Controller
         mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
 
-        return "mail enviado";
+        return redirect()->route('web.thank');
 
     }
 
