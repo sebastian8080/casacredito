@@ -127,65 +127,26 @@
     
     <script>
 
-        let selTipoCredito = document.getElementById('selTypeCredit');
+        const selState  = document.getElementById('selState');
+        const selCities = document.getElementById('selCity');
 
-        //variables para mostrar los valores calculados
-        let spanCapital = document.getElementById('spanCapital');
-        let spanInteres = document.getElementById('spanInteres');
-        let spanAnios = document.getElementById('spanAnios');
-        let spanCuota = document.getElementById('spanCuota');
-
-        const changeValueRangePrice = () => {
-            let rangeInpAnios = document.getElementById('rangeAnios');
-            let texto;
-            rangeInpAnios.value > 1 ? texto = "años" : texto = "año";
-            document.getElementById('textRange').textContent = rangeInpAnios.value + " " + texto;
-        }
-
-        const calcular = () => {
-
-            if(selTipoCredito.value == null || selTipoCredito.value == ""){
-                alert('Seleccione el tipo de credito');
-                return;
-            } 
-
-            let cantidad = document.getElementById('cantidad');
-            let anios = document.getElementById('rangeAnios');
+        selState.addEventListener("change", async function() {
+            selCities.options.length = 0;
+            let id = selState.options[selState.selectedIndex].dataset.id;
+            const response = await fetch("{{url('getcities')}}/"+id );
+            const cities = await response.json();
             
-            if(cantidad.value == null || cantidad.value == 0 || cantidad.value == ""){
-                alert('Complete el campo con un valor');
-                return;
-            }
-
-            let total_interes = cantidad.value * 0.15;
-            let total_mas_interes = Number(total_interes) + Number(cantidad.value);
-            let monto_mensual = total_mas_interes / (anios.value * 12);
-
-            console.log(monto_mensual.toFixed(2));
-
-            spanCapital.textContent = "$"+cantidad.value;
-            spanInteres.textContent = "$"+total_interes;
-            spanAnios.textContent = anios.value;
-            spanCuota.textContent = "$"+monto_mensual.toFixed(2);
-            
-        }
-
-        selTipoCredito.addEventListener('change', () => {
-            switch (selTipoCredito.value) {
-                case "2":
-                case "4":
-                    document.getElementById('sectionPropertyValue').classList.remove('d-none');    
-                break;
-            
-                default:
-                    document.getElementById('sectionPropertyValue').classList.add('d-none');
-                break;
-            }
-        })
-
-        window.addEventListener('load', () => {
-            document.getElementById('textRange').textContent = document.getElementById('rangeAnios').value + " años";
-        })
+            var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode('Ciudad') );
+                opt.value = '';
+                selCities.appendChild(opt);
+            cities.forEach(city => {
+                    var opt = document.createElement('option');
+                    opt.appendChild( document.createTextNode(city.name) );
+                    opt.value = city.name;
+                    selCities.appendChild(opt);
+                });
+        });
 
     </script>
 

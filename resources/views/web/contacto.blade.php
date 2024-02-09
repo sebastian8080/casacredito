@@ -53,6 +53,10 @@
                 width: 100% !important;
             }
         }
+        .links-style{
+            text-decoration: none;
+            color: #676667;
+        }
         select option:hover, option:checked{
             background-color: #c61617 !important;
             color: #ffffff !important;
@@ -104,7 +108,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Número de teléfono</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">098 384 9073 / 07-288-9355</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="tel:+593983849073">098 384 9073</a> / <a class="links-style" href="tel:072889355">07-288-9355</a></p>
                             </div>
                         </div>
                     </div>
@@ -115,7 +119,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">E-mail</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">info@casacredito.com</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="mailto:info@casacredito.com">info@casacredito.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -126,7 +130,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Ubicación</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">Remigio Tamariz Crespo y <br> Av. Fray Vicente Solano</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="https://maps.app.goo.gl/HWGEgDpJgkmwuWFT8" target="_blank">Remigio Tamariz Crespo y <br> Av. Fray Vicente Solano</a></p>
                             </div>
                         </div>
                     </div>
@@ -151,7 +155,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Número de teléfono</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">718-690-3740</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="tel:+17186903740">718-690-3740</a></p>
                             </div>
                         </div>
                     </div>
@@ -162,7 +166,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">E-mail</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">info@casacredito.com</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="mailto:info@casacredito.com">info@casacredito.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -173,7 +177,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Ubicación</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">67-03 Roosevelt Avenue <br> Woodside, NY 11377</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="https://maps.app.goo.gl/hNr73tPxVeqUCTFv9" target="_blank">67-03 Roosevelt Avenue <br> Woodside, NY 11377</a></p>
                             </div>
                         </div>
                     </div>
@@ -198,7 +202,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Número de teléfono</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">908-381-0090</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="tel:+19083810090">908-381-0090</a></p>
                             </div>
                         </div>
                     </div>
@@ -209,7 +213,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">E-mail</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">info@casacredito.com</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" href="mailto:info@casacredito.com">info@casacredito.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -220,7 +224,7 @@
                             </div>
                             <div>
                                 <p class="font-weight-bold my-0" style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">Ubicación</p>
-                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0">1146 East Jersey St Elizabeth, NJ 07201</p>
+                                <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a class="links-style" target="_blank" href="https://maps.app.goo.gl/U2FpSoLjuZJQGSbh9"> 1146 East Jersey St Elizabeth, NJ 07201</a></p>
                             </div>
                         </div>
                     </div>

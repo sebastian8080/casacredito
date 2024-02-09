@@ -160,7 +160,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/location-icon.png') }}" alt="">
                                 <div>
-                                    <span>Remigio Tamariz 3-54 y Av. Fray Vicente Solano</span>
+                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/HWGEgDpJgkmwuWFT8">Remigio Tamariz 3-54 y Av. Fray Vicente Solano</a></span>
                                 </div>
                             </article>
                         </section>
@@ -168,7 +168,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/call-icon.png') }}" alt="">
                                 <div>
-                                    <span>07-288-9355 / 098-384-9073</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="tel:072889355">07-288-9355</a> / <a style="text-decoration: none; color: #676667" href="tel:+593983849073">098-384-9073</a></span>
                                 </div>
                             </article>
                         </section>
@@ -176,7 +176,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/email-icon.png') }}" alt="">
                                 <div>
-                                    <span>info@casacredito.com</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="mailto:info@casacredito.com">info@casacredito.com</a></span>
                                 </div>
                             </article>
                         </section>
@@ -195,7 +195,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/location-icon.png') }}" alt="">
                                 <div>
-                                    <span>67-03 Roosevelt Avenue <br> Woodside, NY 11377</span>
+                                    <span><a target="_blank" style="text-decoration: none; color: #676667" href="https://maps.app.goo.gl/hNr73tPxVeqUCTFv9">67-03 Roosevelt Avenue <br> Woodside, NY 11377</a></span>
                                 </div>
                             </article>
                         </section>
@@ -203,7 +203,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/call-icon.png') }}" alt="">
                                 <div>
-                                    <span>718-690-3740</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="tel:+17186903740">718-690-3740</a></span>
                                 </div>
                             </article>
                         </section>
@@ -211,7 +211,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/email-icon.png') }}" alt="">
                                 <div>
-                                    <span>info@casacredito.com</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="mailto:info@casacredito.com">info@casacredito.com</a></span>
                                 </div>
                             </article>
                         </section>
@@ -230,7 +230,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/location-icon.png') }}" alt="">
                                 <div>
-                                    <span>1146 East Jersey St Elizabeth, NJ 07201</span>
+                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/U2FpSoLjuZJQGSbh9">1146 East Jersey St Elizabeth, NJ 07201</a></span>
                                 </div>
                             </article>
                         </section>
@@ -238,7 +238,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/call-icon.png') }}" alt="">
                                 <div>
-                                    <span>908-381-0090</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="tel:+19083810090">908-381-0090</a></span>
                                 </div>
                             </article>
                         </section>
@@ -246,7 +246,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/email-icon.png') }}" alt="">
                                 <div>
-                                    <span>info@casacredito.com</span>
+                                    <span><a style="text-decoration: none; color: #676667" href="mailto:info@casacredito.com">info@casacredito.com</a></span>
                                 </div>
                             </article>
                         </section>
@@ -261,8 +261,12 @@
                     <div class="col-12 py-4">
                         <p class="text-center text-white">Síganos en nuestras redes sociales:</p>
                         <div class="d-flex justify-content-center">
-                            <img width="50px" height="50px" src="{{ asset('img/facebook-icon.png') }}" alt="">
-                            <img width="50px" height="50px" src="{{ asset('img/instagram-icon.png') }}" alt="">
+                            <a target="_blank" href="https://www.facebook.com/CasaCreditoInmobiliaria">
+                                <img width="50px" height="50px" src="{{ asset('img/facebook-icon.png') }}" alt="">
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/casacreditoec/">
+                                <img width="50px" height="50px" src="{{ asset('img/instagram-icon.png') }}" alt="">
+                            </a>
                         </div>
                     </div>
                 </section>
