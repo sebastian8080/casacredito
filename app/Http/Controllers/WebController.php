@@ -89,6 +89,14 @@ class WebController extends Controller
     
     }
 
+    public function contacto(){
+
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.contacto', compact('states'));
+
+    }
+
     public function getcities($idState){
         $cities = DB::table('info_cities')->where('state_id', $idState)->get();
         return response()->json($cities);
