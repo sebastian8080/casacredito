@@ -75,9 +75,7 @@
     </section>
 </section>
 
-
-
-
+<x-calculadora></x-calculadora>
 
 <section class="container py-5">
     <section class="row">
@@ -118,8 +116,6 @@
         </article>
     </section>
 </section>
-
-<x-calculadora></x-calculadora>
 
    
     <!-- modals -->
