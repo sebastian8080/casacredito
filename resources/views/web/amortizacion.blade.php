@@ -119,6 +119,8 @@
     </section>
 </section>
 
+<x-calculadora></x-calculadora>
+
    
     <!-- modals -->
     @include('components.form')
