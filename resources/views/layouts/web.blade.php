@@ -130,7 +130,7 @@
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="#">BLOG</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-danger rounded-pill text-white btn btn-sm font-family-montserrat fw-bold" href="#">CONTACTOS</a>
+                    <a class="nav-link bg-danger rounded-pill text-white btn btn-sm font-family-montserrat fw-bold" href="{{ route('web.contacto') }}">CONTACTOS</a>
                   </li>
                 </ul>
               </div>
