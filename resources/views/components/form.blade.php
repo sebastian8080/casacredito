@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <textarea  id="" rows="4" class="form-control rounded-0 border-0" placeholder="Mensaje" name="message"></textarea>
+                                    <textarea  id="" rows="4" class="form-control rounded-0 border-0" placeholder="Mensaje" name="message" required></textarea>
                                 </div>
                             </div>
                         </div>
