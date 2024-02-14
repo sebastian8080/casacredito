@@ -137,7 +137,7 @@ class WebController extends Controller
             mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
             mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         } else {
-            mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            mail('sebas31051999@gmail.com', 'Bot Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         }
 
         return redirect()->route('web.thank');
