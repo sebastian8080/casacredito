@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class WebController extends Controller
 {
@@ -110,6 +111,11 @@ class WebController extends Controller
 
     public function sendlead(Request $request){
 
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify'. [
+            'secret' => '6Le1UsshAAAAAInuqh1QQ_C3jCx6YQAn_tDBNnOO',
+            'response' => $request->input('g-recaptcha-response')
+        ])->object();
+
         $message = "<br><strong>Nuevo Lead Creditos</strong>
                     <br> Nombre: ". strip_tags($request->name) . " " . strip_tags($request->lastname) ."
                     <br> Telef: ".  strip_tags($request->phone)."
@@ -126,8 +132,13 @@ class WebController extends Controller
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         //mail('mvargas@casacredito.com,info@casacredito.com','Lead CasaCredito: '.strip_tags($request->leadName), $message, $header);
-        mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
-        mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+
+        if($response->success && $response->score >= 0.7){
+            mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+        } else {
+            mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+        }
 
         return redirect()->route('web.thank');
 

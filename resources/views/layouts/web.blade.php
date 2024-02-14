@@ -22,6 +22,31 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    {{-- Recaptcha --}}
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5"></script>
+
+    <script>
+        document.addEventListener('submit', function(e){
+            e.preventDefault();
+            grecaptcha.ready(function() {
+            grecaptcha.execute('6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5', {action: 'submit'}).then(function(token) {
+              
+                let form = e.target;
+
+                let input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'g-recaptcha-response';
+                input.value = token;
+
+                form.appendChild(input);
+
+                form.submit();
+
+          });
+        });
+        });
+    </script>
+
     <style>
         body, html{
             width: 100%;
