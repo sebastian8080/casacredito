@@ -57,7 +57,7 @@
             text-decoration: none;
             color: #676667;
         }
-        select option:hover, option:checked{
+        select:focus > option:hover, select:focus > option:checked{
             background-color: #c61617 !important;
             color: #ffffff !important;
         }
@@ -324,7 +324,7 @@
 
     <section class="container py-5">
         <h2 class="text-center mb-5" style="color: #676667; font-weight: 600; font-family: 'Bitter', 'serif'">Encuéntrenos en Google Maps</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.68869374141!2d-79.012442554289!3d-2.9056980895408677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1911fa24b8a3%3A0x253fdcb31d8b1517!2sCasa%20Promotora!5e0!3m2!1ses-419!2sec!4v1707510232438!5m2!1ses-419!2sec" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe id="iframe_map" src="" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <!-- modals -->
@@ -356,17 +356,30 @@
                     selCities.appendChild(opt);
                 });
         });
+
+        let locationsMaps = [
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.68869374141!2d-79.012442554289!3d-2.9056980895408677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1911fa24b8a3%3A0x253fdcb31d8b1517!2sCasa%20Promotora!5e0!3m2!1ses-419!2sec!4v1707510232438!5m2!1ses-419!2sec',
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.712446677327!2d-73.90049888814154!3d40.74635247126916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25f30c514202f%3A0x1d580f3e959efed7!2sCasa%20Cr%C3%A9dito%20Inmobiliaria%20-%20New%20York!5e0!3m2!1ses-419!2sec!4v1707927705909!5m2!1ses-419!2sec',
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.4152622886777!2d-74.21587838814536!3d40.66481837128145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24dde7100d355%3A0x9998b8cdec575153!2sNotar%C3%ADa%20Latina%20en%20New%20Jersey!5e0!3m2!1ses-419!2sec!4v1707927742421!5m2!1ses-419!2sec'
+        ];
         
         let selOficina = document.getElementById('selOficina');
         selOficina.addEventListener('change', function(){
             let sections = document.querySelectorAll('.oficina');
+            let iframe_map = document.getElementById('iframe_map');
             sections.forEach(element => {
                 if(!element.classList.contains('d-none')) element.classList.add('d-none');
                 if(selOficina.value == element.id){
                     element.classList.remove('d-none');
+                    if(selOficina.value == "Cuenca") iframe_map.src = locationsMaps[0];
+                    if(selOficina.value == "New York") iframe_map.src = locationsMaps[1];
+                    if(selOficina.value == "New Jersey") iframe_map.src = locationsMaps[2];
                 }
-                
             });
         });
+
+        window.addEventListener("load", () => {
+            document.getElementById('iframe_map').src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.68869374141!2d-79.012442554289!3d-2.9056980895408677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1911fa24b8a3%3A0x253fdcb31d8b1517!2sCasa%20Promotora!5e0!3m2!1ses-419!2sec!4v1707510232438!5m2!1ses-419!2sec";
+        })
     </script>
 @endsection
