@@ -111,7 +111,7 @@ class WebController extends Controller
 
     public function sendlead(Request $request){
 
-        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify'. [
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => '6Le1UsshAAAAAInuqh1QQ_C3jCx6YQAn_tDBNnOO',
             'response' => $request->input('g-recaptcha-response')
         ])->object();
