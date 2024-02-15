@@ -20,8 +20,8 @@ class ArticleController extends Controller
 
         $lastID = Article::select('id')->latest()->first();
 
-        if($lastID->id == null) $lastID = 1; 
-        else $lastID = $lastID->id + 1;
+        if(isset($lastID)) $lastID = $lastID->id + 1; 
+        else $lastID = 1;
 
         return view('admin.blog.create', compact('lastID'));
     }
