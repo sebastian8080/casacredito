@@ -62,7 +62,7 @@ class ArticleController extends Controller
                         $img->fit(300,200 , function ($constraint) { $constraint->upsize(); $constraint->aspectRatio(); });
                         $img->save($folder."i300_".$nameFile.$ext, 40);
 
-                        $article->update(['banner_image'  => $nameFile.'webp']);
+                        $article->update(['banner_image'  => $nameFile.'.webp']);
                     }
                 }
             }
