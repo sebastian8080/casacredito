@@ -1,4 +1,7 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('adminlte::page')
+
+@section('title', 'Administrador Casa Crédito')
 
 @section('content')
 <div class="container">

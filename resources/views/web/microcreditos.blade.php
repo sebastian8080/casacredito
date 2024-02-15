@@ -88,11 +88,11 @@
 </section>
 
 <section class="container">
-    <section class="row py-3">
+    <section class="row py-5">
         <p style="font-family: 'Montserrat', 'serif'; text-align: justify">Son préstamos de pequeñas cantidades de dinero que se otorgan a personas que no han iniciado su historial crediticio, emprendedores y pequeños empresarios, con el objetivo de ayudarles a iniciar, expandir o mejorar sus negocios. Aquí hay algunas características clave de los microcréditos:</p>
     </section>
     <section class="row py-3">
-        <article class="col-sm-6 mb-4" data-aos="fade-in">
+        <article class="col-sm-6 mb-5" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -105,7 +105,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4" data-aos="fade-in">
+        <article class="col-sm-6 mb-5" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -118,7 +118,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4" data-aos="fade-in">
+        <article class="col-sm-6 mb-5" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
@@ -131,7 +131,7 @@
                 </div>
             </div>
         </article>
-        <article class="col-sm-6 mb-4" data-aos="fade-in">
+        <article class="col-sm-6 mb-5" data-aos="fade-in">
             <div class="d-flex gap-4">
                 <div>
                     <div class="border p-2" style="border-radius: 20px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">

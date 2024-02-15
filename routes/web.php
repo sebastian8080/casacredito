@@ -37,15 +37,15 @@ Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 Auth::routes();
 
 
-// Route::middleware(['auth'])->prefix('home')->group(function(){
+Route::middleware(['auth'])->prefix('home')->group(function(){
     
-//     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
-//     //BLOG
-//     Route::get('/blog', [App\Http\Controllers\ArticleController::class, 'index'])->name('home.blog');
-//     Route::get('/blog/create', [App\Http\Controllers\ArticleController::class, 'create'])->name('home.blog.create');
-//     Route::post('/blog/store', [App\Http\Controllers\ArticleController::class, 'store'])->name('home.blog.store');
-//     Route::get('/blog/edit/{article}', [\App\Http\Controllers\ArticleController::class, 'edit'])->name('home.blog.edit');
-//     Route::post('/blog/edit/update/{article}', [\App\Http\Controllers\ArticleController::class, 'update'])->name('home.blog.update');
+    //BLOG
+    Route::get('/blog', [App\Http\Controllers\ArticleController::class, 'index'])->name('home.blog');
+    Route::get('/blog/create', [App\Http\Controllers\ArticleController::class, 'create'])->name('home.blog.create');
+    Route::post('/blog/store', [App\Http\Controllers\ArticleController::class, 'store'])->name('home.blog.store');
+    Route::get('/blog/edit/{article}', [\App\Http\Controllers\ArticleController::class, 'edit'])->name('home.blog.edit');
+    Route::post('/blog/edit/update/{article}', [\App\Http\Controllers\ArticleController::class, 'update'])->name('home.blog.update');
 
-// });
+});
