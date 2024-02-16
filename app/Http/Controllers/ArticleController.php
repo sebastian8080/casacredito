@@ -95,6 +95,40 @@ class ArticleController extends Controller
 
         if($article->slug == null) $article->slug = Str::slug($article->title);
 
+        if ($request->hasFile('banner_image')) {
+            if ($request->file('banner_image')->isValid()) {
+                $validate = $request->file('banner_image')->getClientOriginalExtension();
+                if(in_array($validate,['jpeg','jpg','png'])){
+                    
+                    $img = Image::make($request->file('banner_image'));
+
+                    $mime = $img->mime();
+                    if ($mime == 'image/jpeg') $ext = '.jpg';
+                    elseif ($mime == 'image/png') $ext = '.png';
+                    else $ext = '';
+                    if(strlen($ext)>0){
+                        $folder = 'uploads/';
+                        $nameFile = "IMG_$article->slug-".uniqid();
+                        $img->save($folder.$nameFile.$ext);
+
+                        $imgwebp = Image::make($img)->encode('webp');
+                        $imgwebp->save($folder."webp/".$nameFile.".webp", 72);
+
+                        $img->fit(900, 600 , function ($constraint) { $constraint->upsize(); $constraint->aspectRatio(); });
+                        $img->save($folder."i900_".$nameFile.$ext, 40);
+
+                        $img->fit(600,320 , function ($constraint) { $constraint->upsize(); $constraint->aspectRatio(); });
+                        $img->save($folder."i600_".$nameFile.$ext, 40);
+
+                        $img->fit(300,200 , function ($constraint) { $constraint->upsize(); $constraint->aspectRatio(); });
+                        $img->save($folder."i300_".$nameFile.$ext, 40);
+
+                        $article->update(['banner_image'  => $nameFile.'.webp']);
+                    }
+                }
+            }
+        }
+
         $article->save();
 
         return redirect()->route('home.blog.edit', $article)->with('updated', 'Articulo <b>'. $article->title.'</b> Actualizado');
