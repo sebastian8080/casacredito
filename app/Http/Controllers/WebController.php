@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Blog\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -99,9 +100,14 @@ class WebController extends Controller
     }
 
     public function thank(){
-
         return view('web.thank');
+    }
 
+    public function blog(){
+
+        $articles = Article::where('status', 1)->get();
+
+        return view('web.blog', compact('articles'));
     }
 
     public function getcities($idState){

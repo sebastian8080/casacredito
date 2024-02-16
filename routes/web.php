@@ -31,6 +31,9 @@ Route::get('creditos-de-construccion', [WebController::class, 'construccion'])->
 Route::get('/creditos-de-consumo-hipotecario', [WebController::class, 'consumo_hipotecario'])->name('web.credito.consumo.hipotecario');
 Route::get('/microcreditos', [WebController::class, 'microcreditos'])->name('web.microcreditos');
 
+//BLOG
+Route::get('/blog', [WebController::class, 'blog'])->name('web.blog');
+
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 
