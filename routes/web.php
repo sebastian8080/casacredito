@@ -33,6 +33,7 @@ Route::get('/microcreditos', [WebController::class, 'microcreditos'])->name('web
 
 //BLOG
 Route::get('/blog', [WebController::class, 'blog'])->name('web.blog');
+Route::get('/blog/{slug}', [WebController::class, 'showArticle'])->name('web.article');
 
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');

@@ -66,7 +66,7 @@
                     <div class="d-flex align-items-center contenedor-articles">
                         <div class="bg-white p-4" style="margin-right: -100px; z-index: 2; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                             <h2 style="font-family: 'Bitter', 'serif'; color: #676667; font-weight: 600; font-size: 23px">{{ $article->title }}</h2>
-                            <a style="font-family: 'Bitter', 'serif'; color: #c61617; font-style: italic; font-weight: 500; text-decoration: none" href="#">MÁS INFO</a>
+                            <a style="font-family: 'Bitter', 'serif'; color: #c61617; font-style: italic; font-weight: 500; text-decoration: none" href="{{ route('web.article', $article->slug) }}">MÁS INFO</a>
                         </div>
                         <img width="400px" height="400px" class="img-fluid" src="{{ asset('uploads/webp/'.$article->banner_image)}}" alt="">
                     </div>

@@ -110,6 +110,14 @@ class WebController extends Controller
         return view('web.blog', compact('articles'));
     }
 
+    public function showArticle($slug){
+
+        $article = Article::where('slug', $slug)->first();
+
+        return view('web.article', compact('article'));
+        
+    }
+
     public function getcities($idState){
         $cities = DB::table('info_cities')->where('state_id', $idState)->get();
         return response()->json($cities);
