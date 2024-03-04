@@ -134,9 +134,8 @@ class WebController extends Controller
                     <br> Nombre: ". strip_tags($request->name) . " " . strip_tags($request->lastname) ."
                     <br> Telef: ".  strip_tags($request->phone)."
                     <br> Email: ".  strip_tags($request->email)."
-                    <br> Ubicacion: ". strip_tags($request->state)." ".strip_tags($request->city)."
-                    <br> Mensaje: ".strip_tags($request->message)."
-                    <br> Fuente: Website";
+                    <br> Ubicacion: ". strip_tags($request->state)." ".strip_tags($request->city)
+                    ;
 
         if($request->type && $request->mount){
             $message .= "
@@ -149,6 +148,10 @@ class WebController extends Controller
                 <br> Servicio: Avalúo de Propiedad
             ";
         }
+
+        $message .= "
+        <br> Mensaje: ".strip_tags($request->message)."
+        <br> Fuente: Website";
                 
         $header='';
         $header .= 'From: <leads@casacredito.com>' . "\r\n";
