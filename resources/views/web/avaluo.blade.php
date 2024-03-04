@@ -202,25 +202,26 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <select class="form-select text-muted border-0 rounded-0" name="type" required>
-                                            <option value="">Tipo de Credito</option>
-                                            <option value="Microcreditos">Microcreditos</option>
-                                            <option value="Hipotecarios">Hipotecarios</option>
-                                            <option value="De Construccion">De Construccion</option>
-                                            <option value="Vivienda de Interes Popular">Vivienda de Interes Popular</option>
-                                            <option value="De Consumo">De Consumo</option>
+                                    <div class="col-sm-12 mb-3">
+                                        <select class="form-select text-muted rounded-0 border-0" name="type_propertie" required>
+                                            <option value="">Tipo de Propiedad</option>
+                                            <option value="Casas">Casas</option>
+                                            <option value="Departamentos">Departamentos</option>
+                                            <option value="Casas Comerciales">Casas Comerciales</option>
+                                            <option value="Terrenos">Terrenos</option>
+                                            <option value="Quintas">Quintas</option>
+                                            <option value="Haciendas">Haciendas</option>
+                                            <option value="Locales Comerciales">Locales Comerciales</option>
+                                            <option value="Oficinas">Oficinas</option>
+                                            <option value="Suites">Suites</option>
                                         </select>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input type="number" class="form-control border-0 rounded-0" placeholder="Monto a Solicitar" name="mount" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <textarea  id="" rows="4" class="form-control border-0 rounded-0" placeholder="Mensaje" name="message" required></textarea>
+                                        <textarea  id="" rows="4" class="form-control border-0 rounded-0" placeholder="Mensaje. Ej: Deseo conocer el valor de mi propiedad ubicada en..." name="message" required></textarea>
                                     </div>
                                 </div>
                             </div>                  
@@ -242,6 +243,47 @@
 @endsection
 
 @section('scripts')
-    
+    <script>
+    const selState  = document.getElementById('selState');
+    const selCities = document.getElementById('selCity');
 
+    const selStateForm  = document.getElementById('selStateForm');
+    const selCitiesForm = document.getElementById('selCityForm');
+
+    selState.addEventListener("change", async function() {
+        selCities.options.length = 0;
+        let id = selState.options[selState.selectedIndex].dataset.id;
+        const response = await fetch("{{url('getcities')}}/"+id );
+        const cities = await response.json();
+            
+        var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode('Ciudad') );
+            opt.value = '';
+            selCities.appendChild(opt);
+        cities.forEach(city => {
+                var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(city.name) );
+                opt.value = city.name;
+                selCities.appendChild(opt);
+            });
+        });
+
+        selStateForm.addEventListener("change", async function() {
+        selCitiesForm.options.length = 0;
+        let id = selStateForm.options[selStateForm.selectedIndex].dataset.id;
+        const response = await fetch("{{url('getcities')}}/"+id );
+        const cities = await response.json();
+            
+        var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode('Ciudad') );
+            opt.value = '';
+            selCitiesForm.appendChild(opt);
+        cities.forEach(city => {
+                var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(city.name) );
+                opt.value = city.name;
+                selCitiesForm.appendChild(opt);
+            });
+        });
+    </script>
 @endsection

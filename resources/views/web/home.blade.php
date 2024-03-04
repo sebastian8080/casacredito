@@ -504,8 +504,8 @@
 <script>
     
 
-    const selState  = document.getElementById('selState');
-    const selCities = document.getElementById('selCity');
+    const selState  = document.getElementById('selStateForm');
+    const selCities = document.getElementById('selCityForm');
 
     selState.addEventListener("change", async function() {
         selCities.options.length = 0;

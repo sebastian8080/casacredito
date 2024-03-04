@@ -243,6 +243,47 @@
 @endsection
 
 @section('scripts')
-    
+    <script>
+    const selState  = document.getElementById('selState');
+    const selCities = document.getElementById('selCity');
 
+    const selStateForm  = document.getElementById('selStateForm');
+    const selCitiesForm = document.getElementById('selCityForm');
+
+    selState.addEventListener("change", async function() {
+        selCities.options.length = 0;
+        let id = selState.options[selState.selectedIndex].dataset.id;
+        const response = await fetch("{{url('getcities')}}/"+id );
+        const cities = await response.json();
+            
+        var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode('Ciudad') );
+            opt.value = '';
+            selCities.appendChild(opt);
+        cities.forEach(city => {
+                var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(city.name) );
+                opt.value = city.name;
+                selCities.appendChild(opt);
+            });
+        });
+
+        selStateForm.addEventListener("change", async function() {
+        selCitiesForm.options.length = 0;
+        let id = selStateForm.options[selStateForm.selectedIndex].dataset.id;
+        const response = await fetch("{{url('getcities')}}/"+id );
+        const cities = await response.json();
+            
+        var opt = document.createElement('option');
+            opt.appendChild( document.createTextNode('Ciudad') );
+            opt.value = '';
+            selCitiesForm.appendChild(opt);
+        cities.forEach(city => {
+                var opt = document.createElement('option');
+                opt.appendChild( document.createTextNode(city.name) );
+                opt.value = city.name;
+                selCitiesForm.appendChild(opt);
+            });
+        });
+    </script>
 @endsection

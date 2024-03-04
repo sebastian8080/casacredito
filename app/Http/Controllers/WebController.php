@@ -135,10 +135,20 @@ class WebController extends Controller
                     <br> Telef: ".  strip_tags($request->phone)."
                     <br> Email: ".  strip_tags($request->email)."
                     <br> Ubicacion: ". strip_tags($request->state)." ".strip_tags($request->city)."
-                    <br> Tipo de Credito: ".strip_tags($request->type)."
-                    <br> Monto: $".strip_tags($request->mount)."
                     <br> Mensaje: ".strip_tags($request->message)."
                     <br> Fuente: Website";
+
+        if($request->type && $request->mount){
+            $message .= "
+            <br> Tipo de Credito: ".strip_tags($request->type)."
+            <br> Monto: $".strip_tags($request->mount)."
+            ";
+        } else if($request->type_propertie){
+            $message = "
+                <br> Tipo de Propiedad: ".strip_tags($request->type_propertie)."
+                <br> Servicio: Avalúo de Propiedad
+            ";
+        }
                 
         $header='';
         $header .= 'From: <leads@casacredito.com>' . "\r\n";
@@ -149,7 +159,7 @@ class WebController extends Controller
 
         if($response->success && $response->score >= 0.7){
             mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
-            mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            //mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         } else {
             mail('sebas31051999@gmail.com', 'Bot Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         }
