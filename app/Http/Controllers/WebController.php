@@ -144,7 +144,7 @@ class WebController extends Controller
             <br> Monto: $".strip_tags($request->mount)."
             ";
         } else if($request->type_propertie){
-            $message = "
+            $message .= "
                 <br> Tipo de Propiedad: ".strip_tags($request->type_propertie)."
                 <br> Servicio: Avalúo de Propiedad
             ";
