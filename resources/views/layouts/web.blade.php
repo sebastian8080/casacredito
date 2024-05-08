@@ -185,7 +185,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/location-icon.png') }}" alt="">
                                 <div>
-                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/HWGEgDpJgkmwuWFT8">Remigio Tamariz 3-54 y Av. Fray Vicente Solano</a></span>
+                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/7Ko6cJ3yZN5HQw866">Juan Iñiguez 3-87 y Gonzalo Cordero</a></span>
                                 </div>
                             </article>
                         </section>
