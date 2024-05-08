@@ -193,7 +193,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/call-icon.png') }}" alt="">
                                 <div>
-                                    <span><a style="text-decoration: none; color: #676667" href="tel:072889355">07-288-9355</a> / <a style="text-decoration: none; color: #676667" href="tel:+593983849073">098-384-9073</a></span>
+                                    <span><a style="text-decoration: none; color: #676667" href="tel:072889355">07-288-9355</a> / <a style="text-decoration: none; color: #676667" href="tel:+593958959084">095-895-9084</a></span>
                                 </div>
                             </article>
                         </section>
