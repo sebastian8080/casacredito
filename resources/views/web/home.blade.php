@@ -1,102 +1,141 @@
 @extends('layouts.web')
 
 @section('head')
-    <title>Casa Crédito - La mejor opción para realizar su crédito en Ecuador</title>
+    <meta name="description"
+        content="En Casa Crédito, facilitamos la solicitud de crédito y el contrato de préstamo para tu nueva casa en Ecuador. Aprovecha nuestro ahorro programado y consulta nuestras opciones de financiamiento incluso cuando necesitas un banco abierto hoy.">
+    <meta name="keywords"
+        content="crédito, financiamiento, casa, Ecuador, préstamos, compra de vivienda, ahorro programado, solicitud de crédito, contrato de préstamo, banco abierto hoy, asesoramiento financiero">
+    <meta name="author" content="Casa Crédito">
+    <meta property="og:title" content="Casa Crédito - La mejor opción para realizar su crédito en Ecuador">
+    <meta property="og:description"
+        content="Descubre cómo Casa Crédito puede ayudarte a financiar la compra de tu casa en Ecuador con facilidades como ahorro programado, contratos de préstamo claros, y servicios disponibles incluso cuando necesitas un banco abierto hoy.">
+    <meta property="og:image" content="{{ asset('img/bannerhome1.jpg') }}">
+    <meta property="og:url" content="http://www.casacredito.com">
+    <meta property="og:type" content="website">
+    <title>Casa Crédito - Realiza tu crédito en Ecuador</title>
 
     <style>
-        body, html{
+        body,
+        html {
             font-family: 'Montserrat' !important;
         }
-        @media screen and (max-width: 1200px){
+
+        @media screen and (max-width: 1200px) {
             /* .min-width{width: 250px !important} */
         }
-        @media screen and (max-width: 580px){
-            .min-height-banner{
+
+        @media screen and (max-width: 580px) {
+            .min-height-banner {
                 height: 550px !important;
             }
-            .parent-banner{
+
+            .parent-banner {
                 height: 580px !important;
             }
-            .f-size-min-2{
+
+            .f-size-min-2 {
                 font-size: 1.4rem !important;
             }
-            .f-size-min-3{
+
+            .f-size-min-3 {
                 font-size: 3.5rem !important;
             }
-            .left-10px{
+
+            .left-10px {
                 left: 25px !important;
                 top: 60px !important;
             }
-            .margin-left-0{
+
+            .margin-left-0 {
                 margin-left: 0px !important;
-            } 
-            .w-auto-mobile{
+            }
+
+            .w-auto-mobile {
                 width: auto !important;
             }
-            .d-none-mobile{
+
+            .d-none-mobile {
                 display: none !important;
             }
-            .margin-top-mobile{
+
+            .margin-top-mobile {
                 margin-top: 5px !important;
             }
-            .text-banner{
+
+            .text-banner {
                 display: block !important;
             }
-            .carousel-indicators{
+
+            .carousel-indicators {
                 text-align: center !important;
                 margin-bottom: -50px !important;
             }
-            .carousel-indicators button{
+
+            .carousel-indicators button {
                 background-color: rgb(0, 0, 0) !important;
             }
-            .min-height-cards{
+
+            .min-height-cards {
                 height: 250px !important;
             }
-            .left-cards{
+
+            .left-cards {
                 left: 20px !important;
             }
-            .right-cards{
+
+            .right-cards {
                 right: 20px !important;
             }
-            .font-size-cards{
+
+            .font-size-cards {
                 font-size: 130px !important;
             }
-            .padding-x-cards-footer{
+
+            .padding-x-cards-footer {
                 padding: 10px 25px 10px 25px !important;
             }
-            .card-cuota-mensual{
+
+            .card-cuota-mensual {
                 width: 100% !important;
                 margin-left: 0px !important;
             }
-            .icons-creditos{
+
+            .icons-creditos {
                 display: flex !important;
                 align-items: center !important;
             }
         }
-        .margin-top-mobile{
+
+        .margin-top-mobile {
             margin-top: 5%;
         }
-        .carousel-indicators{
+
+        .carousel-indicators {
             display: block !important;
             margin-left: 12% !important;
             padding-bottom: 1% !important;
         }
-        .carousel-indicators button{
+
+        .carousel-indicators button {
             width: 10px !important;
             height: 10px !important;
             border: none !important;
             background-color: black;
         }
+
         summary {
             position: relative;
         }
+
         summary::marker {
             content: none;
         }
+
         summary::before,
         summary::after {
             content: '';
         }
+
         summary::before,
         summary::after {
             width: .65em;
@@ -107,21 +146,26 @@
             right: 0;
             transform: translateY(-50%);
         }
+
         summary::after {
             transform: rotate(90deg);
             transform-origin: 50% 50%;
         }
+
         [open] summary::after {
             transform: rotate(0deg);
         }
-        .card-creditos:hover{
+
+        .card-creditos:hover {
             background-color: #c61617;
             color: #ffffff;
         }
-        .card-creditos:hover > div > div > div > div > p > a{
+
+        .card-creditos:hover>div>div>div>div>p>a {
             color: #ffffff !important;
         }
-        .card-creditos:hover > div > div > div > img{
+
+        .card-creditos:hover>div>div>div>img {
             filter: brightness(0) invert(1) !important;
         }
     </style>
@@ -129,77 +173,125 @@
 
 @section('content')
     <section style="height: 750px;" class="min-height-banner parent-banner">
-        <div style="height: 750px;" id="carouselExampleFade" class="carousel slide carousel-fade min-height-banner" data-bs-ride="carousel">
+        <div style="height: 750px;" id="carouselExampleFade" class="carousel slide carousel-fade min-height-banner"
+            data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active rounded-pill" aria-current="true" aria-label="Slide 1"></button>
-                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0"
+                    class="active rounded-pill" aria-current="true" aria-label="Slide 1"></button>
+                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button class="rounded-pill" type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
             <div style="height: 750px;" class="carousel-inner min-height-banner">
                 <div class="carousel-item position-relative active">
-                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile) {{ asset('img/bannermobile1.jpg') }} @else {{ asset('img/bannerhome1.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
-                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                    <img height="750px"
+                        style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
+                        src="@if ($mobile) {{ asset('img/bannermobile1.jpg') }} @else {{ asset('img/bannerhome1.jpg') }} @endif"
+                        class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner"
+                        style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div data-aos="fade-right">
-                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos en</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Ecuador</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">desde Estados Unidos</span> </h1>
-                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                            <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span
+                                    style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos
+                                    en</span> <br> <span style="font-size: 7rem; font-weight: 600"
+                                    class="f-size-min-3">Ecuador</span> <br> <span
+                                    style="font-size: 3rem; font-style: italic" class="f-size-min-2">desde Estados
+                                    Unidos</span> </h1>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal"
+                                data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item position-relative">
-                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile){{ asset('img/bannermobile2.jpg') }} @else {{ asset('img/bannerhome2.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
-                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                    <img height="750px"
+                        style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
+                        src="@if ($mobile) {{ asset('img/bannermobile2.jpg') }} @else {{ asset('img/bannerhome2.jpg') }} @endif"
+                        class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner"
+                        style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
-                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar que</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Mereces</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito hipotecario</span> </h2>
-                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span
+                                    style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar
+                                    que</span> <br> <span style="font-size: 7rem; font-weight: 600"
+                                    class="f-size-min-3">Mereces</span> <br> <span
+                                    style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito
+                                    hipotecario</span> </h2>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal"
+                                data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item position-relative">
-                    <img height="750px" style="object-fit: @if($mobile) contain @else cover @endif; object-position: center" src="@if($mobile){{ asset('img/bannermobile3.jpg') }} @else {{ asset('img/bannerhome3.jpg') }} @endif" class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
-                    <div class="position-absolute min-height-banner left-10px text-banner" style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
+                    <img height="750px"
+                        style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
+                        src="@if ($mobile) {{ asset('img/bannermobile3.jpg') }} @else {{ asset('img/bannerhome3.jpg') }} @endif"
+                        class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
+                    <div class="position-absolute min-height-banner left-10px text-banner"
+                        style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
-                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus sueños</span> <br> <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">con un crédito de consumo</span> </h2>
-                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                            <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span
+                                    style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro
+                                    de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus
+                                    sueños</span> <br> <span style="font-size: 3rem; font-style: italic"
+                                    class="f-size-min-2">con un crédito de
+                                    consumo</span> </h2>
+                            <button class="btn btn-danger rounded-pill margin-top-mobile" data-bs-toggle="modal"
+                                data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                         </div>
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
     </section>
 
     <section class="container">
-        <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span style="color: gray">Encuentra el crédito ideal</span> <br> <span style="color: red">para tus necesidades</span></h2>
+        <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span
+                style="color: gray">Encuentra el crédito ideal</span> <br> <span style="color: red">para tus
+                necesidades</span></h2>
         <section class="row">
             <article class="col-sm-4">
                 {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}
-                    <div data-aos="fade-right" class="position-relative min-height-cards card-creditos" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                        <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                            <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;" class="font-size-cards">1</span>
-                        </div>
-                        <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
-                            <div class="icons-creditos">
-                                <div>
-                                    <img width="60px" src="{{ asset('img/iconohipotecario2.png') }}" alt="">
-                                </div>
-                                <div>
-                                    <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
-                                    <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
-                                    <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
-                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}" style="text-decoration: none; color: #676667"><i class="fa-solid fa-arrow-right"></i></a></p>
-                                    </div>
+                <div data-aos="fade-right" class="position-relative min-height-cards card-creditos"
+                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                        <span
+                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;"
+                            class="font-size-cards">1</span>
+                    </div>
+                    <div class="position-absolute min-height-cards left-cards"
+                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                        <div class="icons-creditos">
+                            <div>
+                                <img width="60px" src="{{ asset('img/iconohipotecario2.png') }}" alt="">
+                            </div>
+                            <div>
+                                <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
+                                <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
+                                <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                    <p><a href="{{ route('web.creditos.hipoetacarios') }}"
+                                            style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a>
+                                    </p>
+                                    <p><a href="{{ route('web.creditos.hipoetacarios') }}"
+                                            style="text-decoration: none; color: #676667"><i
+                                                class="fa-solid fa-arrow-right"></i></a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                 {{-- </a> --}}
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-up" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                <div data-aos="fade-up" class="position-relative min-height-cards"
+                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">2</span>
+                        <span
+                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
+                            class="font-size-cards">2</span>
                     </div>
-                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                    <div class="position-absolute min-height-cards left-cards"
+                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                         <div class="icons-creditos">
                             <div>
                                 <img src="{{ asset('img/iconovip.png') }}" alt="">
@@ -217,11 +309,15 @@
                 </div>
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-left" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                <div data-aos="fade-left" class="position-relative min-height-cards"
+                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">3</span>
+                        <span
+                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
+                            class="font-size-cards">3</span>
                     </div>
-                    <div class="position-absolute min-height-cards left-cards" style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                    <div class="position-absolute min-height-cards left-cards"
+                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                         <div class="icons-creditos">
                             <div>
                                 <img src="{{ asset('img/iconoconsumo.png') }}" alt="">
@@ -247,19 +343,32 @@
     <section class="container">
         <section class="row">
             <article class="col-sm-4" style="z-index: 3;" data-aos="fade-right">
-                <div class="border p-5 bg-white margin-left-0 w-auto-mobile" style="height: auto; width: 500px; margin-top: 6%; margin-left: 50px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span style="color: red; font-size: 25px">CRÉDITOS PARA</span> <br> <span style="color: gray">ECUATORIANOS EN EE.UU</span></h2>
-                    <p>Los créditos están diseñados para brindarle oportunidades de crecimiento, facilitando el camino hacia la estabilidad financiera y la realización de sus sueños.</p>
-                    <p>Le brindamos asesoramiento y acompañamiento profesional, estamos comprometidos a ser su socio confiable en esta trascendental etapa de su vida.</p>
+                <div class="border p-5 bg-white margin-left-0 w-auto-mobile"
+                    style="height: auto; width: 500px; margin-top: 6%; margin-left: 50px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span
+                            style="color: red; font-size: 25px">CRÉDITOS PARA</span> <br> <span
+                            style="color: gray">ECUATORIANOS EN EE.UU</span></h2>
+                    <p>Los créditos están diseñados para brindarle oportunidades de crecimiento, facilitando el camino hacia
+                        la estabilidad financiera y la realización de sus sueños.</p>
+                    <p>Le brindamos asesoramiento y acompañamiento profesional, estamos comprometidos a ser su socio
+                        confiable en esta trascendental etapa de su vida.</p>
                     <details>
-                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Revisión de buro de crédito</summary>
-                        <p class="py-3">Evalue el historial financiero de una persona o empresa. Esto se hace para determinar su capacidad de pago al solicitar un préstamo o servicio financiero. </p>
+                        <summary class="py-2 text-muted"
+                            style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">
+                            Revisión de buro de crédito</summary>
+                        <p class="py-3">Evalue el historial financiero de una persona o empresa. Esto se hace para
+                            determinar su capacidad de pago al solicitar un préstamo o servicio financiero. </p>
                     </details>
                     <details>
-                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Reparación de buro de créditos</summary>
-                        <p class="py-3">Proceso destinado a corregir y mejorar la información financiera de un individuo. Cuando se identifican errores o situaciones negativas en el historial crediticio, este proceso busca rectificar esas inexactitudes.</p>
+                        <summary class="py-2 text-muted"
+                            style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">
+                            Reparación de buro de créditos</summary>
+                        <p class="py-3">Proceso destinado a corregir y mejorar la información financiera de un individuo.
+                            Cuando se identifican errores o situaciones negativas en el historial crediticio, este proceso
+                            busca rectificar esas inexactitudes.</p>
                     </details>
-                    <button class="btn btn-danger btn-sm rounded-pill mt-4" data-bs-toggle="modal" data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
+                    <button class="btn btn-danger btn-sm rounded-pill mt-4" data-bs-toggle="modal"
+                        data-bs-target="#modalEmpezarCredito">CONSULTAR</button>
                 </div>
             </article>
             <article class="col-sm-8 d-none-mobile">
@@ -273,7 +382,8 @@
             <article class="col-sm-3" data-aos="fade-up">
                 <div class="text-center">
                     <div class="d-flex justify-content-center">
-                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                        <div class="border p-3 shadow d-flex justify-content-center"
+                            style="width: 100px; height: 100px; border-radius: 25px">
                             <img src="{{ asset('img/iconoexperiencia.png') }}" alt="">
                         </div>
                     </div>
@@ -284,7 +394,8 @@
             <article class="col-sm-3" data-aos="fade-up">
                 <div class="text-center">
                     <div class="d-flex justify-content-center">
-                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                        <div class="border p-3 shadow d-flex justify-content-center"
+                            style="width: 100px; height: 100px; border-radius: 25px">
                             <img src="{{ asset('img/iconoprocesoagil.png') }}" alt="">
                         </div>
                     </div>
@@ -295,7 +406,8 @@
             <article class="col-sm-3" data-aos="fade-up">
                 <div class="text-center">
                     <div class="d-flex justify-content-center">
-                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                        <div class="border p-3 shadow d-flex justify-content-center"
+                            style="width: 100px; height: 100px; border-radius: 25px">
                             <img src="{{ asset('img/iconoapoyo.png') }}" alt="">
                         </div>
                     </div>
@@ -306,7 +418,8 @@
             <article class="col-sm-3" data-aos="fade-up">
                 <div class="text-center">
                     <div class="d-flex justify-content-center">
-                        <div class="border p-3 shadow d-flex justify-content-center" style="width: 100px; height: 100px; border-radius: 25px">
+                        <div class="border p-3 shadow d-flex justify-content-center"
+                            style="width: 100px; height: 100px; border-radius: 25px">
                             <img src="{{ asset('img/iconocompromiso.png') }}" alt="">
                         </div>
                     </div>
@@ -328,7 +441,8 @@
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
                                 <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">¿Quienes somos?</h3>
-                                <p class="text-muted">Somos un equipo dedicado a ofrecer soluciones a medida para cada uno de nuestros clientes.</p>
+                                <p class="text-muted">Somos un equipo dedicado a ofrecer soluciones a medida para cada uno
+                                    de nuestros clientes.</p>
                             </div>
                         </div>
                     </div>
@@ -343,7 +457,8 @@
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
                                 <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestros Valores</h3>
-                                <p class="text-muted">Construyendo relaciones basadas en la confianza y el compromiso con nuestros clientes.</p>
+                                <p class="text-muted">Construyendo relaciones basadas en la confianza y el compromiso con
+                                    nuestros clientes.</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +473,8 @@
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
                                 <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestra Experiencia</h3>
-                                <p class="text-muted">Casa Crédito ofrece una experiencia probada que respalda cada transacción.</p>
+                                <p class="text-muted">Casa Crédito ofrece una experiencia probada que respalda cada
+                                    transacción.</p>
                             </div>
                         </div>
                     </div>
@@ -373,7 +489,8 @@
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
                                 <h3 style="font-family: 'Bitter', 'serif'; font-style: italic">Nuestros Asesores</h3>
-                                <p class="text-muted">Brindamos orientación personalizada para asegurar soluciones eficaces y exitosas.</p>
+                                <p class="text-muted">Brindamos orientación personalizada para asegurar soluciones eficaces
+                                    y exitosas.</p>
                             </div>
                         </div>
                     </div>
@@ -388,18 +505,31 @@
                 <img class="img-fluid" src="{{ asset('img/calcularcredito.png') }}" alt="">
             </article>
             <article class="col-sm-4 d-flex align-items-center" data-aos="fade-left">
-                <div class="border p-5 bg-white card-cuota-mensual" style="height: auto; width: 540px; margin-top: 6%; margin-left: -150px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span style="color: red; font-size: 25px">CALCULE SU</span> <br> <span style="color: gray">CUOTA MENSUAL</span></h2>
-                    <p>Pruebe nuestra Calculadora de Amortización, esta herramienta le proporcionará un desglose referencial de sus pagos mensuales e intereses.</p>
+                <div class="border p-5 bg-white card-cuota-mensual"
+                    style="height: auto; width: 540px; margin-top: 6%; margin-left: -150px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                    <h2 class="mb-4" style="font-family: 'Bitter', 'serif';"><span
+                            style="color: red; font-size: 25px">CALCULE SU</span> <br> <span style="color: gray">CUOTA
+                            MENSUAL</span></h2>
+                    <p>Pruebe nuestra Calculadora de Amortización, esta herramienta le proporcionará un desglose referencial
+                        de sus pagos mensuales e intereses.</p>
                     <details class="pt-2">
-                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Francés</summary>
-                        <p class="py-3">En este sistema, la cuota mensual que paga el prestatario se divide en dos partes: una parte se destina al pago de los intereses acumulados sobre el capital pendiente, y la otra parte se utiliza para amortizar el capital prestado.</p>
+                        <summary class="py-2 text-muted"
+                            style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">
+                            Sistema de Amortización Francés</summary>
+                        <p class="py-3">En este sistema, la cuota mensual que paga el prestatario se divide en dos
+                            partes: una parte se destina al pago de los intereses acumulados sobre el capital pendiente, y
+                            la otra parte se utiliza para amortizar el capital prestado.</p>
                     </details>
                     <details class="pb-2">
-                        <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Alemán</summary>
-                        <p class="py-3">En este método, la cuota mensual que paga el prestatario se compone principalmente de una porción constante destinada a amortizar el capital prestado, mientras que los intereses se calculan sobre el saldo pendiente.</p>
+                        <summary class="py-2 text-muted"
+                            style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">
+                            Sistema de Amortización Alemán</summary>
+                        <p class="py-3">En este método, la cuota mensual que paga el prestatario se compone
+                            principalmente de una porción constante destinada a amortizar el capital prestado, mientras que
+                            los intereses se calculan sobre el saldo pendiente.</p>
                     </details>
-                    <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR A CALCULADORA</a>
+                    <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR
+                        A CALCULADORA</a>
                 </div>
             </article>
         </section>
@@ -496,35 +626,29 @@
 
     {{-- modals --}}
     @include('components.form')
-
 @endsection
 
 @section('scripts')
+    <script>
+        const selState = document.getElementById('selStateForm');
+        const selCities = document.getElementById('selCityForm');
 
-<script>
-    
+        selState.addEventListener("change", async function() {
+            selCities.options.length = 0;
+            let id = selState.options[selState.selectedIndex].dataset.id;
+            const response = await fetch("{{ url('getcities') }}/" + id);
+            const cities = await response.json();
 
-    const selState  = document.getElementById('selStateForm');
-    const selCities = document.getElementById('selCityForm');
-
-    selState.addEventListener("change", async function() {
-        selCities.options.length = 0;
-        let id = selState.options[selState.selectedIndex].dataset.id;
-        const response = await fetch("{{url('getcities')}}/"+id );
-        const cities = await response.json();
-            
-        var opt = document.createElement('option');
-            opt.appendChild( document.createTextNode('Ciudad') );
+            var opt = document.createElement('option');
+            opt.appendChild(document.createTextNode('Ciudad'));
             opt.value = '';
             selCities.appendChild(opt);
-        cities.forEach(city => {
+            cities.forEach(city => {
                 var opt = document.createElement('option');
-                opt.appendChild( document.createTextNode(city.name) );
+                opt.appendChild(document.createTextNode(city.name));
                 opt.value = city.name;
                 selCities.appendChild(opt);
             });
         });
-
-
-</script>
+    </script>
 @endsection

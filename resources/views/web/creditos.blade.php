@@ -1,6 +1,17 @@
 @extends('layouts.web')
 
 @section('head')
+    <meta name="description"
+        content="Utiliza nuestra calculadora de amortización para planificar tus pagos mensuales de créditos. Con nuestra herramienta, puedes calcular fácilmente tu tabla de amortización con simulador, ideal para gestionar ahorro programado y solicitudes de crédito.">
+    <meta name="keywords"
+        content="tabla de amortización simulador, ahorro programado, banco abierto hoy, contrato de préstamo, solicitud de crédito, carta de solicitud de crédito pdf, tabulador de préstamo, préstamo digital banco general, calculadora de crédito, pagos de crédito mensuales">
+    <meta name="author" content="Casa Crédito">
+    <meta property="og:title" content="Calculadora de Amortización - Créditos Hipotecarios fáciles y seguros | Casa Crédito">
+    <meta property="og:description"
+        content="Descubre cómo calcular tus pagos mensuales de crédito con nuestra calculadora de amortización. Accede a funciones como el tabulador de préstamo y el simulador de amortización, incluso si necesitas un banco abierto hoy.">
+    <meta property="og:image" content="{{ asset('img/banneramortizacion.jpg') }}">
+    <meta property="og:url" content="https://www.casacredito.com/tabla-de-amortizacion">
+    <meta property="og:type" content="website">
     <title>Calcule su credito en linea | Casa Credito</title>
     <style>
         /* codigo banner #686768 opacidad 21%*/
@@ -9,9 +20,9 @@
             src: url("{{ asset('fonts/Montserrat-Black.ttf') }}");
         }
 
-        .gradient{
-            background: rgb(255,255,255);
-            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(138, 25, 29, 0.207) 100%);
+        .gradient {
+            background: rgb(255, 255, 255);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(138, 25, 29, 0.207) 100%);
         }
     </style>
 @endsection
@@ -21,7 +32,9 @@
         <section class="row">
             <article class="col-sm-4 h-full w-full d-flex align-items-center justify-content-center">
                 <div>
-                    <p style="line-height: 40px"> <span style="font-size: 40px">Conozca cuanto</span> <br> <span style="font-size: 50px">pagaría</span> <br> <span style="font-size: 40px">mensualmente</span></p>
+                    <p style="line-height: 40px"> <span style="font-size: 40px">Conozca cuanto</span> <br> <span
+                            style="font-size: 50px">pagaría</span> <br> <span style="font-size: 40px">mensualmente</span>
+                    </p>
                     <a href="#form" class="btn text-white" style="background-color: #c61617">CALCULAR</a>
                 </div>
             </article>
@@ -31,7 +44,8 @@
                         <p style="font-family: Montserrat;" class="display-1 text-white">CREDITOS</p>
                     </div>
                     <div>
-                        <img width="90%" style="margin-bottom: -100px; z-index: -100" class="img-fluid" src="{{ asset('img/calcule-su-credito-en-linea.png') }}" alt="">
+                        <img width="90%" style="margin-bottom: -100px; z-index: -100" class="img-fluid"
+                            src="{{ asset('img/calcule-su-credito-en-linea.png') }}" alt="">
                     </div>
                 </div>
             </article>
@@ -128,21 +142,21 @@
             </article>
             <article class="col-sm-3">
                 <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/proceso-icon.png') }}" alt="">
+                    <img width="70px" class="img-fluid" src="{{ asset('img/proceso-icon.png') }}" alt="">
                     <h3>Proceso Agil</h3>
                     <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
                 </div>
             </article>
             <article class="col-sm-3">
                 <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/apoyo-icon.png') }}" alt="">
+                    <img width="70px" class="img-fluid" src="{{ asset('img/apoyo-icon.png') }}" alt="">
                     <h3>Apoyo Integral</h3>
                     <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
                 </div>
             </article>
             <article class="col-sm-3">
                 <div class="text-center">
-                    <img  width="70px" class="img-fluid" src="{{ asset('img/compromiso-icon.png') }}" alt="">
+                    <img width="70px" class="img-fluid" src="{{ asset('img/compromiso-icon.png') }}" alt="">
                     <h3>Compromiso</h3>
                     <p class="px-5">Confiablidad y seguridad en el sector financiero</p>
                 </div>
@@ -160,16 +174,20 @@
                     <p>LOGO</p>
                     <p class="h4 py-3 fw-bold">¿Cuáles son los pasos para realizar un crédito?</p>
                     <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">1</span>
+                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;"
+                            class="rounded-circle d-flex justify-content-center align-items-center">1</span>
                         <span>Revise su historial crediticio antes de solicitar un crédito</span>
                     </div>
                     <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">2</span>
+                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;"
+                            class="rounded-circle d-flex justify-content-center align-items-center">2</span>
                         <span>Examine su capacidad financiera actual y futura para realizar los pagos del crédito</span>
                     </div>
                     <div class="d-flex gap-2 mb-2">
-                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;" class="rounded-circle d-flex justify-content-center align-items-center">3</span>
-                        <span>Antes de firmar cualquier contrato, lea detenidamente y comprenda los términos y condiciones del crédito</span>
+                        <span style="background-color: #c61617; color: #ffffff; width: 25px; height: 25px;"
+                            class="rounded-circle d-flex justify-content-center align-items-center">3</span>
+                        <span>Antes de firmar cualquier contrato, lea detenidamente y comprenda los términos y condiciones
+                            del crédito</span>
                     </div>
                     <div class="mt-4">
                         <button class="btn text-white fw-bold" style="background-color: #c61617">MAS INFORMACIÓN</button>
@@ -181,7 +199,6 @@
 
     <!-- modals -->
     @include('components.form')
-        
 @endsection
 
 @section('scripts')
@@ -193,16 +210,16 @@
         selState.addEventListener('change', async () => {
             selCities.options.length = 0;
             let id = selState.options[selState.selectedIndex].dataset.id;
-            const response = await fetch("{{url('getcities')}}/"+id );
+            const response = await fetch("{{ url('getcities') }}/" + id);
             const cities = await response.json();
-            
+
             let opt = document.createElement('option');
-                opt.appendChild( document.createTextNode('Ciudad') );
-                opt.value = '';
-                selCities.appendChild(opt);
+            opt.appendChild(document.createTextNode('Ciudad'));
+            opt.value = '';
+            selCities.appendChild(opt);
             cities.forEach(city => {
                 var opt = document.createElement('option');
-                opt.appendChild( document.createTextNode(city.name) );
+                opt.appendChild(document.createTextNode(city.name));
                 opt.value = city.name;
                 selCities.appendChild(opt);
             });
