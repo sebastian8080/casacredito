@@ -155,9 +155,6 @@
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="https://grupohousing.com">PROPIEDADES</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.amortizacion') }}">Notaría USA</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.about') }}">NOSOTROS</a>
                   </li>
                   <li class="nav-item">
