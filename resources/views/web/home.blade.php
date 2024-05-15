@@ -283,7 +283,7 @@
                 {{-- </a> --}}
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-up" class="position-relative min-height-cards"
+                <div data-aos="fade-up" class="position-relative min-height-cards card-creditos"
                     style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
                         <span
@@ -300,8 +300,8 @@
                                 <h3 class="mt-3 mb-4">Créditos <br> VIP</h3>
                                 <p style="padding-right: 20%">Obtenga su primera casa o departamento.</p>
                                 <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <a href="#" style="font-size: small">MAS INFO</a>
-                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                    <p><a href="{{ route('web.credito.vip') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
+                                    <p><a href="{{ route('web.credito.vip') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +309,7 @@
                 </div>
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-left" class="position-relative min-height-cards"
+                <div data-aos="fade-left" class="position-relative min-height-cards card-creditos"
                     style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
                         <span
@@ -326,8 +326,8 @@
                                 <h3 class="mt-3 mb-4">Créditos <br> de Consumo</h3>
                                 <p style="padding-right: 20%">Solvente sus gastos personales fácilmente.</p>
                                 <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <a href="#" style="font-size: small">MAS INFO</a>
-                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+                                    <p><a href="{{ route('web.credito.consumo') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
+                                    <p><a href="{{ route('web.credito.consumo') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
                                 </div>
                             </div>
                         </div>
@@ -335,12 +335,12 @@
                 </div>
             </article>
         </section>
-        <section class="row justify-content-center my-5">
+        {{-- <section class="row justify-content-center my-5">
             <a class="btn btn-danger rounded-pill w-auto" href="{{ route('web.creditos') }}">MÁS INFORMACIÓN</a>
-        </section>
+        </section> --}}
     </section>
 
-    <section class="container">
+    <section class="container pt-5">
         <section class="row">
             <article class="col-sm-4" style="z-index: 3;" data-aos="fade-right">
                 <div class="border p-5 bg-white margin-left-0 w-auto-mobile"
