@@ -195,7 +195,7 @@
                 {{-- </a> --}}
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-up" class="position-relative min-height-cards card-creditos" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                <div data-aos="fade-up" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
                         <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">2</span>
                     </div>
@@ -208,8 +208,8 @@
                                 <h3 class="mt-3 mb-4">Créditos <br> VIP</h3>
                                 <p style="padding-right: 20%">Obtenga su primera casa o departamento.</p>
                                 <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <p><a href="{{ route('web.credito.vip') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
-                                    <p><a href="{{ route('web.credito.vip') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                                    <a href="#" style="font-size: small">MAS INFO</a>
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +217,7 @@
                 </div>
             </article>
             <article class="col-sm-4">
-                <div data-aos="fade-left" class="position-relative min-height-cards card-creditos" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                <div data-aos="fade-left" class="position-relative min-height-cards" style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
                         <span style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%" class="font-size-cards">3</span>
                     </div>
@@ -230,8 +230,8 @@
                                 <h3 class="mt-3 mb-4">Créditos <br> de Consumo</h3>
                                 <p style="padding-right: 20%">Solvente sus gastos personales fácilmente.</p>
                                 <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <p><a href="{{ route('web.credito.consumo') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
-                                    <p><a href="{{ route('web.credito.consumo') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                                    <a href="#" style="font-size: small">MAS INFO</a>
+                                    <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -399,7 +399,7 @@
                         <summary class="py-2 text-muted" style="border-bottom: 1px solid gray; font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600">Sistema de Amortización Alemán</summary>
                         <p class="py-3">En este método, la cuota mensual que paga el prestatario se compone principalmente de una porción constante destinada a amortizar el capital prestado, mientras que los intereses se calculan sobre el saldo pendiente.</p>
                     </details>
-                    <a href="{{ route('web.amortizacion') }}" class="btn btn-danger btn-sm rounded-pill mt-4">IR A CALCULADORA</a>
+                    <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR A CALCULADORA</a>
                 </div>
             </article>
         </section>
