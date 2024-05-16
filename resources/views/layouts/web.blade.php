@@ -25,6 +25,19 @@
     {{-- Recaptcha --}}
     <script src="https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5"></script>
 
+    @if (request()->getHost() === 'casacredito.com')
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VW469F5K3');
+        </script>
+    @endif
+
+
     <script>
         document.addEventListener('submit', function(e){
             e.preventDefault();
