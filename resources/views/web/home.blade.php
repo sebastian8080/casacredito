@@ -528,7 +528,7 @@
                             principalmente de una porción constante destinada a amortizar el capital prestado, mientras que
                             los intereses se calculan sobre el saldo pendiente.</p>
                     </details>
-                    <a href="{{ route('web.creditos') }}/#calculadora" class="btn btn-danger btn-sm rounded-pill mt-4">IR
+                    <a href="{{ route('web.amortizacion') }}" class="btn btn-danger btn-sm rounded-pill mt-4">IR
                         A CALCULADORA</a>
                 </div>
             </article>
