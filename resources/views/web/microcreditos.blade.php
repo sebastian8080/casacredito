@@ -263,7 +263,7 @@
                                                 <option value="Microcreditos">Microcreditos</option>
                                                 <option value="Hipotecarios">Hipotecarios</option>
                                                 <option value="De Construccion">De Construccion</option>
-                                                <option value="Vivienda de Interes Popular">Vivienda de Interes Popular
+                                                <option value="Vivienda de Interes Público">Vivienda de Interes Público
                                                 </option>
                                                 <option value="De Consumo">De Consumo</option>
                                             </select>
