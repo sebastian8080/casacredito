@@ -207,7 +207,7 @@
                     <img height="750px"
                         style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
                         src="@if ($mobile) {{ asset('img/bannermobile2.webp') }} @else {{ asset('img/bannerhome2.webp') }} @endif"
-                        class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
+                        class="d-block w-100 min-height-banner" loading="lazy" alt="Creditos Hipotecarios en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
@@ -226,7 +226,7 @@
                     <img height="750px"
                         style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
                         src="@if ($mobile) {{ asset('img/bannermobile3.webp') }} @else {{ asset('img/bannerhome3.webp') }} @endif"
-                        class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
+                        class="d-block w-100 min-height-banner" loading="lazy" alt="Creditos de Consumo en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div>
@@ -263,7 +263,7 @@
                         style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                         <div class="icons-creditos">
                             <div>
-                                <img width="60px" src="{{ asset('img/iconohipotecario2.png') }}" alt="">
+                                <img width="60px" src="{{ asset('img/iconohipotecario2.webp') }}" loading="lazy" alt="creditos hipotecarios en ecuador">
                             </div>
                             <div>
                                 <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
@@ -294,7 +294,7 @@
                         style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                         <div class="icons-creditos">
                             <div>
-                                <img src="{{ asset('img/iconovip.png') }}" alt="">
+                                <img src="{{ asset('img/iconovip.webp') }}" loading="lazy" alt="creditos vip en ecuador">
                             </div>
                             <div>
                                 <h3 class="mt-3 mb-4">Créditos <br> VIP</h3>
@@ -320,7 +320,7 @@
                         style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
                         <div class="icons-creditos">
                             <div>
-                                <img src="{{ asset('img/iconoconsumo.png') }}" alt="">
+                                <img src="{{ asset('img/iconoconsumo.webp') }}" loading="lazy" alt="creditos de consumo en ecuador">
                             </div>
                             <div>
                                 <h3 class="mt-3 mb-4">Créditos <br> de Consumo</h3>
@@ -372,7 +372,7 @@
                 </div>
             </article>
             <article class="col-sm-8 d-none-mobile">
-                <img class="img-fluid" src="{{ asset('img/creditosecuatorianos.png') }}" alt="">
+                <img class="img-fluid" src="{{ asset('img/creditosecuatorianos.webp') }}" loading="lazy" alt="Creditos para Ecuatorianos en Estados Unidos">
             </article>
         </section>
     </section>
@@ -384,7 +384,7 @@
                     <div class="d-flex justify-content-center">
                         <div class="border p-3 shadow d-flex justify-content-center"
                             style="width: 100px; height: 100px; border-radius: 25px">
-                            <img src="{{ asset('img/iconoexperiencia.png') }}" alt="">
+                            <img src="{{ asset('img/iconoexperiencia.webp') }}" loading="lazy" alt="Experiencia en el proceso de Creditos en Ecuador">
                         </div>
                     </div>
                     <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Experiencia</h3>
@@ -396,11 +396,11 @@
                     <div class="d-flex justify-content-center">
                         <div class="border p-3 shadow d-flex justify-content-center"
                             style="width: 100px; height: 100px; border-radius: 25px">
-                            <img src="{{ asset('img/iconoprocesoagil.png') }}" alt="">
+                            <img src="{{ asset('img/iconoprocesoagil.webp') }}" loading="lazy" alt="Proceso Agil en la gestion de Creditos en Ecuador">
                         </div>
                     </div>
                     <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Proceso Ágil</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Proceso Ágil que facilita obtener el crédito que necesitas</p>
                 </div>
             </article>
             <article class="col-sm-3" data-aos="fade-up">
@@ -408,11 +408,11 @@
                     <div class="d-flex justify-content-center">
                         <div class="border p-3 shadow d-flex justify-content-center"
                             style="width: 100px; height: 100px; border-radius: 25px">
-                            <img src="{{ asset('img/iconoapoyo.png') }}" alt="">
+                            <img src="{{ asset('img/iconoapoyo.webp') }}" loading="lazy" alt="Apoyo Integral en el proceso para un Credito en Ecuador">
                         </div>
                     </div>
                     <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Apoyo Integral</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Te ofrecemos apoyo integral en cada paso del proceso</p>
                 </div>
             </article>
             <article class="col-sm-3" data-aos="fade-up">
@@ -420,11 +420,11 @@
                     <div class="d-flex justify-content-center">
                         <div class="border p-3 shadow d-flex justify-content-center"
                             style="width: 100px; height: 100px; border-radius: 25px">
-                            <img src="{{ asset('img/iconocompromiso.png') }}" alt="">
+                            <img src="{{ asset('img/iconocompromiso.webp') }}" loading="lazy" alt="Compromiso en el proceso para un credito en Ecuador">
                         </div>
                     </div>
                     <h3 class="mt-2" style="font-family: 'Bitter', 'serif'; font-weight: 600">Compromiso</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Nuestro compromiso es guiarte en cada paso hacia tu crédito</p>
                 </div>
             </article>
         </section>
@@ -436,7 +436,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/quienesomos.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/quienesomos.webp') }}" alt="">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
@@ -452,7 +452,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/nuestrosvalores.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/nuestrosvalores.webp') }}" alt="">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>

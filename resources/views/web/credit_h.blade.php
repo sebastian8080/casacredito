@@ -198,7 +198,7 @@
                 completamente los términos y condiciones del préstamo antes de comprometerse, ya que implica una obligación
                 financiera a largo plazo.</p>
             <a class="btn rounded-pill w-auto mt-4" style="background-color: #c61617; color: #ffffff"
-                href="{{ route('web.creditos') }}#calculadora">CALCULAR MI CRÉDITO</a>
+                href="{{ route('web.amortizacion') }}">CALCULAR MI CRÉDITO</a>
         </section>
     </section>
 
