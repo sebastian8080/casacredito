@@ -188,7 +188,7 @@
                     <img
                         style="height: 750px; object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
                         src="@if ($mobile) {{ asset('img/bannermobile1.webp') }} @else {{ asset('img/bannerhome1.webp') }} @endif"
-                        class="d-block w-100 min-height-banner" loading="lazy" alt="Creditos en Ecuador">
+                        class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
                         <div data-aos="fade-right">
