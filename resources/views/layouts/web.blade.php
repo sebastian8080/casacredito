@@ -370,6 +370,23 @@
             document.head.appendChild(link);
         }
 
+        // Carga las fuentes de Google de forma asíncrona
+        function loadGoogleFonts() {
+            var link1 = document.createElement("link");
+            link1.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap";
+            link1.rel = "stylesheet";
+            
+            var link2 = document.createElement("link");
+            link2.href = "https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;1,500;1,700&display=swap";
+            link2.rel = "stylesheet";
+            
+            document.head.appendChild(link1);
+            document.head.appendChild(link2);
+        }
+
+        // Llama a la función para cargar las fuentes de Google de forma asíncrona
+        loadGoogleFonts();
+
         // Carga los archivos CSS de forma asíncrona
         loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
         loadCSS("https://unpkg.com/aos@next/dist/aos.css");
