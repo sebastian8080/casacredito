@@ -357,9 +357,9 @@
             script.src = 'https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5'; // Reemplaza con la URL de tu script
             document.head.appendChild(script);
 
-            let script = document.createElement('script');
-            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3'; // Reemplaza con la URL de tu script
-            document.head.appendChild(script);            
+            let script2 = document.createElement('script');
+            script2.src = 'https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3'; // Reemplaza con la URL de tu script
+            document.head.appendChild(script2);            
         }, 3000); // 3000 milisegundos = 3 segundos
 
     </script>
