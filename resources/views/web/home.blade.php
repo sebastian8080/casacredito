@@ -1,18 +1,18 @@
 @extends('layouts.web')
 
 @section('head')
-    <meta name="description"
-        content="En Casa Crédito, facilitamos la solicitud de crédito y el contrato de préstamo para tu nueva casa en Ecuador. Aprovecha nuestro ahorro programado y consulta nuestras opciones de financiamiento incluso cuando necesitas un banco abierto hoy.">
-    <meta name="keywords"
-        content="crédito, financiamiento, casa, Ecuador, préstamos, compra de vivienda, ahorro programado, solicitud de crédito, contrato de préstamo, banco abierto hoy, asesoramiento financiero">
-    <meta name="author" content="Casa Crédito">
-    <meta property="og:title" content="Casa Crédito - La mejor opción para realizar su crédito en Ecuador">
-    <meta property="og:description"
-        content="Descubre cómo Casa Crédito puede ayudarte a financiar la compra de tu casa en Ecuador con facilidades como ahorro programado, contratos de préstamo claros, y servicios disponibles incluso cuando necesitas un banco abierto hoy.">
-    <meta property="og:image" content="{{ asset('img/bannerhome1.jpg') }}">
-    <meta property="og:url" content="http://www.casacredito.com">
-    <meta property="og:type" content="website">
-    <title>Casa Crédito - Realiza tu crédito en Ecuador</title>
+    <title>Accede a tu Crédito en Ecuador con Casa Crédito</title>
+    <meta name="description"            content="Descubre cómo obtener un Crédito en Ecuador siendo Migrante Ecuatoriano en Estados Unidos. ¡Haz realidad tus proyectos financieros con nuestra ayuda experta!">
+    <meta name="keywords"               content="crédito en ecuador, creditos en ecuador, casa credito, obtener credito en ecuador">
+    <meta name="author"                 content="Casa Crédito">
+    <meta name="robots"                 content="index, follow">
+    <meta name="language"               content="ES">
+    
+    <meta property="og:title"           content="Accede a tu Crédito en Ecuador con Casa Crédito">
+    <meta property="og:description"     content="Descubre cómo obtener un Crédito en Ecuador siendo Migrante Ecuatoriano en Estados Unidos. ¡Haz realidad tus proyectos financieros con nuestra ayuda experta!">
+    <meta property="og:image"           content="{{ asset('img/bannerhome1.jpg') }}">
+    <meta property="og:url"             content="http://www.casacredito.com">
+    <meta property="og:type"            content="website">
 
     <style>
         body,
@@ -187,7 +187,7 @@
                 <div class="carousel-item position-relative active">
                     <img height="750px"
                         style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
-                        src="@if ($mobile) {{ asset('img/bannermobile1.jpg') }} @else {{ asset('img/bannerhome1.jpg') }} @endif"
+                        src="@if ($mobile) {{ asset('img/bannermobile1.webp') }} @else {{ asset('img/bannerhome1.webp') }} @endif"
                         class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
@@ -206,7 +206,7 @@
                 <div class="carousel-item position-relative">
                     <img height="750px"
                         style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
-                        src="@if ($mobile) {{ asset('img/bannermobile2.jpg') }} @else {{ asset('img/bannerhome2.jpg') }} @endif"
+                        src="@if ($mobile) {{ asset('img/bannermobile2.webp') }} @else {{ asset('img/bannerhome2.webp') }} @endif"
                         class="d-block w-100 min-height-banner" alt="Creditos Hipotecarios en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
@@ -225,7 +225,7 @@
                 <div class="carousel-item position-relative">
                     <img height="750px"
                         style="object-fit: @if ($mobile) contain @else cover @endif; object-position: center"
-                        src="@if ($mobile) {{ asset('img/bannermobile3.jpg') }} @else {{ asset('img/bannerhome3.jpg') }} @endif"
+                        src="@if ($mobile) {{ asset('img/bannermobile3.webp') }} @else {{ asset('img/bannerhome3.webp') }} @endif"
                         class="d-block w-100 min-height-banner" alt="Creditos de Consumo en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
