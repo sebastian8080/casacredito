@@ -14,6 +14,8 @@
     <meta property="og:url"             content="http://www.casacredito.com">
     <meta property="og:type"            content="website">
 
+    <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
+
     <style>
         body,
         html {
