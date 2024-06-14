@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     {{-- Recaptcha --}}
-    <script src="https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5"></script>
+    {{-- <script src="https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5"></script> --}}
 
     @if (request()->getHost() === 'casacredito.com')
         <!-- Google tag (gtag.js) -->
@@ -347,6 +347,12 @@
         function showtab(){
             drop_services.classList.contains('d-none') ? drop_services.classList.remove('d-none') : drop_services.classList.add('d-none');
         }
+
+        setTimeout(function() {
+            let script = document.createElement('script');
+            script.src = 'https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5'; // Reemplaza con la URL de tu script
+            document.head.appendChild(script);
+        }, 3000); // 3000 milisegundos = 3 segundos
 
     </script>
 </body>
