@@ -170,6 +170,17 @@
         .card-creditos:hover>div>div>div>img {
             filter: brightness(0) invert(1) !important;
         }
+        @keyframes moverDeIzquierdaADerecha {
+            from {
+                margin-left: -700px; /* Margen inicial negativo */
+            }
+            to {
+                margin-left: 0; /* Margen final (posición original) */
+            }
+        }
+        .animacion-izquierda-derecha {
+            animation: moverDeIzquierdaADerecha 1s forwards;
+        }
     </style>
 @endsection
 
@@ -193,7 +204,7 @@
                         class="d-block w-100 min-height-banner" alt="Creditos en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
-                        <div data-aos="fade-right">
+                        <div class="animacion-izquierda-derecha">
                             <h1 style="font-family: 'Bitter', 'serif'; color: #676667"><span
                                     style="font-size: 3rem; font-style: italic" class="f-size-min-2">Accede a créditos
                                     en</span> <br> <span style="font-size: 7rem; font-weight: 600"
@@ -212,7 +223,7 @@
                         class="d-block w-100 min-height-banner" loading="lazy" alt="Creditos Hipotecarios en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
-                        <div>
+                        <div class="animacion-izquierda-derecha">
                             <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span
                                     style="font-size: 3rem; font-style: italic" class="f-size-min-2">Adquiere el hogar
                                     que</span> <br> <span style="font-size: 7rem; font-weight: 600"
@@ -231,7 +242,7 @@
                         class="d-block w-100 min-height-banner" loading="lazy" alt="Creditos de Consumo en Ecuador">
                     <div class="position-absolute min-height-banner left-10px text-banner"
                         style="top: 0; left: 220px; height: 750px; display: flex; align-items: center;">
-                        <div>
+                        <div class="animacion-izquierda-derecha">
                             <h2 style="font-family: 'Bitter', 'serif'; color: #676667"><span
                                     style="font-size: 3rem; font-style: italic" class="f-size-min-2">Compra el carro
                                     de</span> <br> <span style="font-size: 7rem; font-weight: 600" class="f-size-min-3">Tus
