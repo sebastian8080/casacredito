@@ -27,13 +27,15 @@
 
     @if (request()->getHost() === 'casacredito.com')
         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3"></script>
+        {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3"></script> --}}
         <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-6VW469F5K3');
+            setTimeout(() => {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+        
+                gtag('config', 'G-6VW469F5K3');
+            }, 3100);
         </script>
     @endif
 
@@ -354,6 +356,10 @@
             let script = document.createElement('script');
             script.src = 'https://www.google.com/recaptcha/api.js?render=6Le1UsshAAAAAL93VxqsJYCa67mrcNIP1q3C99v5'; // Reemplaza con la URL de tu script
             document.head.appendChild(script);
+
+            let script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6VW469F5K3'; // Reemplaza con la URL de tu script
+            document.head.appendChild(script);            
         }, 3000); // 3000 milisegundos = 3 segundos
 
     </script>
