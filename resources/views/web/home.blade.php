@@ -438,7 +438,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/quienesomos.webp') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/quienesomos.webp') }}" loading="lazy" alt="Nuestro Equipo de Casa Credito">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
@@ -454,7 +454,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/nuestrosvalores.webp') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/nuestrosvalores.webp') }}" loading="lazy" alt="Valores de Casa Credito">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
@@ -470,7 +470,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/nuestraexperiencia.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/nuestraexperiencia.png') }}" loading="lazy" alt="Experiencia de Casa Credito">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
@@ -486,7 +486,7 @@
                 <div class="border" style="box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
                     <div class="row">
                         <div class="col-sm-4 px-4 py-3">
-                            <img class="img-fluid" src="{{ asset('img/nuestrosasesores.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/nuestrosasesores.png') }}" loading="lazy" alt="Nuestros Asesores de Casa Credito">
                         </div>
                         <div class="col-sm-8 d-flex align-items-center padding-x-cards-footer">
                             <div>
@@ -504,7 +504,7 @@
     <section class="container py-5">
         <section class="row">
             <article class="col-sm-8">
-                <img class="img-fluid" src="{{ asset('img/calcularcredito.png') }}" alt="">
+                <img class="img-fluid" src="{{ asset('img/calcularcredito.png') }}" loading="lazy" alt="Calcule Su Credito">
             </article>
             <article class="col-sm-4 d-flex align-items-center" data-aos="fade-left">
                 <div class="border p-5 bg-white card-cuota-mensual"
