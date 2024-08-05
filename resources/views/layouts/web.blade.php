@@ -228,7 +228,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/call-icon.png') }}" alt="">
                                 <div>
-                                    <span><a style="text-decoration: none; color: #676667" href="tel:+593958959084">095-895-9084</a></span>
+                                    <span><a style="text-decoration: none; color: #676667" href="tel:+593989571348">098-957-1348</a></span>
                                     {{-- tel:+593958959084 --}}
                                 </div>
                             </article>
