@@ -148,8 +148,7 @@
                                     style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">
                                     Número de teléfono</p>
                                 <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a
-                                        class="links-style" href="tel:+593983849073">098 384 9073</a> / <a
-                                        class="links-style" href="tel:072889355">07-288-9355</a></p>
+                                        class="links-style" href="tel:+593989571348">098-957-1348</a>
                             </div>
                         </div>
                     </div>
@@ -467,7 +466,7 @@
         });
 
         let locationsMaps = [
-            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.68869374141!2d-79.012442554289!3d-2.9056980895408677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1911fa24b8a3%3A0x253fdcb31d8b1517!2sCasa%20Promotora!5e0!3m2!1ses-419!2sec!4v1707510232438!5m2!1ses-419!2sec',
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1008714352884!2d-79.01420272513482!3d-2.90807033954916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1933cc40a85d%3A0x3f5a0137411fe95e!2sCasa%20Cr%C3%A9dito%20Inmobiliaria!5e1!3m2!1ses-419!2sec!4v1722874702452!5m2!1ses-419!2sec',
             'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.712446677327!2d-73.90049888814154!3d40.74635247126916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25f30c514202f%3A0x1d580f3e959efed7!2sCasa%20Cr%C3%A9dito%20Inmobiliaria%20-%20New%20York!5e0!3m2!1ses-419!2sec!4v1707927705909!5m2!1ses-419!2sec',
             'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.4152622886777!2d-74.21587838814536!3d40.66481837128145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24dde7100d355%3A0x9998b8cdec575153!2sNotar%C3%ADa%20Latina%20en%20New%20Jersey!5e0!3m2!1ses-419!2sec!4v1707927742421!5m2!1ses-419!2sec'
         ];
