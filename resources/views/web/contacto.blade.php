@@ -488,7 +488,7 @@
 
         window.addEventListener("load", () => {
             document.getElementById('iframe_map').src =
-                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.68869374141!2d-79.012442554289!3d-2.9056980895408677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1911fa24b8a3%3A0x253fdcb31d8b1517!2sCasa%20Promotora!5e0!3m2!1ses-419!2sec!4v1707510232438!5m2!1ses-419!2sec";
+                "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1008714352884!2d-79.01420272513482!3d-2.90807033954916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1933cc40a85d%3A0x3f5a0137411fe95e!2sCasa%20Cr%C3%A9dito%20Inmobiliaria!5e1!3m2!1ses-419!2sec!4v1722874702452!5m2!1ses-419!2sec";
         })
     </script>
 @endsection
