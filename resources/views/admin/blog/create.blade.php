@@ -67,6 +67,14 @@
                 <div class="row mt-3 w-100">
                     <div class="col-sm-12">
                         <div class="form-group">
+                            <label for="h1">Etiqueta H1</label>
+                            <input name="h1" id="h1" type="text" @isset($article) value="{{ $article->h1 }}" @endisset class="form-control rounded-0" required></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-sm-12">
+                        <div class="form-group">
                             <label for="metadescription">Metadescripción</label>
                             <textarea name="metadescription" id="metadescription" rows="4" class="form-control rounded-0" required>@isset($article){{ $article->metadescription }}@endisset</textarea>
                         </div>

@@ -13,7 +13,7 @@ class Article extends Model
 
     //rellenar atributos en masa
     protected $fillable = [
-        'slug', 'reading_time', 'status', 'metadescription', 'title', 'body_html', 'banner_image'
+        'slug', 'reading_time', 'status', 'metadescription', 'title', 'body_html', 'banner_image', 'h1'
     ];
 
     //bloquear atributos para evitar asignarlos en masa

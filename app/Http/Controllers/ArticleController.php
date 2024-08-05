@@ -90,6 +90,7 @@ class ArticleController extends Controller
         $article->reading_time = $request->reading_time;
         $article->status = $request->status;
         $article->metadescription = $request->metadescription;
+        $article->h1 = $request->h1;
         $article->title = $request->title;
         $article->body_html = $request->body_html;
 
