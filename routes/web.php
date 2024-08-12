@@ -23,6 +23,9 @@ Route::get('/tabla-de-amortizacion', [WebController::class, 'amortizacion'])->na
 Route::get('/contacto', [WebController::class, 'contacto'])->name('web.contacto');
 Route::get('/thank', [WebController::class, 'thank'])->name('web.thank');
 
+//POLITICAS DE PRIVACIDAD
+Route::get('/politicas-de-privacidad', [WebController::class, 'politicas'])->name('web.politicas');
+
 //CREDITOS
 Route::get('/creditos-hipotecarios', [WebController::class, 'creditos_hipotecarios'])->name('web.creditos.hipoetacarios');
 Route::get('/credito-vip', [WebController::class, 'vip'])->name('web.credito.vip');

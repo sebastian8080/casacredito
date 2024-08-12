@@ -175,4 +175,8 @@ class WebController extends Controller
         return is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); 
     }
 
+    public function politicas(){
+        return view('web.politicas');
+    }
+
 }
