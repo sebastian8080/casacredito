@@ -180,9 +180,9 @@
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="https://notarialatina.com">NOTARÍA USA</a>
                   </li>
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="https://grupohousing.com">PROPIEDADES</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.about') }}">NOSOTROS</a>
                   </li>
