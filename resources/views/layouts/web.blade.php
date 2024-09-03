@@ -99,6 +99,9 @@
             color: #c61617 !important;
             font-weight: 600 !important;
         }
+        .hover-links-navbar{
+            font-size: 16px;
+        }
         .hover-links-navbar:hover{
             color: #c61617 !important;
             font-weight: 700 !important;
@@ -124,7 +127,7 @@
               <div class="collapse navbar-collapse w-100" id="navbarNav">
                 <ul class="navbar-nav d-flex gap-4 justify-content-end w-100">
                   <li class="nav-item">
-                    <a class="nav-link active fw-bold font-family-montserrat hover-links-navbar" aria-current="page" href="{{ route('web.home') }}">INICIO</a>
+                    <a class="nav-link @if(Request::is('/')) active @endif fw-bold font-family-montserrat hover-links-navbar" aria-current="page" href="{{ route('web.home') }}">INICIO</a>
                   </li>
                   @if($ismobile)
                   <li class="nav-item dropdown">
@@ -137,16 +140,14 @@
                   </li>
                   @else
                   <li class="nav-item position-relative">
-                    <span id="tab_services" class="nav-link fw-bold font-family-montserrat hover-links-navbar" style="cursor: pointer">SERVICIOS</span>
+                    <span id="tab_services" class="nav-link fw-bold font-family-montserrat hover-links-navbar" style="cursor: pointer">CRÉDITOS</span>
                     <div id="drop_services" class="bg-white d-none position-absolute p-4 rounded shadow" style="width: 35rem; margin-left: -110px;">
-                        <h2 class="h6 text-muted fw-bold" style="color: #676667; font-family: 'Montserrat', 'serif'">CRÉDITOS</h2>
-                        <hr class="mb-0">
                         <div class="row">
                             <div class="col-sm-6">
-                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.creditos.hipoetacarios') }}">Crédito Hipotecario</a></p>
+                                <p class="my-0" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.creditos.hipoetacarios') }}">Crédito Hipotecario</a></p>
                             </div>
                             <div class="col-sm-6">
-                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.credito.consumo') }}">Crédito de Consumo</a></p>
+                                <p class="my-0" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.credito.consumo') }}">Crédito de Consumo</a></p>
                             </div>
                             <div class="col-sm-6">
                                 <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.credito.consumo.hipotecario') }}">Crédito de Consumo Hipotecario</a></p>
@@ -161,27 +162,17 @@
                                 <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.credito.vip') }}">Crédito VIP</a></p>
                             </div>
                         </div>
-                        <h2 class="h6 text-muted fw-bold mt-3" style="color: #676667; font-family: 'Montserrat', 'serif'">OTROS</h2>
-                        <hr class="mb-0">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif'; font-weight: 600"><a class="hover-link" style="text-decoration: none; color: #676667" href="{{ route('web.avaluo') }}">Avalúos</a></p>
-                            </div>
-                            {{-- <div class="col-sm-6">
-                                <p class="my-0 mt-3" style="font-family: 'Montserrat', 'serif';"><a style="text-decoration: none; color: #676667" href="{{ route('web.avaluo') }}">Notaría</a></p>
-                            </div> --}}
-                        </div>
                     </div>
                   </li>
                   @endif
                   <li class="nav-item">
-                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.amortizacion') }}">CALCULAR CRÉDITO</a>
+                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.avaluo') }}">AVALÚOS</a>
                   </li>
                   {{-- <li class="nav-item">
-                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="https://notarialatina.com">NOTARÍA USA</a>
+                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.properties') }}">PROPIEDADES</a>
                   </li> --}}
                   {{-- <li class="nav-item">
-                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="https://grupohousing.com">PROPIEDADES</a>
+                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.notaria') }}">NOTARÍA USA</a>
                   </li> --}}
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.about') }}">NOSOTROS</a>
