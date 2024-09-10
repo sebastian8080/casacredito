@@ -79,7 +79,7 @@
     <style>
         body, html{
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: clip ;
             scroll-behavior: smooth;
         }
 
@@ -168,9 +168,9 @@
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.avaluo') }}">AVALÚOS</a>
                   </li>
-                  {{-- <li class="nav-item">
+                  <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.properties') }}">PROPIEDADES</a>
-                  </li> --}}
+                  </li>
                   {{-- <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.notaria') }}">NOTARÍA USA</a>
                   </li> --}}

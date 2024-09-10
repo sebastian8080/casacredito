@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Propertie\PropertieController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,14 @@ Route::get('/creditos-de-consumo', [WebController::class, 'consumo'])->name('web
 Route::get('creditos-de-construccion', [WebController::class, 'construccion'])->name('web.credito.construccion');
 Route::get('/creditos-de-consumo-hipotecario', [WebController::class, 'consumo_hipotecario'])->name('web.credito.consumo.hipotecario');
 Route::get('/microcreditos', [WebController::class, 'microcreditos'])->name('web.microcreditos');
+
+//PROPIEDADES DE GRUPO HOUSING
+Route::get('/propiedades', [PropertieController::class, 'showPropertiesPage'])->name('web.properties');
+Route::get('/propiedad/{slug}', [PropertieController::class, 'getPropertieBySlug'])->name('web.property.by.slug');
+Route::post('/send-property-inquiry', [PropertieController::class, 'sendPropertyInquiry'])->name('send.property.inquiry'); //ENVIO DE LEAD POR CORREO
+
+//NOTARIA USA
+Route::get('/notaria-estados-unidos', [WebController::class, 'showNotaryPage'])->name('web.notaria');
 
 //BLOG
 Route::get('/blog', [WebController::class, 'blog'])->name('web.blog');

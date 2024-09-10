@@ -1,0 +1,85 @@
+.property-code{
+    font-size: 18px;
+    font-weight: 500;
+}
+.property-price{
+    font-size: 2rem;
+    color: #C61617;
+    font-weight: 700;
+}
+.location-property{
+    font-size: 18px;
+}
+.property-description{
+    font-size: 18px;
+}
+.characteristics-property{
+    font-size: 17px;
+    font-weight: 700;
+}
+.property-type{
+    font-size: 15px;
+    background-color: #C61617;
+    color: #ffffff;
+}
+.text-form h2{
+    font-size: 22px;
+}
+.text-form h3{
+    font-size: 16px;
+}
+.header_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C61617;
+    color: #fff;
+    padding: 1.5em 0;
+    border-radius: 25px 25px 0 0;
+    height: 50px;
+    font-size: 2rem;
+}
+.border-form{
+    margin: 25px 0 0 0;
+    padding: 0 0 25px 0;
+    border: 1px solid #00000027;
+    border-radius: 25px;
+    position: sticky;
+    top: 10px;
+}
+.carousel-image {
+    height: 800px; /* Ajusta esta altura según tus necesidades */
+    object-fit: cover; /* Ajusta la imagen dentro del contenedor, cubriendo todo el área */
+    width: 100%;
+}
+/* Estilo para los botones de navegación del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50% !important; /* Posiciona el botón en el 50% de la altura del contenedor */
+    transform: translateY(-50%);
+    width: auto !important;
+}
+
+/* Estilo para los iconos de las flechas de navegación */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgb(202, 37, 37);
+    background-image: none;
+    border-radius: 20px;
+    width: 4rem !important; /* Ajusta el ancho del icono */
+    height: 4rem !important; /* Ajusta la altura del icono */
+}
+@media screen and (max-width: 792px){
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        border-radius: 20px;
+        width: 2rem !important; /* Ajusta el ancho del icono */
+        height: 2rem !important; /* Ajusta la altura del icono */
+    }
+    .carousel-image {
+        height: 375px; /* Ajusta esta altura según tus necesidades */
+        object-fit: cover; /* Ajusta la imagen dentro del contenedor, cubriendo todo el área */
+        width: 100%;
+    }
+}
