@@ -84,7 +84,7 @@
                             <h3 class="characteristics-property">{{ $property['garage'] }} {{ $property['garage'] > 1 ? 'Estacionamientos' : 'Estacionamiento'}}</>
                         </div>
                         @endif
-                        @if($property['cosntruction_area']>0)
+                        @if($property['construction_area']>0)
                         <div class="text-center">
                             <img width="70px" src="{{ asset('img/area.webp') }}" alt="Icono de Area">
                             <h3 class="characteristics-property">{{ $property['construction_area'] }} m<sup>2</sup></>
