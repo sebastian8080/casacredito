@@ -16,7 +16,7 @@
             <div class="carousel-inner">
                 @foreach($images as $index => $image)
                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <img style="object-fit: contain !important" src="http://127.0.0.1:8001/uploads/listing/{{$image}}" @if($index > 0) loading="lazy" @endif class="d-block w-100 carousel-image" alt="Property Image">
+                        <img style="object-fit: contain !important" src="https://grupohousing.com/uploads/listing/{{$image}}" @if($index > 0) loading="lazy" @endif class="d-block w-100 carousel-image" alt="Property Image">
                     </div>
                 @endforeach
             </div>
@@ -66,22 +66,30 @@
                 <div class="mt-4">
                     <h2>Características</h2>
                     <div class="d-flex justify-content-between align-items-center">
+                        @if($propertie['bedroom']>0)
                         <div class="text-center">
                             <img width="70px" src="{{ asset('img/dormitorios.webp') }}" alt="Icono de dormitorios">
                             <h3 class="characteristics-property">{{ $property['bedroom'] }} Hab.</h3>
                         </div>
+                        @endif
+                        @if($propertie['bathroom']>0)
                         <div class="text-center">
                             <img width="70px" src="{{ asset('img/banio.webp') }}" alt="Icono de Baños">
                             <h3 class="characteristics-property">{{ $property['bathroom'] }} {{ $property['bathroom'] > 1 ? 'Baños' : 'Baño'}}</h3>
                         </div>
+                        @endif
+                        @if($propertie['garage']>0)
                         <div class="text-center">
                             <img width="70px" src="{{ asset('img/estacionamiento.webp') }}" alt="Icono de Estacionamiento">
                             <h3 class="characteristics-property">{{ $property['garage'] }} {{ $property['garage'] > 1 ? 'Estacionamientos' : 'Estacionamiento'}}</>
                         </div>
+                        @endif
+                        @if($propertie['cosntruction_area']>0)
                         <div class="text-center">
                             <img width="70px" src="{{ asset('img/area.webp') }}" alt="Icono de Area">
                             <h3 class="characteristics-property">{{ $property['construction_area'] }} m<sup>2</sup></>
                         </div>
+                        @endif
                     </div>
                 </div>
 
