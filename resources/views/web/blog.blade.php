@@ -97,7 +97,7 @@
                                 href="{{ route('web.article', $article->slug) }}">MÁS INFO</a>
                         </div>
                         <img width="400px" height="400px" class="img-fluid"
-                            src="{{ asset('uploads/webp/' . $article->banner_image) }}" alt="">
+                            src="{{ asset('uploads/webp/' . $article->banner_image) }}" alt="Imagen de {{ $article->title }}">
                     </div>
                 </article>
             @endforeach
