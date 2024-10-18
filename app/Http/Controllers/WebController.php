@@ -114,7 +114,9 @@ class WebController extends Controller
 
         $article = Article::where('slug', $slug)->first();
 
-        return view('web.article', compact('article'));
+        $states = DB::table('info_states')->where('country_id', 63)->get();
+
+        return view('web.article', compact('article', 'states'));
         
     }
 
@@ -171,6 +173,41 @@ class WebController extends Controller
 
     }
 
+    public function sendLeadFromPost(Request $request){
+
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => '6Le1UsshAAAAAInuqh1QQ_C3jCx6YQAn_tDBNnOO',
+            'response' => $request->input('g-recaptcha-response')
+        ])->object();
+
+        $message = "<br><strong>Nuevo Lead Creditos</strong>
+                    <br> Nombre: ". strip_tags($request->name) . " " . strip_tags($request->lastname) ."
+                    <br> Telef: ".  strip_tags($request->phone)."
+                    <br> Email: ".  strip_tags($request->email)."
+                    <br> Ubicacion: ". strip_tags($request->state)." ".strip_tags($request->city) . "
+                    <br> Servicio: ".strip_tags($request->service)."
+                    <br> Monto: $".strip_tags($request->mount) . "
+                    <br> Mensaje: ".strip_tags($request->message)."
+                    <br> Fuente: Website"
+                    ;
+                
+        $header='';
+        $header .= 'From: <leads@casacredito.com>' . "\r\n";
+        $header .= "Reply-To: ".'info@casacredito.com'."\r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        //mail('mvargas@casacredito.com,info@casacredito.com','Lead CasaCredito: '.strip_tags($request->leadName), $message, $header);
+
+        if($response->success && $response->score >= 0.7){
+            mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+        } else {
+            mail('sebas31051999@gmail.com', 'Bot Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+        }
+
+        return redirect()->route('web.thank');
+    }
+
     public function isMobile(){
         return is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile")); 
     }
@@ -178,5 +215,9 @@ class WebController extends Controller
     public function politicas(){
         return view('web.politicas');
     }
+
+    // public function showNotaryPage(){
+    //     return view('web.notaria.index');
+    // }
 
 }

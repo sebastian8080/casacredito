@@ -49,6 +49,7 @@ Route::get('/blog/{slug}', [WebController::class, 'showArticle'])->name('web.art
 
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
+Route::post('/sendleadpost', [WebController::class, 'sendLeadFromPost'])->name('sendlead.post'); //RUTA PARA ENVIAR LA INFORMACION DEL FORMULARIO QUE SE ENCUENTRA EN LOS ARTICULOS
 
 Auth::routes();
 
