@@ -171,6 +171,8 @@
                                 <textarea name="message" id="message" rows="4" class="form-control bg-white" placeholder="Ej: Necesito más información sobre..." required></textarea>
                             </div>
 
+                            <input type="hidden" name="article_title" value="{{ $article->title }}">
+
                             <div class="d-flex justify-content-center w-100 mt-5">
                                 <button type="submit" class="btn btn-danger btn-block w-100">Solicitar información</button>
                             </div>

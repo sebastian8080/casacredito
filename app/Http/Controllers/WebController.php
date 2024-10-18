@@ -188,7 +188,7 @@ class WebController extends Controller
                     <br> Servicio: ".strip_tags($request->service)."
                     <br> Monto: $".strip_tags($request->mount) . "
                     <br> Mensaje: ".strip_tags($request->message)."
-                    <br> Fuente: Website"
+                    <br> Fuente: Website - Articulo: " . strip_tags($request->article_title)
                     ;
                 
         $header='';
@@ -200,7 +200,7 @@ class WebController extends Controller
 
         if($response->success && $response->score >= 0.7){
             mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
-            mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            //mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         } else {
             mail('sebas31051999@gmail.com', 'Bot Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         }
