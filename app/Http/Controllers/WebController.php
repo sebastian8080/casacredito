@@ -200,7 +200,7 @@ class WebController extends Controller
 
         if($response->success && $response->score >= 0.7){
             mail('sebas31051999@gmail.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
-            //mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
+            mail('info@casacredito.com', 'Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         } else {
             mail('sebas31051999@gmail.com', 'Bot Lead Casa Credito: ' . strip_tags($request->name), $message, $header);
         }
