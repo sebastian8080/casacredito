@@ -63,7 +63,7 @@
             </div>
 
             <div class="col-6 col-md-2">
-                <input type="text" id="location_code" name="location_code" class="form-control">
+                <input type="text" id="location_code" name="location_code" class="form-control" placeholder="Ubicación">
             </div>
 
             <div class="col-6 col-md-1">
