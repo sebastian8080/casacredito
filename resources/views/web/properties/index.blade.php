@@ -3,6 +3,9 @@
 @section('head')
 <title>Propiedades en Venta | Casa Crédito</title>
 <style>
+    body, html{
+        font-family: 'Montserrat' !important;
+    }
     .btn-call{
         background-color: #ffffff;
         color: #000000;
@@ -39,43 +42,54 @@
 
 @section('content')
     <section class="container">
-        <h1 id="dynamic-h1">Propiedades en Venta</h1>
+        <h1 id="dynamic-h1" class="mt-4"></h1>
 
-        <form id="filterForm" class="row g-2 justify-content-center">
-            <div class="col-6 col-md-2">
-                <select name="property_type" id="property_type" class="form-select">
-                    <option value="">Seleccione</option>
-                    <option value="casas">Casas</option>
-                    <option value="departamentos">Departamentos</option>
-                    <option value="casas comerciales">Casas Comerciales</option>
-                    <option value="locales comerciales">Locales Comerciales</option>
-                </select>
+        <div class="bg-white py-4 mt-4">
+            <form id="filterForm" class="row g-2 justify-content-center">
+                <div class="col-6 col-md-2">
+                    <select name="property_type" id="property_type" class="form-select bg-light">
+                        <option value="">Seleccione</option>
+                        <option value="casas">Casas</option>
+                        <option value="departamentos">Departamentos</option>
+                        <option value="casas comerciales">Casas Comerciales</option>
+                        <option value="terrenos">Terrenos</option>
+                        <option value="quintas">Quintas</option>
+                        <option value="haciendas">Haciendas</option>
+                        <option value="locales comerciales">Locales Comerciales</option>
+                        <option value="oficinas">Oficinas</option>
+                        <option value="suites">Suites</option>
+                        <option value="edificios">Edificio</option>
+                        <option value="hoteles">Hoteles</option>
+                        <option value="bodegas">Bodegas</option>
+                        <option value="naves industriales">Naves Industriales</option>
+                    </select>
+                </div>
+                <div class="col-6 col-md-1">
+                    <input type="text" id="code" name="product_code" placeholder="Código" class="form-control bg-light">
+                </div>
+                <div class="col-6 col-md-2">
+                    <select name="operation" id="operation" class="form-select bg-light">
+                        <option value="">Seleccione</option>
+                        <option value="venta">Venta</option>
+                        <option value="renta">Renta</option>
+                    </select>
+                </div>
+    
+                <div class="col-6 col-md-2">
+                    <input type="text" id="location_code" name="location_code" class="form-control bg-light" placeholder="Ubicación">
+                </div>
+    
+                <div class="col-6 col-md-1">
+                    <input type="number" id="min_price" step="0.01" name="min_price" placeholder="Precio Mínimo" class="form-control bg-light">
+                </div>
+                <div class="col-6 col-md-1">
+                    <input type="number" id="max_price" step="0.01" name="max_price" placeholder="Precio Máximo" class="form-control bg-light">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center pt-3 gap-2 w-100">
+                <button class="btn btn-danger" onclick="cleanCardsProperties();loadMoreProperties()">Buscar</button>
+                <button class="btn border bg-white shadow-sm" onclick="cleanFilters()">Limpiar Filtros</button>
             </div>
-            <div class="col-6 col-md-1">
-                <input type="text" id="code" name="product_code" placeholder="Código" class="form-control bg-white">
-            </div>
-            <div class="col-6 col-md-2">
-                <select name="operation" id="operation" class="form-select">
-                    <option value="">Seleccione</option>
-                    <option value="venta">Venta</option>
-                    <option value="renta">Renta</option>
-                </select>
-            </div>
-
-            <div class="col-6 col-md-2">
-                <input type="text" id="location_code" name="location_code" class="form-control" placeholder="Ubicación">
-            </div>
-
-            <div class="col-6 col-md-1">
-                <input type="number" id="min_price" step="0.01" name="min_price" placeholder="Precio Mínimo" class="form-control bg-white">
-            </div>
-            <div class="col-6 col-md-1">
-                <input type="number" id="max_price" step="0.01" name="max_price" placeholder="Precio Máximo" class="form-control bg-white">
-            </div>
-        </form>
-        <div class="d-flex justify-content-center mt-3 gap-2">
-            <button class="btn btn-danger" onclick="cleanCardsProperties();loadMoreProperties()">Buscar</button>
-            <button class="btn border bg-white shadow-sm" onclick="cleanFilters()">Limpiar Filtros</button>
         </div>
 
         <div id="properties-list"></div>
@@ -112,11 +126,10 @@
 
     function cleanFilters(){
         
-        document.getElementById('title').value = '';
+        document.getElementById('property_type').value = '';
         document.getElementById('code').value = '';
-        document.getElementById('sector').value = '';
-        document.getElementById('city').value = '';
-        document.getElementById('state').value = '';
+        document.getElementById('operation').value = '';
+        document.getElementById('location_code').value = '';
         document.getElementById('min_price').value = '';
         document.getElementById('max_price').value = '';
 
@@ -147,11 +160,11 @@
         let location = null;
 
         // Listas de mapeo para detectar los términos
-        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'casas comerciales', 'locales comerciales'];
+        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales'];
         const operationTypes = ['venta', 'renta', 'alquiler'];
 
         // Lista de propiedades de dos palabras
-        const twoWordProperties = ['casas comerciales', 'locales comerciales'];
+        const twoWordProperties = ['casas comerciales', 'locales comerciales', 'naves industriales'];
 
         // Verificar si la búsqueda contiene un tipo de propiedad de dos palabras
         for (let twoWordProperty of twoWordProperties) {
@@ -236,7 +249,7 @@
         const termsURL = cleanedURL.split(' ');
 
         // Listas para verificar los términos
-        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'casas comerciales', 'locales comerciales'];
+        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales', 'locales comerciales', 'naves industriales'];
         const operationTypes = ['venta', 'renta', 'alquiler'];
         const locations = ['cuenca']; // Puedes agregar más ciudades aquí
 

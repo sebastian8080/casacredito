@@ -5,7 +5,7 @@
     <meta name="description"            content="Descubre cómo obtener un Crédito en Ecuador siendo Migrante Ecuatoriano en Estados Unidos. ¡Haz realidad tus proyectos financieros con nuestra ayuda experta!">
     <meta name="keywords"               content="crédito en ecuador, creditos en ecuador, casa credito, obtener credito en ecuador">
     <meta name="author"                 content="Casa Crédito">
-    <meta name="robots"                 content="index, follow">
+    <meta name="robots"                 content="index, follow, snippet">
     <meta name="language"               content="ES">
     
     <meta property="og:title"           content="Accede a tu Crédito en Ecuador con Casa Crédito">
@@ -15,6 +15,8 @@
     <meta property="og:type"            content="website">
 
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
+
+    <link rel="canonical" href="{{ Request::url() }}">
 
     <style>
         body,
@@ -274,6 +276,16 @@
                     <option value="casas">Casas</option>
                     <option value="departamentos">Departamentos</option>
                     <option value="casas comerciales">Casas Comerciales</option>
+                    <option value="terrenos">Terrenos</option>
+                    <option value="quintas">Quintas</option>
+                    <option value="haciendas">Haciendas</option>
+                    <option value="locales comerciales">Locales Comerciales</option>
+                    <option value="oficinas">Oficinas</option>
+                    <option value="suites">Suites</option>
+                    <option value="edificios">Edificio</option>
+                    <option value="hoteles">Hoteles</option>
+                    <option value="bodegas">Bodegas</option>
+                    <option value="naves industriales">Naves Industriales</option>
                 </select>
             </div>
             <div>
