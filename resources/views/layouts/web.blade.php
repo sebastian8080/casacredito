@@ -115,7 +115,7 @@
     $ismobile = is_numeric(strpos(strtolower($_SERVER["HTTP_USER_AGENT"]), "mobile"));
 @endphp
 <body>
-    <header>
+    <header class="shadow-sm">
         <nav class="navbar navbar-expand-lg w-100 container" style="z-index: 3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('web.home') }}">
