@@ -106,6 +106,13 @@
                 display: flex !important;
                 align-items: center !important;
             }
+            .form-search{
+                width: 99vw !important;
+            }
+            .form-search div{
+                display: block !important;
+                padding: 2% 3% !important;
+            }
         }
 
         .margin-top-mobile {
@@ -254,6 +261,36 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container form-search" style="width: 750px;">
+        <div class="d-flex align-items-center justify-content-center py-5 border px-5 shadow-sm bg-white" style="margin-top: -75px; position: relative; z-index: 10;">
+            <div>
+                <label class="text-muted" for="property_type" style="font-size: x-small">Tipo de propiedad</label>
+                <select name="property_type" id="property_type" class="form-select" style="border-radius: 5px 0px 0px 5px">
+                    <option value="">Seleccione</option>
+                    <option value="casas">Casas</option>
+                    <option value="departamentos">Departamentos</option>
+                    <option value="casas comerciales">Casas Comerciales</option>
+                </select>
+            </div>
+            <div>
+                <label for="operation" class="text-muted" style="font-size: x-small">Operación</label>
+                <select name="operation" id="operation" class="form-select" style="border-radius: 0px">
+                    <option value="">Seleccione</option>
+                    <option value="venta">Venta</option>
+                    <option value="renta">Renta</option>
+                </select>
+            </div>
+            <div>
+                <label for="location" class="text-muted" style="font-size: x-small">Ubicación</label>
+                <input type="text" name="location" id="location" class="form-control" placeholder="Ingrese una ubicación" style="border-radius: 0px">
+            </div>
+            <div>
+                <br>
+                <button class="btn btn-danger" onclick="searchProperties()" style="border-radius: 0px 5px 5px 0px">Buscar</button>
             </div>
         </div>
     </section>
@@ -663,5 +700,37 @@
                 selCities.appendChild(opt);
             });
         });
+
+        
+        function searchProperties(){
+
+            // Obtener los valores
+            const propertyType = document.getElementById('property_type')?.value.trim().toLowerCase() || '';
+            const selectedOperation = document.getElementById('operation');
+            const location = document.getElementById('location')?.value.trim().toLowerCase() || '';
+
+            let operationType = selectedOperation ? selectedOperation.value.trim().toLowerCase() : '';
+
+            // Construir la URL base
+            let url = '/propiedades';
+
+            // Concatenar dependiendo de los valores seleccionados
+            if (propertyType) {
+                url += `/${propertyType}`; // Añadir el tipo de propiedad
+            }
+
+            if (operationType) {
+                url += propertyType ? `-en-${operationType}` : `/${operationType}`; // Añadir operación con el formato correcto
+            }
+
+            if (location) {
+                url += (propertyType || operationType) ? `-en-${location}` : `/${location}`; // Añadir ubicación al final
+            }
+
+            // Redireccionar a la página de búsqueda
+            window.location.href = url;
+
+        };
+
     </script>
 @endsection

@@ -9,17 +9,63 @@ use Illuminate\Support\Facades\Http;
 class PropertieController extends Controller
 {
 
-    public function showPropertiesPage(Request $request){
+    public function showPropertiesPage(Request $request, $search = null){
 
         $apiUrl = env('API_BASE_URL');
 
         $initialPage = $request->get('page', 1); // Obtener la página inicial (por defecto, 1)
 
+        // Procesar $search para eliminar "-en-" y separar términos
+        $cleanedSearch = $search ? str_replace('-en-', '-', $search) : null;
+        $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
+
+        // Detectar tipo de propiedad, operación y ubicación
+        $propertyType = null;
+        $operationType = null;
+        $location = null;
+
+        // Listas de mapeo para detectar los términos
+        $propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'casas comerciales', 'locales comerciales'];
+        $operationTypes = ['venta', 'renta', 'alquiler'];
+
+        // Validar tipos de propiedad de dos palabras antes de procesar los términos
+        $twoWordProperties = ['casas comerciales', 'locales comerciales'];
+
+        // Comprobar si el search contiene algún tipo de propiedad de dos palabras
+        foreach ($twoWordProperties as $twoWordProperty) {
+            if (str_contains($cleanedSearch, str_replace(' ', '-', $twoWordProperty))) {
+                $propertyType = $twoWordProperty;
+                // Eliminar el tipo de propiedad detectado del search para procesar el resto
+                $cleanedSearch = str_replace(str_replace(' ', '-', $twoWordProperty), '', $cleanedSearch);
+                break;
+            }
+        }
+
+        // Procesar el resto de los términos
+        $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
+
+        foreach ($searchTerms as $term) {
+            $lowerTerm = strtolower($term);
+            if (!$propertyType && in_array($lowerTerm, $propertyTypes)) {
+                $propertyType = $lowerTerm;
+            } elseif (in_array($lowerTerm, $operationTypes)) {
+                $operationType = $lowerTerm;
+            } elseif (!empty($lowerTerm)) {
+                $location = $location ? $location . ' ' . $term : $term;
+            }
+        }
+
+        // Preparar los parámetros para la API
+        $queryParams = [
+            'property_type' => $propertyType,
+            'listing_title' => $operationType,
+            'location_code' => $location,
+            'page' => $initialPage,
+        ];
+
         $response = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
-        ])->get($apiUrl . '/list-activated-properties', [
-            'page' => $initialPage
-        ]);
+        ])->get($apiUrl . '/list-activated-properties', $queryParams);
 
         // Comprobar si la solicitud fue exitosa
         if ($response->successful()) {
@@ -175,5 +221,33 @@ class PropertieController extends Controller
         } else {
             return back()->with('error', 'Hubo un error al enviar su consulta. Intente nuevamente.');
         }
+    }
+
+    // Ejemplo de función para buscar el tipo de propiedad
+    public function getPropertyTypeFromTitle($title)
+    {
+        // Datos de tipos de propiedades basados en la imagen
+        $propertyTypes = [
+            'casas' => '23',
+            'departamentos' => '24',
+            'casas comerciales' => '25',
+            'terrenos' => '26',
+            'quintas' => '29',
+            'haciendas' => '30',
+            'locales comerciales' => '32',
+            'oficinas' => '35',
+            'suites' => '36',
+            'edificio' => '37',
+            'colonial' => '38',
+            'hotel' => '39',
+            'en proyecto' => '40',
+            'fábrica' => '41',
+            'parqueadero' => '42',
+            'bodega' => '43',
+            'naves industriales' => '45'
+        ];
+
+        // Buscar el tipo de propiedad en el array
+        return $propertyTypes[$title] ?? null;
     }
 }

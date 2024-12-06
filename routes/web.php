@@ -36,7 +36,7 @@ Route::get('/creditos-de-consumo-hipotecario', [WebController::class, 'consumo_h
 Route::get('/microcreditos', [WebController::class, 'microcreditos'])->name('web.microcreditos');
 
 //PROPIEDADES DE GRUPO HOUSING
-Route::get('/propiedades', [PropertieController::class, 'showPropertiesPage'])->name('web.properties');
+Route::get('/propiedades/{search?}', [PropertieController::class, 'showPropertiesPage'])->name('web.properties');
 Route::get('/propiedad/{slug}', [PropertieController::class, 'getPropertieBySlug'])->name('web.property.by.slug');
 Route::post('/send-property-inquiry', [PropertieController::class, 'sendPropertyInquiry'])->name('send.property.inquiry'); //ENVIO DE LEAD POR CORREO
 
