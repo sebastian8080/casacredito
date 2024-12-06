@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -165,6 +166,79 @@ class ApiController extends Controller
         $response['total'] = $total;
 
         return response()->json($properties);
+    }
+
+    public function getPropertieBySlug($slug){
+
+        $propertie = Property::where('slug', $slug)->first();
+
+        return response()->json($propertie);
+
+    }
+
+    public function getDetails(){
+
+        $details = DB::table('listing_characteristics')->get();
+
+        return response()->json($details);
+
+    }
+
+    public function getServices(){
+
+        $services = DB::table('listing_services')->get();
+
+        return response()->json($services);
+
+    }
+
+    public function getGeneralCharacteristics(){
+
+        $general_characteristics = DB::table('listing_general_characteristics')->get();
+
+        return response()->json($general_characteristics);
+
+    }
+
+    public function getEnvironments(){
+
+        $environments = DB::table('listing_environments')->get();
+
+        return response()->json($environments);
+        
+    }
+
+    public function getPropertyType($type){
+
+        $property_type = DB::table('listing_types')->where('id', $type)->first();
+
+        return response()->json($property_type);
+
+    }
+
+    public function getTransactionType($transaction){
+
+        $id_transaction = 0;
+
+        switch ($transaction) {
+            case 'en-venta':
+            case 'En venta':
+            case 'on sale':
+                $id_transaction = 1;
+                break;
+
+            case 'alquilar':
+                $id_transaction = 2;
+                break;
+            
+            case 'proyectos':
+                $id_transaction = 3;
+                break;
+        }
+        
+        $property_transaction = DB::table('listing_status')->where('id', $id_transaction)->first();
+
+        return response()->json($property_transaction);
     }
 
 }
