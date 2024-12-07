@@ -347,7 +347,7 @@
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
                                     <div class="info-cards">
                                         <h2>${propertie.address || ''}, ${propertie.city || ''}, ${propertie.state || ''}</h2>
-                                        <a href="http://127.0.0.1:8000/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
+                                        <a href="/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
                                             <h3>${propertie.listing_title || ''}</h3>
                                         </a>
                                         <p class="property_description">${propertie.meta_description || ''}</p>
