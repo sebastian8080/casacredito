@@ -35,6 +35,7 @@
                 gtag('js', new Date());
         
                 gtag('config', 'G-6VW469F5K3');
+                //gtag('config', 'AW-11250334200'); //Google Ads
             }, 3100);
         </script>
     @endif
@@ -126,8 +127,11 @@
               </button>
               <div class="collapse navbar-collapse w-100" id="navbarNav">
                 <ul class="navbar-nav d-flex gap-4 justify-content-end w-100">
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link @if(Request::is('/')) active @endif fw-bold font-family-montserrat hover-links-navbar" aria-current="page" href="{{ route('web.home') }}">INICIO</a>
+                  </li> --}}
+                  <li class="nav-item">
+                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.properties') }}">PROPIEDADES</a>
                   </li>
                   @if($ismobile)
                   <li class="nav-item dropdown">
@@ -167,9 +171,6 @@
                   @endif
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.avaluo') }}">AVALÚOS</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.properties') }}">PROPIEDADES</a>
                   </li>
                   {{-- <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.notaria') }}">NOTARÍA USA</a>
