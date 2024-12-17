@@ -51,7 +51,7 @@ Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('g
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 Route::post('/sendleadpost', [WebController::class, 'sendLeadFromPost'])->name('sendlead.post'); //RUTA PARA ENVIAR LA INFORMACION DEL FORMULARIO QUE SE ENCUENTRA EN LOS ARTICULOS
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 
 Route::middleware(['auth'])->prefix('home')->group(function(){
