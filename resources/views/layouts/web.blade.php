@@ -212,7 +212,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/location-icon.png') }}" alt="">
                                 <div>
-                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/7Ko6cJ3yZN5HQw866">Juan Iñiguez 3-87 y Gonzalo Cordero</a></span>
+                                    <span><a style="text-decoration: none; color: #676667" target="_blank" href="https://maps.app.goo.gl/yu5AWKv2u3tfVSq38">Remigio Tamariz Crespo y Av. Fray Vicente Solano</a></span>
                                 </div>
                             </article>
                         </section>
