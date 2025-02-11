@@ -293,8 +293,8 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <a style="text-decoration: none"
-                                    href="tel:+593983849073"
-                                    class="mt-1 ml-2 text-dark">098-384-9073</a>
+                                    href="tel:+593964034035"
+                                    class="mt-1 ml-2 text-dark">096-403-4035</a>
                             </div>
 
                             <div class="d-flex gap-3 ms-4 mt-2">
@@ -303,16 +303,16 @@
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <a style="text-decoration: none"
-                                    href="https://api.whatsapp.com/send?phone=593983849073&text=Hola%20*Grupo%20Housing*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
-                                    class="mt-1 ml-2 text-dark">098-384-9073</a>
+                                    href="https://api.whatsapp.com/send?phone=593967867998&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
+                                    class="mt-1 ml-2 text-dark">096-786-7998</a>
                             </div>
                             <div class="d-flex gap-3 ms-4 mt-2">
                                 <div class="rounded-circle d-flex justify-content-center align-items-center"
                                     style="border: 1px solid #242b40a2; width: 30px; height: 30px">
                                     <img width="15px" src="{{ asset('img/email-icon.png') }}" alt="">
                                 </div>
-                                <a style="text-decoration: none" href="mailto:info@grupohousing.com"
-                                    class="mt-2 text-dark ml-2">info@grupohousing.com</a>
+                                <a style="text-decoration: none" href="mailto:info@casacredito.com"
+                                    class="mt-2 text-dark ml-2">info@casacredito.com</a>
                             </div>
 
                             <div class="d-flex gap-3 ms-4 mt-2">

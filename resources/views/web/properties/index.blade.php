@@ -38,6 +38,8 @@
         }
     }
 </style>
+<!-- Event snippet for WhatsApp Inmobiliaria Casa Crédito conversion page --> 
+{{-- <script> gtag('event', 'conversion', { 'send_to': 'AW-11250334200/zpfACK3l9_IZEPjzyfQp', 'value': 1.0, 'currency': 'USD' }); </script> --}}
 @endsection
 
 @section('content')
@@ -97,6 +99,18 @@
         <div id="loading" style="text-align: center; display: none;">
             <p>Cargando propiedades...</p>
         </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item disabled" id="prev-page-btn">
+                    <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item" id="next-page-btn">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+
     </section>
 @endsection
 
@@ -106,13 +120,32 @@
     let page = 1;
     let loading = false;
 
-    window.onscroll = function() {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && !loading) {
-            loading = true;
-            page++;
-            loadMoreProperties();
-        }
-    };
+    const prevBtn = document.getElementById('prev-page-btn');
+    const nextBtn = document.getElementById('next-page-btn');
+
+    prevBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (!prevBtn.classList.contains('disabled')) {
+        page--;
+        loadMoreProperties();
+    }
+    });
+
+    nextBtn.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (!nextBtn.classList.contains('disabled')) {
+        page++;
+        loadMoreProperties();
+    }
+    });
+
+    // window.onscroll = function() {
+    //     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && !loading) {
+    //         loading = true;
+    //         page++;
+    //         loadMoreProperties();
+    //     }
+    // };
 
     document.addEventListener('DOMContentLoaded', function () {
         getParams();
@@ -251,19 +284,46 @@
         // Listas para verificar los términos
         const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales', 'locales comerciales', 'naves industriales'];
         const operationTypes = ['venta', 'renta', 'alquiler'];
-        const locations = ['cuenca']; // Puedes agregar más ciudades aquí
 
         // Variables para identificar los términos en la URL
         let propertyType = termsURL.find(term => propertyTypes.includes(term));
         let operationType = termsURL.find(term => operationTypes.includes(term));
-        let location = termsURL.find(term => locations.includes(term));
+        //let location = termsURL.find(term => locations.includes(term));
+
+        // Identificar el término que no está en propertyTypes, operationTypes ni sea "en"
+        let location = termsURL.find(term => 
+            !propertyTypes.includes(term) && 
+            !operationTypes.includes(term) && 
+            term.toLowerCase() !== 'en' // Excluye el término "en"
+        );
+
+        // Resultado
+        console.log({ propertyType, operationType, location });
 
         // Generar el texto dinámico
         let dynamicText = "";
+        
+        let operationTypeDymanic = "";
+        let propertyTypeDymanic = "";
+
+        let dynamicHeadingText = "";
+
+        console.log('Antes de contenido dinamico');
 
         if (propertyType && operationType && location) {
             // Caso: Tipo de propiedad, operación y ubicación
             dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
+
+            propertyTypeDymanic = pluralToSingular(propertyType);
+
+            operationType == "venta" ? operationTypeDymanic = "comprar" : operationTypeDymanic = "rentar";
+
+            dynamicHeadingText = `¿Por qué ${operationTypeDymanic} una ${propertyTypeDymanic} en ${capitalize(location)}`;
+            
+            console.log('Entra aqui');
+
+            console.log(dynamicHeadingText);
+
         } else if (propertyType && operationType) {
             // Caso: Tipo de propiedad y operación
             dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} - Casa Crédito`;
@@ -287,6 +347,15 @@
         // Asignar el texto generado al H1 y al título
         h1Element.textContent = dynamicText;
         document.title = dynamicText;
+    }
+
+    function pluralToSingular(word) {
+        if (word.endsWith('es') && word.length > 2) {
+            return word.slice(0, -2); // Ejemplo: "casas" -> "casa"
+        } else if (word.endsWith('s') && word.length > 1) {
+            return word.slice(0, -1); // Ejemplo: "jardines" -> "jardín"
+        }
+        return word; // Si no cumple con las reglas, retorna la palabra original
     }
 
     // Función para capitalizar la primera letra de cada palabra
@@ -316,6 +385,8 @@
             const loadingIndicator = document.getElementById('loading');
             loadingIndicator.style.display = 'block';
 
+            prevBtn.classList.remove('disabled');
+            nextBtn.classList.remove('disabled');
 
             fetch(`/api/list-activated-properties?page=${page}&${queryString}`, {
                 headers: {
@@ -324,9 +395,20 @@
             })
             .then(response => response.json())
             .then(data => {
+
+                if (page === 1) {
+                    prevBtn.classList.add('disabled');
+                }
+
+                if (page === Math.ceil(data.total / data.per_page)) {
+                    nextBtn.classList.add('disabled');
+                }
+
                 if (data.data.length > 0) {
                     loading = true;
                     const propertiesList = document.getElementById('properties-list');
+
+                    propertiesList.innerHTML = ""; //Limpiando html de las propiedades
 
                     //aqui debo cambiar el h1 y el title
 
@@ -377,10 +459,10 @@
                                             </div>
                                             <div class="col-sm-5 d-flex justify-content-between align-items-center gap-2">
                                                 <div class="w-100">
-                                                    <a class="btn w-100 btn-block rounded-pill btn-call border" href="tel:593983849073">Llamar</a>
+                                                    <a class="btn w-100 btn-block rounded-pill btn-call border" href="tel:+593964034035">Llamar</a>
                                                 </div>
                                                 <div class="w-100">
-                                                    <a class="btn w-100 btn-block rounded-pill btn-whatsapp border" href="https://wa.me/593983849073?text=Hola%2C%20Grupo%20Housing%20estoy%20interesado%20en%20comprar%20esta%20propiedad%3A%20${propertie.product_code || ''}">WhatsApp</a>
+                                                    <a class="btn w-100 btn-block rounded-pill btn-whatsapp border" href="https://wa.me/593967867998?text=Hola%2C%20Casa%20Credito%20estoy%20interesado%20en%20comprar%20esta%20propiedad%3A%20${propertie.product_code || ''}">WhatsApp</a>
                                                 </div>
                                             </div>
                                         </div>
