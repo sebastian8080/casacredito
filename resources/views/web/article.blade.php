@@ -67,7 +67,7 @@
         <div class="overlay"></div>
         <section class="height-banner-mobile padding-left-banner-mobile d-flex align-items-center justify-content-center" style="height: 750px;">
             <div data-aos="fade-right">
-                <h1 style="font-family: 'Bitter', 'serif'; color: #ffffff; font-weight: 600">
+                <h1 class="text-center" style="font-family: 'Bitter', 'serif'; color: #ffffff; font-weight: 600">
                     <span style="font-size: 3rem; font-style: italic" class="f-size-min-2">{{ $article->h1 ? $article->h1 : $article->title }}</span>
                 </h1>
                 @if($article->metadescription != null)
