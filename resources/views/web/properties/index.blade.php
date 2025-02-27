@@ -2,6 +2,9 @@
 
 @section('head')
 <title>Propiedades en Venta | Casa Crédito</title>
+<meta name="description" content="">
+<meta name="robots" content="index,follow">
+<link rel="cannonical" href="">
 <style>
     body, html{
         font-family: 'Montserrat' !important;
@@ -26,6 +29,10 @@
     .info-cards{
         padding: 2.5rem 3rem;
     }
+    .property_description{
+        font-size: 15px;
+        font-weight: 400;
+    }
     @media screen and (max-width: 992px){
         .info-cards{
             padding: 3.5rem 0 2rem 0;
@@ -45,6 +52,7 @@
 @section('content')
     <section class="container">
         <h1 id="dynamic-h1" class="mt-4"></h1>
+        <p id="dynamic-text"></p>
 
         <div class="bg-white py-4 mt-4">
             <form id="filterForm" class="row g-2 justify-content-center">
@@ -139,14 +147,6 @@
     }
     });
 
-    // window.onscroll = function() {
-    //     if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && !loading) {
-    //         loading = true;
-    //         page++;
-    //         loadMoreProperties();
-    //     }
-    // };
-
     document.addEventListener('DOMContentLoaded', function () {
         getParams();
         loadMoreProperties();
@@ -173,57 +173,48 @@
 
     }
 
-    function getParams(){
-
-        // Obtener la URL de la página
+    function getParams() {
+        //debugger;
         const urlPath = window.location.pathname;
+        let search = decodeURIComponent(urlPath.replace('/propiedades/', ''));
 
-        // Eliminar la parte "/propiedades/" y procesar lo que queda
-        const search = urlPath.replace('/propiedades', '');
-
-        // Reemplazar "-en-" por "-" para que coincida con el formato que estás usando
-        let cleanedSearch = search.replace(/en-/g, '');
-
-        // Dividir la búsqueda por el guion "-" para separar los términos
-        let searchTerms = cleanedSearch ? cleanedSearch.split('-') : [];
-
-        // Definir variables para almacenar los resultados
         let propertyType = null;
         let operationType = null;
         let location = null;
 
-        // Listas de mapeo para detectar los términos
-        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales'];
+        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas'];
         const operationTypes = ['venta', 'renta', 'alquiler'];
-
-        // Lista de propiedades de dos palabras
         const twoWordProperties = ['casas comerciales', 'locales comerciales', 'naves industriales'];
 
-        // Verificar si la búsqueda contiene un tipo de propiedad de dos palabras
+        // Buscar propiedades de dos palabras
         for (let twoWordProperty of twoWordProperties) {
-            if (cleanedSearch.includes(twoWordProperty.replace(' ', '-'))) {
+            let formattedProperty = twoWordProperty.replace(/\s+/g, '-');
+            if (search.includes(formattedProperty)) {
                 propertyType = twoWordProperty;
-                cleanedSearch = cleanedSearch.replace(twoWordProperty.replace(' ', '-'), '');
+                search = search.replace(formattedProperty, '');
                 break;
             }
         }
 
-        // Volver a dividir la búsqueda después de haber quitado el tipo de propiedad de dos palabras
-        searchTerms = cleanedSearch ? cleanedSearch.split('-') : [];
+        let searchTerms = search ? search.split('-') : [];
+        let enEncontrado = false; // Variable para controlar si encontramos "en"
 
-        // Procesar cada término de búsqueda
         for (let term of searchTerms) {
             let lowerTerm = term.replace('/', '').toLowerCase();
+
             if (!propertyType && propertyTypes.includes(lowerTerm)) {
                 propertyType = lowerTerm;
             } else if (operationTypes.includes(lowerTerm)) {
                 operationType = lowerTerm;
-            } else if (term.trim() !== '') {
+            } else if (lowerTerm === 'en') {
+                enEncontrado = true; // Marcamos que encontramos "en"
+            } else if (enEncontrado) {
+                // Si encontramos "en", los siguientes términos son la ubicación
                 location = location ? location + ' ' + term : term;
             }
         }
 
-        // Asignar los valores a los inputs del formulario
+        // Asignar valores a los inputs
         if (propertyType) {
             document.getElementById('property_type').value = propertyType;
         }
@@ -233,120 +224,248 @@
         if (location) {
             document.getElementById('location_code').value = location.replace('/', '');
         }
-
     }
 
+
     function buildUrl(propertyType, operation, locationCode) {
-
+        //debugger;
         const baseUrl = "/propiedades";
-        const parts = [];
+        let parts = [];
 
+        // Mantener el orden correcto en la URL
         if (propertyType && propertyType.trim() !== '') {
             parts.push(propertyType.replace(/\s+/g, '-').toLowerCase());
         }
+
         if (operation && operation.trim() !== '') {
             parts.push(`en-${operation.replace(/\s+/g, '-').toLowerCase()}`);
         }
+
         if (locationCode && locationCode.trim() !== '') {
-            parts.push(locationCode.replace(/\s+/g, '-').toLowerCase());
+            parts.push(`en-${locationCode.replace(/\s+/g, '-').toLowerCase()}`);
         }
 
-        // Construir la URL con partes dinámicas
-        let finalUrl = baseUrl + (parts.length > 0 ? `/${parts.join("-")}` : "");
+        // Unir los elementos en el orden correcto
+        let finalUrl = baseUrl;
+        if (parts.length > 0) {
+            finalUrl += "/" + parts.join("-");
+        }
 
-        // Prevenir duplicados
+        // Limpiar cualquier duplicado adicional de "/propiedades/propiedades"
         finalUrl = finalUrl.replace(/\/propiedades\/propiedades/g, "/propiedades");
 
-        // Limpiar barras redundantes
+        // Prevenir múltiples slashes "///"
         finalUrl = finalUrl.replace(/\/+/g, "/");
 
-        return finalUrl;
+        updateCanonicalURL(finalUrl);
 
+        return finalUrl;
     }
 
+    function updateCanonicalURL(url) {
+        let canonicalLink = document.querySelector('link[rel="canonical"]');
+
+        if (!canonicalLink) {
+            canonicalLink = document.createElement('link');
+            canonicalLink.setAttribute('rel', 'canonical');
+            document.head.appendChild(canonicalLink);
+        }
+
+        // Asegúrate de usar la URL completa, incluyendo el dominio
+        const fullURL = window.location.origin + url;
+        canonicalLink.setAttribute('href', fullURL);
+    }
+
+    // function generateMetaData(url) {
+    //     const h1Element = document.querySelector("#dynamic-h1"); // Asegúrate de tener un <h1 id="dynamic-h1"></h1> en tu HTML
+
+    //     // Limpiar la URL para extraer los términos relevantes
+    //     let cleanedURL = url.replace('/propiedades', '').replace(/-/g, ' ').replace(/^\//, '').trim();
+
+    //     // Si no hay parámetros en la URL, usa el texto por defecto
+    //     if (cleanedURL === "") {
+    //         const defaultText = "Propiedades de venta o renta en Casa Crédito";
+    //         h1Element.textContent = defaultText;
+    //         document.title = defaultText;
+    //         return;
+    //     }
+
+    //     // Dividir los términos de búsqueda
+    //     const termsURL = cleanedURL.split(' ');
+
+    //     // Listas para verificar los términos
+    //     const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales', 'locales comerciales', 'naves industriales'];
+    //     const operationTypes = ['venta', 'renta', 'alquiler'];
+
+    //     // Variables para identificar los términos en la URL
+    //     let propertyType = termsURL.find(term => propertyTypes.includes(term));
+    //     let operationType = termsURL.find(term => operationTypes.includes(term));
+    //     //let location = termsURL.find(term => locations.includes(term));
+
+    //     // Identificar el término que no está en propertyTypes, operationTypes ni sea "en"
+    //     let location = termsURL.find(term => 
+    //         !propertyTypes.includes(term) && 
+    //         !operationTypes.includes(term) && 
+    //         term.toLowerCase() !== 'en' // Excluye el término "en"
+    //     );
+
+    //     // Resultado
+    //     console.log({ propertyType, operationType, location });
+
+    //     // Generar el texto dinámico
+    //     let dynamicText = "";
+        
+    //     let operationTypeDymanic = "";
+    //     let propertyTypeDymanic = "";
+
+    //     let dynamicHeadingText = "";
+
+    //     console.log('Antes de contenido dinamico');
+
+    //     if (propertyType && operationType && location) {
+    //         // Caso: Tipo de propiedad, operación y ubicación
+    //         dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
+
+    //         propertyTypeDymanic = pluralToSingular(propertyType);
+
+    //         operationType == "venta" ? operationTypeDymanic = "comprar" : operationTypeDymanic = "rentar";
+
+    //         dynamicHeadingText = `¿Por qué ${operationTypeDymanic} una ${propertyTypeDymanic} en ${capitalize(location)}`;
+            
+    //         console.log('Entra aqui');
+
+    //         console.log(dynamicHeadingText);
+
+    //     } else if (propertyType && operationType) {
+    //         // Caso: Tipo de propiedad y operación
+    //         dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} - Casa Crédito`;
+    //     } else if (operationType && location) {
+    //         // Caso: Operación y ubicación
+    //         dynamicText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)} - Casa Crédito`;
+    //     } else if (propertyType && location) {
+    //         // Caso: Tipo de propiedad y ubicación
+    //         dynamicText = `${capitalize(propertyType)} ubicadas en ${capitalize(location)} - Casa Crédito`;
+    //     } else if (propertyType) {
+    //         // Caso: Solo tipo de propiedad
+    //         dynamicText = `${capitalize(propertyType)} disponibles en Casa Crédito`;
+    //     } else if (operationType) {
+    //         // Caso: Solo operación
+    //         dynamicText = `Propiedades en ${capitalize(operationType)} en Casa Crédito`;
+    //     } else if (location) {
+    //         // Caso: Solo ubicación
+    //         dynamicText = `Propiedades ubicadas en ${capitalize(location)} - Casa Crédito`;
+    //     }
+
+    //     // Asignar el texto generado al H1 y al título
+    //     h1Element.textContent = dynamicText;
+    //     document.title = dynamicText;
+    // }
+
     function generateMetaData(url) {
-        const h1Element = document.querySelector("#dynamic-h1"); // Asegúrate de tener un <h1 id="dynamic-h1"></h1> en tu HTML
+        const h1Element = document.querySelector("#dynamic-h1");
+        if (!h1Element) return;
 
-        // Limpiar la URL para extraer los términos relevantes
         let cleanedURL = url.replace('/propiedades', '').replace(/-/g, ' ').replace(/^\//, '').trim();
+        const defaultText = "Propiedades en venta y renta en Casa Crédito";
 
-        // Si no hay parámetros en la URL, usa el texto por defecto
         if (cleanedURL === "") {
-            const defaultText = "Propiedades de venta o renta en Casa Crédito";
             h1Element.textContent = defaultText;
-            document.title = defaultText;
+            document.title = "Encuentra tu propiedad ideal en Casa Crédito";
+            updateMetaDescription("Explora nuestra amplia selección de propiedades en venta y renta. Encuentra la casa, departamento o terreno perfecto para ti en Casa Crédito.");
             return;
         }
 
-        // Dividir los términos de búsqueda
-        const termsURL = cleanedURL.split(' ');
-
-        // Listas para verificar los términos
-        const propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas', 'suites', 'edificios', 'hoteles', 'bodegas', 'casas comerciales', 'locales comerciales', 'naves industriales'];
+        // Listas de términos clave
+        const propertyTypes = [
+            'casas comerciales', 'locales comerciales', 'naves industriales', // Términos compuestos primero
+            'casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas',
+            'suites', 'edificios', 'hoteles', 'bodegas'
+        ];
         const operationTypes = ['venta', 'renta', 'alquiler'];
 
-        // Variables para identificar los términos en la URL
-        let propertyType = termsURL.find(term => propertyTypes.includes(term));
-        let operationType = termsURL.find(term => operationTypes.includes(term));
-        //let location = termsURL.find(term => locations.includes(term));
+        // Encontrar el tipo de propiedad (priorizando términos compuestos)
+        let propertyType = propertyTypes.find(type => cleanedURL.includes(type));
 
-        // Identificar el término que no está en propertyTypes, operationTypes ni sea "en"
-        let location = termsURL.find(term => 
-            !propertyTypes.includes(term) && 
-            !operationTypes.includes(term) && 
-            term.toLowerCase() !== 'en' // Excluye el término "en"
-        );
+        // Encontrar el tipo de operación
+        let operationType = operationTypes.find(type => cleanedURL.includes(type));
 
-        // Resultado
-        console.log({ propertyType, operationType, location });
-
-        // Generar el texto dinámico
-        let dynamicText = "";
-        
-        let operationTypeDymanic = "";
-        let propertyTypeDymanic = "";
-
-        let dynamicHeadingText = "";
-
-        console.log('Antes de contenido dinamico');
-
-        if (propertyType && operationType && location) {
-            // Caso: Tipo de propiedad, operación y ubicación
-            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
-
-            propertyTypeDymanic = pluralToSingular(propertyType);
-
-            operationType == "venta" ? operationTypeDymanic = "comprar" : operationTypeDymanic = "rentar";
-
-            dynamicHeadingText = `¿Por qué ${operationTypeDymanic} una ${propertyTypeDymanic} en ${capitalize(location)}`;
-            
-            console.log('Entra aqui');
-
-            console.log(dynamicHeadingText);
-
-        } else if (propertyType && operationType) {
-            // Caso: Tipo de propiedad y operación
-            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} - Casa Crédito`;
-        } else if (operationType && location) {
-            // Caso: Operación y ubicación
-            dynamicText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)} - Casa Crédito`;
-        } else if (propertyType && location) {
-            // Caso: Tipo de propiedad y ubicación
-            dynamicText = `${capitalize(propertyType)} ubicadas en ${capitalize(location)} - Casa Crédito`;
-        } else if (propertyType) {
-            // Caso: Solo tipo de propiedad
-            dynamicText = `${capitalize(propertyType)} disponibles en Casa Crédito`;
-        } else if (operationType) {
-            // Caso: Solo operación
-            dynamicText = `Propiedades en ${capitalize(operationType)} en Casa Crédito`;
-        } else if (location) {
-            // Caso: Solo ubicación
-            dynamicText = `Propiedades ubicadas en ${capitalize(location)} - Casa Crédito`;
+        // Identificar la ubicación
+        let location = "";
+        if (propertyType) {
+            location = cleanedURL.replace(propertyType, '').trim();
+        }
+        if (operationType) {
+            location = location.replace(operationType, '').trim();
         }
 
-        // Asignar el texto generado al H1 y al título
+        // Eliminar "en" como palabra separada
+        location = location.split(' ').filter(word => word.toLowerCase() !== 'en').join(' ').trim();
+
+        // Generar los textos dinámicos
+        let dynamicText = "";
+        let titleText = "";
+        let metaDescriptionText = "";
+
+        if (propertyType && operationType && location) {
+            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
+            titleText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)} | Encuentra tu Hogar`;
+            metaDescriptionText = `Encuentra las mejores ${propertyType} en ${operationType} en ${location}. Descubre propiedades exclusivas y encuentra tu hogar ideal con Casa Crédito.`;
+        } else if (propertyType && operationType) {
+            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)}`;
+            titleText = `${capitalize(propertyType)} en ${capitalize(operationType)} | Tu Próxima Inversión`;
+            metaDescriptionText = `Explora nuestra selección de ${propertyType} en ${operationType}. Encuentra la propiedad perfecta para ti con Casa Crédito y haz tu mejor inversión.`;
+        } else if (operationType && location) {
+            dynamicText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)}`;
+            titleText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)} | Oportunidades Únicas`;
+            metaDescriptionText = `Descubre propiedades únicas en ${capitalize(operationType)} en ${capitalize(location)}. Encuentra la opción ideal para ti y tu familia con Casa Crédito.`;
+        } else if (propertyType && location) {
+            dynamicText = `${capitalize(propertyType)} en ${capitalize(location)}`;
+            titleText = `${capitalize(propertyType)} en ${capitalize(location)} | Tu Nuevo Comienzo`;
+            metaDescriptionText = `Encuentra ${propertyType} en ubicaciones privilegiadas en ${location}. Descubre propiedades exclusivas y comienza una nueva etapa con Casa Crédito.`;
+        } else if (propertyType) {
+            dynamicText = `${capitalize(propertyType)} disponibles`;
+            titleText = `${capitalize(propertyType)} | Encuentra tu Espacio Ideal`;
+            metaDescriptionText = `Explora nuestra amplia gama de ${propertyType} disponibles. Encuentra la propiedad perfecta para ti y tu familia con Casa Crédito.`;
+        } else if (operationType) {
+            dynamicText = `Propiedades en ${capitalize(operationType)}`;
+            titleText = `Propiedades en ${capitalize(operationType)} | Tu Mejor Opción`;
+            metaDescriptionText = `Descubre propiedades en ${capitalize(operationType)} y encuentra la mejor opción para ti. Explora nuestras ofertas exclusivas con Casa Crédito.`;
+        } else if (location) {
+            dynamicText = `Propiedades en ${capitalize(location)}`;
+            titleText = `Propiedades en ${capitalize(location)} | Encuentra tu Lugar`;
+            metaDescriptionText = `Descubre propiedades exclusivas en ${capitalize(location)}. Encuentra el lugar perfecto para ti y tu familia con Casa Crédito.`;
+        }
+
+        // Aplicar los valores al DOM
         h1Element.textContent = dynamicText;
-        document.title = dynamicText;
+        document.title = titleText.substring(0, 60);
+        updateMetaDescription(metaDescriptionText.substring(0, 155));
+    }
+
+    // Función auxiliar para actualizar la meta descripción si existe
+    function updateMetaDescription(content) {
+        const metaDescription = document.querySelector('meta[name="description"]');
+        const dynamicTextElement = document.querySelector("#dynamic-text");
+
+        if (metaDescription) {
+            metaDescription.setAttribute("content", content);
+        }
+
+        if (dynamicTextElement) {
+            dynamicTextElement.textContent = content;
+        }
+    }
+
+    // Función auxiliar para capitalizar palabras
+    function capitalize(str) {
+        return str.replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    function capitalizeFirstLetter(string) {
+        if (!string) {
+            return ""; // Devuelve una cadena vacía si el string es nulo o indefinido
+        }
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
     function pluralToSingular(word) {
@@ -359,9 +478,9 @@
     }
 
     // Función para capitalizar la primera letra de cada palabra
-    function capitalize(text) {
-        return text.replace(/\b\w/g, char => char.toUpperCase());
-    }
+    // function capitalize(text) {
+    //     return text.replace(/\b\w/g, char => char.toUpperCase());
+    // }
 
     function loadMoreProperties() {
 
@@ -418,6 +537,8 @@
                         // Construcción manual del HTML
                         const images = propertie.images ? propertie.images.split('|') : [];
                         const firstImage = images.length > 0 ? images[0] : null;
+                        let title = capitalizeFirstLetter(propertie.listing_title);
+                        let description = capitalizeFirstLetter(propertie.meta_description);
 
                         const propertyHTML = `
                             <section class="row my-4 border rounded shadow-sm">
@@ -430,9 +551,9 @@
                                     <div class="info-cards">
                                         <h2>${propertie.address || ''}, ${propertie.city || ''}, ${propertie.state || ''}</h2>
                                         <a href="/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
-                                            <h3>${propertie.listing_title || ''}</h3>
+                                            <h3>${title || ''}</h3>
                                         </a>
-                                        <p class="property_description">${propertie.meta_description || ''}</p>
+                                        <h4 class="property_description">${description || ''}</h4>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-7 d-flex justify-content-between align-items-center h-100 margin-bottom-icons">

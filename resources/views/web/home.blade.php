@@ -714,35 +714,48 @@
         });
 
         
-        function searchProperties(){
-
-            // Obtener los valores
+        function searchProperties() {
+            // Obtener los valores y limpiar espacios
             const propertyType = document.getElementById('property_type')?.value.trim().toLowerCase() || '';
             const selectedOperation = document.getElementById('operation');
             const location = document.getElementById('location')?.value.trim().toLowerCase() || '';
 
             let operationType = selectedOperation ? selectedOperation.value.trim().toLowerCase() : '';
 
+            // Reemplazar espacios por guiones en tipo de propiedad y ubicación
+            let formattedPropertyType = propertyType.replace(/\s+/g, '-');
+            let formattedLocation = location.replace(/\s+/g, '-');
+
             // Construir la URL base
             let url = '/propiedades';
 
             // Concatenar dependiendo de los valores seleccionados
-            if (propertyType) {
-                url += `/${propertyType}`; // Añadir el tipo de propiedad
+            if (formattedPropertyType) {
+                url += `/${formattedPropertyType}`;
             }
 
             if (operationType) {
-                url += propertyType ? `-en-${operationType}` : `/${operationType}`; // Añadir operación con el formato correcto
+                // Verificar si ya se agregó "-en-" antes de agregar la operación
+                if (!url.includes(`-en-${operationType}`)) {
+                    url += formattedPropertyType ? `-en-${operationType}` : `/${operationType}`;
+                }
             }
 
-            if (location) {
-                url += (propertyType || operationType) ? `-en-${location}` : `/${location}`; // Añadir ubicación al final
+            if (formattedLocation) {
+                // Verificar si ya se agregó "-en-" antes de agregar la ubicación
+                if (!url.includes(`-en-${formattedLocation}`)) {
+                    url += (formattedPropertyType || operationType) ? `-en-${formattedLocation}` : `/${formattedLocation}`;
+                }
             }
 
-            // Redireccionar a la página de búsqueda
-            window.location.href = url;
+            // Limpiar cualquier repetición extra de "-en-"
+            url = url.replace(/-en-+/g, '-en-'); // Evita múltiples repeticiones
+            
+            window.location.href = encodeURI(url);
+        }
 
-        };
+
+
 
     </script>
 @endsection
