@@ -9,41 +9,105 @@ use Illuminate\Support\Facades\Http;
 class PropertieController extends Controller
 {
 
-    public function showPropertiesPage(Request $request, $search = null){
+    // public function showPropertiesPage(Request $request, $search = null){
+
+    //     $apiUrl = env('API_BASE_URL');
+
+    //     $initialPage = $request->get('page', 1); // Obtener la página inicial (por defecto, 1)
+
+    //     // Procesar $search para eliminar "-en-" y separar términos
+    //     $cleanedSearch = $search ? str_replace('-en-', '-', $search) : null;
+    //     $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
+
+    //     // Detectar tipo de propiedad, operación y ubicación
+    //     $propertyType = null;
+    //     $operationType = null;
+    //     $location = null;
+
+    //     // Listas de mapeo para detectar los términos
+    //     $propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'casas comerciales', 'locales comerciales'];
+    //     $operationTypes = ['venta', 'renta', 'alquiler'];
+
+    //     // Validar tipos de propiedad de dos palabras antes de procesar los términos
+    //     $twoWordProperties = ['casas comerciales', 'locales comerciales'];
+
+    //     // Comprobar si el search contiene algún tipo de propiedad de dos palabras
+    //     foreach ($twoWordProperties as $twoWordProperty) {
+    //         if (str_contains($cleanedSearch, str_replace(' ', '-', $twoWordProperty))) {
+    //             $propertyType = $twoWordProperty;
+    //             // Eliminar el tipo de propiedad detectado del search para procesar el resto
+    //             $cleanedSearch = str_replace(str_replace(' ', '-', $twoWordProperty), '', $cleanedSearch);
+    //             break;
+    //         }
+    //     }
+
+    //     // Procesar el resto de los términos
+    //     $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
+
+    //     foreach ($searchTerms as $term) {
+    //         $lowerTerm = strtolower($term);
+    //         if (!$propertyType && in_array($lowerTerm, $propertyTypes)) {
+    //             $propertyType = $lowerTerm;
+    //         } elseif (in_array($lowerTerm, $operationTypes)) {
+    //             $operationType = $lowerTerm;
+    //         } elseif (!empty($lowerTerm)) {
+    //             $location = $location ? $location . ' ' . $term : $term;
+    //         }
+    //     }
+
+    //     // Preparar los parámetros para la API
+    //     $queryParams = [
+    //         'property_type' => $propertyType,
+    //         'listing_title' => $operationType,
+    //         'location_code' => $location,
+    //         'page' => $initialPage,
+    //     ];
+
+    //     $response = Http::withHeaders([
+    //         'api-key' => 'Cc2022*@Notify'
+    //     ])->get($apiUrl . '/list-activated-properties', $queryParams);
+
+    //     // Comprobar si la solicitud fue exitosa
+    //     if ($response->successful()) {
+    //         // Obtener los datos de la respuesta
+    //         $properties = $response->json();
+
+    //         // Pasar los datos a la vista
+    //         return view('web.properties.index', compact('properties'));
+    //     } else {
+    //         // Manejar errores, como una clave API incorrecta
+    //         abort(401, 'Unauthorized');
+    //     }
+
+    // }
+
+    public function showPropertiesPage(Request $request, $search = null) {
 
         $apiUrl = env('API_BASE_URL');
-
-        $initialPage = $request->get('page', 1); // Obtener la página inicial (por defecto, 1)
-
-        // Procesar $search para eliminar "-en-" y separar términos
+        $initialPage = $request->get('page', 1);
+    
         $cleanedSearch = $search ? str_replace('-en-', '-', $search) : null;
         $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
-
-        // Detectar tipo de propiedad, operación y ubicación
+    
         $propertyType = null;
         $operationType = null;
         $location = null;
-
-        // Listas de mapeo para detectar los términos
-        $propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'casas comerciales', 'locales comerciales'];
+    
+        $propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas'];
         $operationTypes = ['venta', 'renta', 'alquiler'];
-
-        // Validar tipos de propiedad de dos palabras antes de procesar los términos
+    
         $twoWordProperties = ['casas comerciales', 'locales comerciales'];
-
-        // Comprobar si el search contiene algún tipo de propiedad de dos palabras
+    
         foreach ($twoWordProperties as $twoWordProperty) {
             if (str_contains($cleanedSearch, str_replace(' ', '-', $twoWordProperty))) {
                 $propertyType = $twoWordProperty;
-                // Eliminar el tipo de propiedad detectado del search para procesar el resto
                 $cleanedSearch = str_replace(str_replace(' ', '-', $twoWordProperty), '', $cleanedSearch);
                 break;
             }
         }
-
-        // Procesar el resto de los términos
+    
         $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
-
+    
         foreach ($searchTerms as $term) {
             $lowerTerm = strtolower($term);
             if (!$propertyType && in_array($lowerTerm, $propertyTypes)) {
@@ -54,31 +118,26 @@ class PropertieController extends Controller
                 $location = $location ? $location . ' ' . $term : $term;
             }
         }
-
-        // Preparar los parámetros para la API
+    
         $queryParams = [
             'property_type' => $propertyType,
-            'listing_title' => $operationType,
+            'listing_title' => $operationType, // Cambiado a listingtypestatus
             'location_code' => $location,
             'page' => $initialPage,
         ];
-
+    
         $response = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
         ])->get($apiUrl . '/list-activated-properties', $queryParams);
+    
+        //return $response->json();
 
-        // Comprobar si la solicitud fue exitosa
         if ($response->successful()) {
-            // Obtener los datos de la respuesta
             $properties = $response->json();
-
-            // Pasar los datos a la vista
             return view('web.properties.index', compact('properties'));
         } else {
-            // Manejar errores, como una clave API incorrecta
             abort(401, 'Unauthorized');
         }
-
     }
 
     public function getPropertieBySlug($slug){

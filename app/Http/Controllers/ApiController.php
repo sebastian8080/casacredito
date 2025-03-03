@@ -130,6 +130,23 @@ class ApiController extends Controller
         // if ($request->has('listing_title') && $request->listing_title != null) {
         //     $query->where('listing_title', 'LIKE', '%' . $request->input('listing_title') . '%');
         // }
+        $operation = "";
+        switch ($request->operation) {
+            case 'venta':
+                $operation = "en-venta";
+                break;
+            case 'renta':
+            case 'alquiler':
+                $operation = "alquilar";
+                break;
+            default:
+                # code...
+                break;
+        }
+
+        if ($operation != "") {
+            $query->where('listingtypestatus', 'LIKE', '%'.$operation.'%');
+        }
 
         if ($request->has('product_code') && $request->product_code != null) {
             $query->where('product_code', $request->input('product_code'));
