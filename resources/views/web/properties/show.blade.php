@@ -293,8 +293,8 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <a style="text-decoration: none"
-                                    href="tel:+593964034035"
-                                    class="mt-1 ml-2 text-dark">096-403-4035</a>
+                                    href="tel:+593967867998"
+                                    class="mt-1 ml-2 text-dark">096-786-7998</a>
                             </div>
 
                             <div class="d-flex gap-3 ms-4 mt-2">
