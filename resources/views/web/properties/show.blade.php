@@ -303,8 +303,8 @@
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                                 <a style="text-decoration: none"
-                                    href="https://api.whatsapp.com/send?phone=593967867998&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
-                                    class="mt-1 ml-2 text-dark">096-786-7998</a>
+                                    href="https://api.whatsapp.com/send?phone=593983845102&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
+                                    class="mt-1 ml-2 text-dark">098-384-5102</a>
                             </div>
                             <div class="d-flex gap-3 ms-4 mt-2">
                                 <div class="rounded-circle d-flex justify-content-center align-items-center"

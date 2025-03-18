@@ -148,7 +148,7 @@
                                     style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">
                                     Número de teléfono</p>
                                 <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a
-                                        class="links-style" href="tel:+593983849073">098-384-9073</a>
+                                        class="links-style" href="tel:+593964034035">096-403-4035</a>
                             </div>
                         </div>
                     </div>
