@@ -106,4 +106,8 @@ class Property extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
+    public function listingType(){
+        return $this->belongsTo(ListingType::class, 'listingtype');
+    }
+
 }
