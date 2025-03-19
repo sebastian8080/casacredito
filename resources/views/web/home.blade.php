@@ -317,7 +317,7 @@
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
             @foreach ($properties as $property)
                 <div class="col">
-                    <div class="card h-100 shadow-sm"> <img src="https://grupohousing.com/uploads/listing/600/{{explode('|', $property->images)[0]}}" class="" alt="...">
+                    <div class="card h-100 shadow-sm"> <img src="https://grupohousing.com/uploads/listing/600/{{explode('|', $property->images)[0]}}" class="" alt="{{ $property->listing_title }}">
                         <div class="card-body">
                             <div class="mb-3">
                                 <span class="float-start badge rounded-pill bg-danger">{{ $property->listingType->type_title }}</span>
@@ -325,7 +325,7 @@
                             </div>
                             <div>
                                 <br>
-                                <h3>{{ strpos($property->address, ',') !== false ? $property->address : $property->address, $property->city, $property->state }}</h3>
+                                <h3>{{ strpos($property->address, ',') !== false ? $property->address : $property->sector . ", " . $property->city . ", " . $property->state }}</h3>
                                 <h4 class="card-title">{{ ucfirst(strtolower($property->listing_title)) }}</h4>
                                 <h5 class="m-0">&dollar;{{ number_format($property->property_price)}}</h5> 
                             </div>
