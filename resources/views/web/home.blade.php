@@ -16,6 +16,8 @@
 
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
 
+    <link rel="stylesheet" href="{{ asset('css/properties/cards-properties.css') }}">
+
     <link rel="canonical" href="{{ Request::url() }}">
 
     <style>
@@ -307,10 +309,44 @@
         </div>
     </section>
 
+    <div class="container-fluid bg-trasparent p-3 mt-4">
+        <div class="text-center mb-5">
+            <h2 class="our-properties">Nuestras <span>Propiedades</span></h2>
+            <p class="text-muted">Descubre nuestro catálogo de propiedades en venta o renta</p>
+        </div>
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+            @foreach ($properties as $property)
+                <div class="col">
+                    <div class="card h-100 shadow-sm"> <img src="https://grupohousing.com/uploads/listing/600/{{explode('|', $property->images)[0]}}" class="" alt="...">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <span class="float-start badge rounded-pill bg-danger">{{ $property->listingType->type_title }}</span>
+                                <span class="float-start badge rounded-pill bg-danger">{{ ucwords(str_replace('-', ' ', $property->listingtypestatus)) }}</span>
+                            </div>
+                            <div>
+                                <br>
+                                <h3>{{ strpos($property->address, ',') !== false ? $property->address : $property->address, $property->city, $property->state }}</h3>
+                                <h4 class="card-title">{{ ucfirst(strtolower($property->listing_title)) }}</h4>
+                                <h5 class="m-0">&dollar;{{ number_format($property->property_price)}}</h5> 
+                            </div>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="text-center"> 
+                                <a href="{{ route('web.property.by.slug', $property->slug)}}" class="btn btn-outline-danger">Ver propiedad</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="row justify-content-center mt-5">
+            <a class="btn btn-danger w-auto" href="/propiedades">Ver todas las propiedades</a>
+        </div>
+    </div>
+
     <section class="container">
         <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span
-                style="color: gray">Encuentra el crédito ideal</span> <br> <span style="color: red">para tus
-                necesidades</span></h2>
+                style="color: gray">Encuentra el crédito ideal</span> <span style="color: red"> para tus necesidades</span></h2>
         <section class="row">
             <article class="col-sm-4">
                 {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}

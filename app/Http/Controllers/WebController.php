@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Blog\Article;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
@@ -15,7 +16,9 @@ class WebController extends Controller
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
 
-        return view('web.home', compact('states', 'mobile'));
+        $properties = Property::where('status', 1)->with('listingType')->take(12)->get();
+
+        return view('web.home', compact('properties', 'states', 'mobile'));
     }
 
     public function creditos(){
