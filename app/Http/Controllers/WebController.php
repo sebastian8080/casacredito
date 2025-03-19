@@ -16,7 +16,7 @@ class WebController extends Controller
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
 
-        $properties = Property::where('status', 1)->with('listingType')->take(12)->get();
+        $properties = Property::where('status', 1)->with('listingType')->orderBy('id', 'desc')->take(12)->get();
 
         return view('web.home', compact('properties', 'states', 'mobile'));
     }
