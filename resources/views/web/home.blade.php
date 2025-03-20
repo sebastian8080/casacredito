@@ -1,17 +1,17 @@
 @extends('layouts.web')
 
 @section('head')
-    <title>Accede a tu Crédito en Ecuador con Casa Crédito</title>
-    <meta name="description"            content="Descubre cómo obtener un Crédito en Ecuador siendo Migrante Ecuatoriano en Estados Unidos. ¡Haz realidad tus proyectos financieros con nuestra ayuda experta!">
-    <meta name="keywords"               content="crédito en ecuador, creditos en ecuador, casa credito, obtener credito en ecuador">
+    <title>Inmobiliaria en Cuenca: Encuentra tu hogar ideal</title>
+    <meta name="description"            content="Descubre las mejores propiedades en Cuenca en nuestra inmobiliaria. Propiedades en venta o alquiler. ¡Haz realidad tu sueño hoy mismo!">
+    <meta name="keywords"               content="inmobiliaria en cuenca, inmobiliarias en cuenca, inmobiliarias cerca de mi">
     <meta name="author"                 content="Casa Crédito">
     <meta name="robots"                 content="index, follow, snippet">
     <meta name="language"               content="ES">
     
-    <meta property="og:title"           content="Accede a tu Crédito en Ecuador con Casa Crédito">
-    <meta property="og:description"     content="Descubre cómo obtener un Crédito en Ecuador siendo Migrante Ecuatoriano en Estados Unidos. ¡Haz realidad tus proyectos financieros con nuestra ayuda experta!">
+    <meta property="og:title"           content="Inmobiliaria en Cuenca: Encuentra tu hogar ideal">
+    <meta property="og:description"     content="Descubre las mejores propiedades en Cuenca en nuestra inmobiliaria. Propiedades en venta o alquiler. ¡Haz realidad tu sueño hoy mismo!">
     <meta property="og:image"           content="{{ asset('img/bannerhome1.jpg') }}">
-    <meta property="og:url"             content="http://www.casacredito.com">
+    <meta property="og:url"             content="{{ Request::url() }}">
     <meta property="og:type"            content="website">
 
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
