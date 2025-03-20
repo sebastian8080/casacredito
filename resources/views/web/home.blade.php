@@ -18,9 +18,54 @@
 
     <link rel="stylesheet" href="{{ asset('css/properties/cards-properties.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.min.css?v=1') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
 
     <link rel="canonical" href="{{ Request::url() }}">
 
+    <style>
+        .driver-popover.driverjs-theme {
+                background-color: #c61617;
+                color: #000;
+            }
+
+            .driver-popover.driverjs-theme .driver-popover-title {
+                font-size: 25px;
+            }
+
+            .driver-popover.driverjs-theme .driver-popover-description{
+                font-size: 16px;
+            }
+
+            .driver-popover.driverjs-theme .driver-popover-title,
+            .driver-popover.driverjs-theme .driver-popover-description,
+            .driver-popover.driverjs-theme .driver-popover-progress-text {
+                color: #fff;
+            }
+
+            .driver-popover.driverjs-theme button {
+                background-color: red;
+                color: #ffffff;
+                border: 2px solid red;
+                text-shadow: none;
+                font-size: 14px;
+                width: max-content !important;
+                border-radius: 6px;
+            }
+
+            .driver-popover.driverjs-theme button:hover {
+                background-color: #000;
+                color: #ffffff;
+            }
+
+            .driver-popover.driverjs-theme .driver-popover-navigation-btns {
+                /* justify-content: space-between;
+                gap: 3px; */
+            }
+
+            .driver-popover.driverjs-theme .driver-popover-close-btn {
+            color: #9b9b9b;
+            }
+    </style>
 @endsection
 
 @section('content')
@@ -106,17 +151,17 @@
             <div class="video-overlay"></div>
             <div class="min-height-banner text-banner">
                 <div class="animacion-izquierda-derecha" style="margin-bottom: 20px;">
-                    <h1 class="banner-title">
+                    <h1 class="banner-title" id="titulo">
                         <span class="f-size-min-2">Inmobiliaria en</span>
                         <span class="f-size-min-3">Cuenca</span>
                     </h1>
-                    <p class="banner-text">Asesoría inmobiliaria profesional para encontrar la propiedad ideal</p>
+                    <p class="banner-text" id="descripcion">Asesoría inmobiliaria profesional para encontrar la propiedad ideal</p>
                 </div>
                 <section class="container form-search">
                     <div class="py-4 border shadow-sm bg-white">
                         <p class="search-title m-0">Buscar por:</p>
                         <div class="d-flex align-items-center justify-content-center padding-inputs" style="gap: 10px">
-                            <div>
+                            <div id="first_filter">
                                 <label class="text-muted" for="property_type">Tipo de propiedad</label>
                                 <select name="property_type" id="property_type" class="form-select">
                                     <option value="">Seleccione</option>
@@ -135,7 +180,7 @@
                                     <option value="naves industriales">Naves Industriales</option>
                                 </select>
                             </div>
-                            <div>
+                            <div id="second_filter">
                                 <label for="operation" class="text-muted">Operación</label>
                                 <select name="operation" id="operation" class="form-select">
                                     <option value="">Seleccione</option>
@@ -143,11 +188,11 @@
                                     <option value="renta">Renta</option>
                                 </select>
                             </div>
-                            <div>
+                            <div id="third_filter">
                                 <label for="location" class="text-muted">Ubicación</label>
                                 <input type="text" name="location" id="location" class="form-control" placeholder="Ingrese una ubicación">
                             </div>
-                            <div>
+                            <div id="btn-search">
                                 <br>
                                 <button class="btn btn-danger" onclick="searchProperties()">Buscar</button>
                             </div>
@@ -577,6 +622,8 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+    <script src="{{ asset('js/driver.min.js') }}"></script>
     <script>
         const selState = document.getElementById('selStateForm');
         const selCities = document.getElementById('selCityForm');
