@@ -50,7 +50,7 @@
 @endsection
 
 @section('content')
-    <section class="container">
+    <section class="container" style="padding: 100px 0 0 0">
         <h1 id="dynamic-h1" class="mt-4"></h1>
         <p id="dynamic-text"></p>
 
