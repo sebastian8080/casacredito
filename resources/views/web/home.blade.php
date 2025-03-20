@@ -17,186 +17,14 @@
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
 
     <link rel="stylesheet" href="{{ asset('css/properties/cards-properties.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.min.css') }}">
 
     <link rel="canonical" href="{{ Request::url() }}">
 
-    <style>
-        body,
-        html {
-            font-family: 'Montserrat' !important;
-        }
-
-        @media screen and (max-width: 1200px) {
-            /* .min-width{width: 250px !important} */
-        }
-
-        @media screen and (max-width: 580px) {
-            .min-height-banner {
-                height: 550px !important;
-            }
-
-            .parent-banner {
-                height: 580px !important;
-            }
-
-            .f-size-min-2 {
-                font-size: 1.4rem !important;
-            }
-
-            .f-size-min-3 {
-                font-size: 3.5rem !important;
-            }
-
-            .left-10px {
-                left: 25px !important;
-                top: 60px !important;
-            }
-
-            .margin-left-0 {
-                margin-left: 0px !important;
-            }
-
-            .w-auto-mobile {
-                width: auto !important;
-            }
-
-            .d-none-mobile {
-                display: none !important;
-            }
-
-            .margin-top-mobile {
-                margin-top: 5px !important;
-            }
-
-            .text-banner {
-                display: block !important;
-            }
-
-            .carousel-indicators {
-                text-align: center !important;
-                margin-bottom: -50px !important;
-            }
-
-            .carousel-indicators button {
-                background-color: rgb(0, 0, 0) !important;
-            }
-
-            .min-height-cards {
-                height: 250px !important;
-            }
-
-            .left-cards {
-                left: 20px !important;
-            }
-
-            .right-cards {
-                right: 20px !important;
-            }
-
-            .font-size-cards {
-                font-size: 130px !important;
-            }
-
-            .padding-x-cards-footer {
-                padding: 10px 25px 10px 25px !important;
-            }
-
-            .card-cuota-mensual {
-                width: 100% !important;
-                margin-left: 0px !important;
-            }
-
-            .icons-creditos {
-                display: flex !important;
-                align-items: center !important;
-            }
-            .form-search{
-                width: 99vw !important;
-            }
-            .form-search div{
-                display: block !important;
-                padding: 2% 3% !important;
-            }
-        }
-
-        .margin-top-mobile {
-            margin-top: 5%;
-        }
-
-        .carousel-indicators {
-            display: block !important;
-            margin-left: 12% !important;
-            padding-bottom: 1% !important;
-        }
-
-        .carousel-indicators button {
-            width: 10px !important;
-            height: 10px !important;
-            border: none !important;
-            background-color: black;
-        }
-
-        summary {
-            position: relative;
-        }
-
-        summary::marker {
-            content: none;
-        }
-
-        summary::before,
-        summary::after {
-            content: '';
-        }
-
-        summary::before,
-        summary::after {
-            width: .65em;
-            height: 0;
-            border-bottom: 2px solid;
-            position: absolute;
-            top: calc(50% - 1px);
-            right: 0;
-            transform: translateY(-50%);
-        }
-
-        summary::after {
-            transform: rotate(90deg);
-            transform-origin: 50% 50%;
-        }
-
-        [open] summary::after {
-            transform: rotate(0deg);
-        }
-
-        .card-creditos:hover {
-            background-color: #c61617;
-            color: #ffffff;
-        }
-
-        .card-creditos:hover>div>div>div>div>p>a {
-            color: #ffffff !important;
-        }
-
-        .card-creditos:hover>div>div>div>img {
-            filter: brightness(0) invert(1) !important;
-        }
-        @keyframes moverDeIzquierdaADerecha {
-            from {
-                margin-left: -700px; /* Margen inicial negativo */
-            }
-            to {
-                margin-left: 0; /* Margen final (posición original) */
-            }
-        }
-        .animacion-izquierda-derecha {
-            animation: moverDeIzquierdaADerecha 1s forwards;
-        }
-    </style>
 @endsection
 
 @section('content')
-    <section style="height: 750px;" class="min-height-banner parent-banner">
+    {{-- <section style="height: 750px;" class="min-height-banner parent-banner">
         <div style="height: 750px;" id="carouselExampleFade" class="carousel slide carousel-fade min-height-banner"
             data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -267,47 +95,69 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="container form-search" style="width: 750px;">
-        <div class="d-flex align-items-center justify-content-center py-5 border px-5 shadow-sm bg-white" style="margin-top: -75px; position: relative; z-index: 10;">
-            <div>
-                <label class="text-muted" for="property_type" style="font-size: x-small">Tipo de propiedad</label>
-                <select name="property_type" id="property_type" class="form-select" style="border-radius: 5px 0px 0px 5px">
-                    <option value="">Seleccione</option>
-                    <option value="casas">Casas</option>
-                    <option value="departamentos">Departamentos</option>
-                    <option value="casas comerciales">Casas Comerciales</option>
-                    <option value="terrenos">Terrenos</option>
-                    <option value="quintas">Quintas</option>
-                    <option value="haciendas">Haciendas</option>
-                    <option value="locales comerciales">Locales Comerciales</option>
-                    <option value="oficinas">Oficinas</option>
-                    <option value="suites">Suites</option>
-                    <option value="edificios">Edificio</option>
-                    <option value="hoteles">Hoteles</option>
-                    <option value="bodegas">Bodegas</option>
-                    <option value="naves industriales">Naves Industriales</option>
-                </select>
-            </div>
-            <div>
-                <label for="operation" class="text-muted" style="font-size: x-small">Operación</label>
-                <select name="operation" id="operation" class="form-select" style="border-radius: 0px">
-                    <option value="">Seleccione</option>
-                    <option value="venta">Venta</option>
-                    <option value="renta">Renta</option>
-                </select>
-            </div>
-            <div>
-                <label for="location" class="text-muted" style="font-size: x-small">Ubicación</label>
-                <input type="text" name="location" id="location" class="form-control" placeholder="Ingrese una ubicación" style="border-radius: 0px">
-            </div>
-            <div>
-                <br>
-                <button class="btn btn-danger" onclick="searchProperties()" style="border-radius: 0px 5px 5px 0px">Buscar</button>
+    <section style="height: 90vh; position: relative;" class="min-height-banner parent-banner">
+        <div style="height: 90vh; position: relative;" class="min-height-banner">
+            <video class="video-background" autoplay muted loop>
+                <source src="{{ asset('videos/inmobiliaria-en-cuenca.mp4') }}" type="video/mp4">
+            </video>
+            <!-- Capa de oscurecimiento -->
+            <div class="video-overlay"></div>
+            <div class="min-height-banner text-banner">
+                <div class="animacion-izquierda-derecha" style="margin-bottom: 20px;">
+                    <h1 class="banner-title">
+                        <span class="f-size-min-2">Inmobiliaria en</span>
+                        <span class="f-size-min-3">Cuenca</span>
+                    </h1>
+                    <p class="banner-text">Asesoría inmobiliaria profesional para encontrar la propiedad ideal</p>
+                </div>
+                <section class="container form-search w-auto">
+                    <div class="py-4 border px-5 shadow-sm bg-white">
+                        <p class="search-title m-0">Buscar por:</p>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div>
+                                <label class="text-muted" for="property_type">Tipo de propiedad</label>
+                                <select name="property_type" id="property_type" class="form-select">
+                                    <option value="">Seleccione</option>
+                                    <option value="casas">Casas</option>
+                                    <option value="departamentos">Departamentos</option>
+                                    <option value="casas comerciales">Casas Comerciales</option>
+                                    <option value="terrenos">Terrenos</option>
+                                    <option value="quintas">Quintas</option>
+                                    <option value="haciendas">Haciendas</option>
+                                    <option value="locales comerciales">Locales Comerciales</option>
+                                    <option value="oficinas">Oficinas</option>
+                                    <option value="suites">Suites</option>
+                                    <option value="edificios">Edificio</option>
+                                    <option value="hoteles">Hoteles</option>
+                                    <option value="bodegas">Bodegas</option>
+                                    <option value="naves industriales">Naves Industriales</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="operation" class="text-muted">Operación</label>
+                                <select name="operation" id="operation" class="form-select">
+                                    <option value="">Seleccione</option>
+                                    <option value="venta">Venta</option>
+                                    <option value="renta">Renta</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="location" class="text-muted">Ubicación</label>
+                                <input type="text" name="location" id="location" class="form-control" placeholder="Ingrese una ubicación">
+                            </div>
+                            <div>
+                                <br>
+                                <button class="btn btn-danger" onclick="searchProperties()">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </section>
+    
 
     <div class="container-fluid bg-trasparent p-3 mt-4">
         <div class="text-center mb-5">
