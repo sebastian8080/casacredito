@@ -17,7 +17,7 @@
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
 
     <link rel="stylesheet" href="{{ asset('css/properties/cards-properties.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
     <link rel="canonical" href="{{ Request::url() }}">
 
@@ -98,7 +98,7 @@
     </section> --}}
 
     <section style="height: 90vh; position: relative;" class="min-height-banner parent-banner">
-        <div style="height: 90vh; position: relative;" class="min-height-banner">
+        <div style="height: 90vh; position: relative; display: flex; align-items: center; justify-content: center" class="min-height-banner">
             <video class="video-background" autoplay muted loop>
                 <source src="{{ asset('videos/inmobiliaria-en-cuenca.mp4') }}" type="video/mp4">
             </video>
@@ -112,10 +112,10 @@
                     </h1>
                     <p class="banner-text">Asesoría inmobiliaria profesional para encontrar la propiedad ideal</p>
                 </div>
-                <section class="container form-search w-auto">
-                    <div class="py-4 border px-5 shadow-sm bg-white">
+                <section class="container form-search">
+                    <div class="py-4 border shadow-sm bg-white">
                         <p class="search-title m-0">Buscar por:</p>
-                        <div class="d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center padding-inputs" style="gap: 10px">
                             <div>
                                 <label class="text-muted" for="property_type">Tipo de propiedad</label>
                                 <select name="property_type" id="property_type" class="form-select">
