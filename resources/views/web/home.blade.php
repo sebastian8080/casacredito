@@ -17,7 +17,7 @@
     <link rel="preload" as="image" href="{{ asset('img/bannermobile1.webp') }}">
 
     <link rel="stylesheet" href="{{ asset('css/properties/cards-properties.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.min.css?v=1') }}">
 
     <link rel="canonical" href="{{ Request::url() }}">
 
