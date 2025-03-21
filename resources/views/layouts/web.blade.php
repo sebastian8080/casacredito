@@ -193,7 +193,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/home-icon.png') }}" alt="">
                                 <div>
-                                    <span>Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 1:00 pm</span>
+                                    <span style="color: #676667">Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 1:00 pm</span>
                                 </div>
                             </article>
                         </section>
@@ -229,7 +229,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/home-icon.png') }}" alt="">
                                 <div>
-                                    <span>Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 4:00 pm</span>
+                                    <span style="color: #676667">Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 4:00 pm</span>
                                 </div>
                             </article>
                         </section>
@@ -264,7 +264,7 @@
                             <article class="d-flex align-items-center">
                                 <img width="30px" height="30px" src="{{ asset('img/home-icon.png') }}" alt="">
                                 <div>
-                                    <span>Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 4:00 pm</span>
+                                    <span style="color: #676667">Lunes a Viernes 9:00 am a 6:00 pm y Sábados 9:00 am a 4:00 pm</span>
                                 </div>
                             </article>
                         </section>
