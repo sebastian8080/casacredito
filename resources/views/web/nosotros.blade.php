@@ -157,21 +157,6 @@
         <section class="row mt-5 justify-content-center d-cards-desktop">
             <article class="col-sm-4" style="min-height: 600px">
                 <div class="position-relative">
-                    <img class="img-fluid" src="{{ asset('img/asesores/asesor4.jpg') }}" alt="">
-                    <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white w-75 pt-2"
-                        style="z-index: 1000 !important; bottom: -50px">
-                        <p class="my-0"
-                            style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                            Michelle Cordero</p>
-                        <hr class="my-0 py-0 mx-5">
-                        <p class="mt-2"
-                            style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
-                            Asesora de Créditos</p>
-                    </div>
-                </div>
-            </article>
-            <article class="col-sm-4" style="min-height: 600px">
-                <div class="position-relative">
                     <img class="img-fluid" src="{{ asset('img/asesores/asesor1.jpg') }}" alt="">
                     <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white w-75 pt-2"
                         style="z-index: 1000 !important; bottom: -50px">
@@ -213,19 +198,6 @@
                             <p class="my-0"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
                                 Melissa Mora</p>
-                            <hr class="my-0 py-0 mx-5">
-                            <p class="mt-2"
-                                style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
-                                Asesora de Créditos</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item position-relative" style="height: 470px">
-                        <img class="d-block w-100" src="{{ asset('img/asesores/asesor4.jpg') }}" alt="">
-                        <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1"
-                            style="bottom: 0px; width: 90%">
-                            <p class="my-0"
-                                style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                                Michelle Cordero</p>
                             <hr class="my-0 py-0 mx-5">
                             <p class="mt-2"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
