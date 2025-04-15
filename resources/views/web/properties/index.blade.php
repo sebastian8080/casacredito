@@ -361,17 +361,17 @@
     //     document.title = dynamicText;
     // }
 
-    function generateMetaData(url) {
+    function generateMetaData(url, total) {
         const h1Element = document.querySelector("#dynamic-h1");
         if (!h1Element) return;
 
         let cleanedURL = url.replace('/propiedades', '').replace(/-/g, ' ').replace(/^\//, '').trim();
-        const defaultText = "Propiedades en venta y renta en Casa Crédito";
+        const defaultText = `Contamos con ${total} propiedades en venta y renta`;
 
         if (cleanedURL === "") {
             h1Element.textContent = defaultText;
-            document.title = "Encuentra tu propiedad ideal en Casa Crédito";
-            updateMetaDescription("Explora nuestra amplia selección de propiedades en venta y renta. Encuentra la casa, departamento o terreno perfecto para ti en Casa Crédito.");
+            document.title = `Explora nuestras ${total} propiedades en venta y renta`;
+            updateMetaDescription(`Descubre nuestra amplia selección de ${total} propiedades en venta y renta. Encuentra la casa, departamento o terreno perfecto para ti con Casa Crédito.`);
             return;
         }
 
@@ -381,6 +381,7 @@
             'casas', 'departamentos', 'terrenos', 'quintas', 'haciendas', 'oficinas',
             'suites', 'edificios', 'hoteles', 'bodegas'
         ];
+
         const operationTypes = ['venta', 'renta', 'alquiler'];
 
         // Encontrar el tipo de propiedad (priorizando términos compuestos)
@@ -407,33 +408,33 @@
         let metaDescriptionText = "";
 
         if (propertyType && operationType && location) {
-            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
-            titleText = `${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)} | Encuentra tu Hogar`;
-            metaDescriptionText = `Encuentra las mejores ${propertyType} en ${operationType} en ${location}. Descubre propiedades exclusivas y encuentra tu hogar ideal con Casa Crédito.`;
+            dynamicText = `${total} ${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)}`;
+            titleText = `${total} ${capitalize(propertyType)} en ${capitalize(operationType)} en ${capitalize(location)} | Encuentra tu Hogar`;
+            metaDescriptionText = `Encuentra las mejores ${total} ${propertyType} en ${operationType} en ${location}. Descubre propiedades exclusivas y encuentra tu hogar ideal con Casa Crédito.`;
         } else if (propertyType && operationType) {
-            dynamicText = `${capitalize(propertyType)} en ${capitalize(operationType)}`;
-            titleText = `${capitalize(propertyType)} en ${capitalize(operationType)} | Tu Próxima Inversión`;
-            metaDescriptionText = `Explora nuestra selección de ${propertyType} en ${operationType}. Encuentra la propiedad perfecta para ti con Casa Crédito y haz tu mejor inversión.`;
+            dynamicText = `${total} ${capitalize(propertyType)} en ${capitalize(operationType)}`;
+            titleText = `${total} ${capitalize(propertyType)} en ${capitalize(operationType)} | Tu Próxima Inversión`;
+            metaDescriptionText = `Explora nuestra selección de ${total} ${propertyType} en ${operationType}. Encuentra la propiedad perfecta para ti con Casa Crédito y haz tu mejor inversión.`;
         } else if (operationType && location) {
-            dynamicText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)}`;
-            titleText = `Propiedades en ${capitalize(operationType)} en ${capitalize(location)} | Oportunidades Únicas`;
-            metaDescriptionText = `Descubre propiedades únicas en ${capitalize(operationType)} en ${capitalize(location)}. Encuentra la opción ideal para ti y tu familia con Casa Crédito.`;
+            dynamicText = `${total} propiedades en ${capitalize(operationType)} en ${capitalize(location)}`;
+            titleText = `${total} propiedades en ${capitalize(operationType)} en ${capitalize(location)} | Oportunidades Únicas`;
+            metaDescriptionText = `Descubre nuestras ${total} propiedades en ${capitalize(operationType)} en ${capitalize(location)}. Encuentra la opción ideal para ti y tu familia con Casa Crédito.`;
         } else if (propertyType && location) {
-            dynamicText = `${capitalize(propertyType)} en ${capitalize(location)}`;
-            titleText = `${capitalize(propertyType)} en ${capitalize(location)} | Tu Nuevo Comienzo`;
-            metaDescriptionText = `Encuentra ${propertyType} en ubicaciones privilegiadas en ${location}. Descubre propiedades exclusivas y comienza una nueva etapa con Casa Crédito.`;
+            dynamicText = `${total} ${capitalize(propertyType)} en ${capitalize(location)}`;
+            titleText = `${total} ${capitalize(propertyType)} en ${capitalize(location)} | Tu Nuevo Comienzo`;
+            metaDescriptionText = `Encuentra ${total} ${propertyType} en ubicaciones privilegiadas en ${location}. Descubre propiedades exclusivas y comienza una nueva etapa con Casa Crédito.`;
         } else if (propertyType) {
-            dynamicText = `${capitalize(propertyType)} disponibles`;
-            titleText = `${capitalize(propertyType)} | Encuentra tu Espacio Ideal`;
-            metaDescriptionText = `Explora nuestra amplia gama de ${propertyType} disponibles. Encuentra la propiedad perfecta para ti y tu familia con Casa Crédito.`;
+            dynamicText = `${total} ${capitalize(propertyType)} disponibles`;
+            titleText = `${total} ${capitalize(propertyType)} | Encuentra tu Espacio Ideal`;
+            metaDescriptionText = `Explora nuestra amplia gama de ${total} ${propertyType} disponibles. Encuentra la propiedad perfecta para ti y tu familia con Casa Crédito.`;
         } else if (operationType) {
-            dynamicText = `Propiedades en ${capitalize(operationType)}`;
-            titleText = `Propiedades en ${capitalize(operationType)} | Tu Mejor Opción`;
-            metaDescriptionText = `Descubre propiedades en ${capitalize(operationType)} y encuentra la mejor opción para ti. Explora nuestras ofertas exclusivas con Casa Crédito.`;
+            dynamicText = `${total} propiedades en ${capitalize(operationType)}`;
+            titleText = `${total} propiedades en ${capitalize(operationType)} | Tu Mejor Opción`;
+            metaDescriptionText = `Descubre nuestras ${total} propiedades en ${capitalize(operationType)} y encuentra la mejor opción para ti. Explora nuestras ofertas exclusivas con Casa Crédito.`;
         } else if (location) {
-            dynamicText = `Propiedades en ${capitalize(location)}`;
-            titleText = `Propiedades en ${capitalize(location)} | Encuentra tu Lugar`;
-            metaDescriptionText = `Descubre propiedades exclusivas en ${capitalize(location)}. Encuentra el lugar perfecto para ti y tu familia con Casa Crédito.`;
+            dynamicText = `${total} propiedades en ${capitalize(location)}`;
+            titleText = `${total} propiedades en ${capitalize(location)} | Encuentra tu Lugar`;
+            metaDescriptionText = `Descubre estas ${total} propiedades exclusivas en ${capitalize(location)}. Encuentra el lugar perfecto para ti y tu familia con Casa Crédito.`;
         }
 
         // Aplicar los valores al DOM
@@ -529,9 +530,8 @@
 
                     propertiesList.innerHTML = ""; //Limpiando html de las propiedades
 
-                    //aqui debo cambiar el h1 y el title
-
-                    generateMetaData(newUrl);
+                    //Cambiando h1 y title
+                    generateMetaData(newUrl, data.total);
 
                     data.data.forEach(propertie => {
                         // Construcción manual del HTML
