@@ -4,32 +4,39 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #c61617">
-                    <h3 class="modal-title" id="exampleModalLabel">Inicie su credito</h3>
+                    <h3 class="modal-title" id="exampleModalLabel">Solicita tu crédito hoy</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body bg-white">
-                    <p>Complete su información para tramitar su crédito</p>
+                    <p>Completa este formulario y te contactaremos en minutos</p>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
-                                    <input class="form-control rounded-0 border-0" type="text" placeholder="Nombre" name="name" required>
+                                    <label for="name" class="text-muted mb-1" style="font-size: small">Tu nombre</label>
+                                    <input class="form-control rounded-0 border-0" type="text" placeholder="Juan" name="name" id="name" required>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <input class="form-control rounded-0 border-0" type="text" placeholder="Apellido" name="lastname" required>
+                                    <label for="lastname" class="text-muted mb-1" style="font-size: small">Tu apellido</label>
+                                    <input class="form-control rounded-0 border-0" type="text" placeholder="Perez" name="lastname" id="lastname" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
-                                    <input class="form-control rounded-0 border-0" type="number" placeholder="Telefono/Celular" name="phone" required>
+                                    <label for="phone" class="text-muted mb-1">Tu teléfono</label>
+                                    <input class="form-control rounded-0 border-0" type="number" placeholder="Ej: +1 347-279-9864" name="phone" id="phone" required>
                                 </div>
                                 <div class="col-sm-6 mb-3">
-                                    <input class="form-control rounded-0 border-0" type="email" placeholder="Correo electrónico" name="email" required>
+                                    <label for="email" class="text-muted mb-1">Tu correo</label>
+                                    <input class="form-control rounded-0 border-0" type="email" placeholder="juanperez178@gmail.com" name="email" id="email" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="mb-1">
+                                <span class="text-muted">¿En donde necesitas el crédito?</span>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
                                     <select id="selStateForm" class="form-select text-muted rounded-0 border-0" name="state" required>
@@ -48,6 +55,9 @@
                         </div>
                         @if(Route::currentRouteName() != "web.avaluo")
                         <div class="form-group">
+                            <div class="mb-1">
+                                <span class="text-muted">Información del crédito</span>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-6 mb-3">
                                     <select class="form-select text-muted rounded-0 border-0" name="type" required>
@@ -87,14 +97,18 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <textarea  id="" rows="4" class="form-control rounded-0 border-0" placeholder="Mensaje" name="message" required></textarea>
+                                    <label for="message" class="mb-1 text-muted">Comentario</label>
+                                    <textarea  id="" rows="4" class="form-control rounded-0 border-0" placeholder="Necesito un crédito [tipo de crédito] para..." name="message" id="message" required></textarea>
                                 </div>
                             </div>
                         </div>
-                    
+
+                        <div class="mt-2">
+                            <span style="font-size: small; font-weight: 600">*Toda la información proporcionada la usaremos unicamente para brindarte la mejor asesoría adaptada a tus necesidades</span>
+                        </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center bg-white">
-                    <button type="submit" class="btn text-white rounded-pill" style="background-color: #c61617">Solicitar mi crédito</button>
+                    <button type="submit" class="btn text-white rounded-pill" style="background-color: #c61617">Solicitar información</button>
                 </div>
             </div>
         </form>

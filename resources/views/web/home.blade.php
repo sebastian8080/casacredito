@@ -204,7 +204,7 @@
     </section>
     
 
-    <div class="container-fluid bg-trasparent p-3 mt-4">
+    <div class="container-fluid bg-trasparent py-5 mt-4">
         <div class="text-center mb-5">
             <h2 class="our-properties">Nuestras <span>Propiedades</span></h2>
             <p class="text-muted">Descubre nuestro catálogo de propiedades en venta o renta</p>
@@ -239,99 +239,98 @@
         </div>
     </div>
 
-    <section class="container">
-        <h2 class="text-center py-5" style="font-family: 'Bitter', serif; font-style: italic"><span
-                style="color: gray">Encuentra el crédito ideal</span> <span style="color: red"> para tus necesidades</span></h2>
-        <section class="row">
-            <article class="col-sm-4">
-                {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}
-                <div data-aos="fade-right" class="position-relative min-height-cards card-creditos"
-                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span
-                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;"
-                            class="font-size-cards">1</span>
-                    </div>
-                    <div class="position-absolute min-height-cards left-cards"
-                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
-                        <div class="icons-creditos">
-                            <div>
-                                <img width="60px" src="{{ asset('img/iconohipotecario2.webp') }}" loading="lazy" alt="creditos hipotecarios en ecuador">
-                            </div>
-                            <div>
-                                <h3 class="mt-3 mb-4">Créditos <br> Hipotecarios</h3>
-                                <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
-                                <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <p><a href="{{ route('web.creditos.hipoetacarios') }}"
-                                            style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a>
-                                    </p>
-                                    <p><a href="{{ route('web.creditos.hipoetacarios') }}"
-                                            style="text-decoration: none; color: #676667"><i
-                                                class="fa-solid fa-arrow-right"></i></a></p>
+    <div class="bg-white pt-3 pb-5">
+        <section class="container mt-5">
+            <h2 class="text-center" style="font-family: 'Bitter', serif; font-style: italic;"><span style="color: gray">¿Resides en Estados Unidos</span> <span style="color: red">y necesitas un préstamo en Ecuador?</span></h2>
+            <h3 class="text-center pb-5" style="font-size: medium"><span>Encuentra el crédito ideal</span> <span> para tus necesidades</span></h3>
+            <section class="row">
+                <article class="col-sm-4">
+                    {{-- <a href="{{ route('web.creditos.hipoetacarios') }}"> --}}
+                    <div data-aos="fade-right" class="position-relative min-height-cards card-creditos"
+                        style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                        <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                            <span
+                                style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%;"
+                                class="font-size-cards">1</span>
+                        </div>
+                        <div class="position-absolute min-height-cards left-cards"
+                            style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                            <div class="icons-creditos">
+                                <div>
+                                    <img width="60px" src="{{ asset('img/iconohipotecario2.webp') }}" loading="lazy" alt="creditos hipotecarios en ecuador">
+                                </div>
+                                <div>
+                                    <h4 class="mt-3 mb-4">Créditos <br> Hipotecarios</h4>
+                                    <p style="padding-right: 20%">Créditos hipotecarios para ecuatorianos residentes.</p>
+                                    <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}"
+                                                style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a>
+                                        </p>
+                                        <p><a href="{{ route('web.creditos.hipoetacarios') }}"
+                                                style="text-decoration: none; color: #676667"><i
+                                                    class="fa-solid fa-arrow-right"></i></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {{-- </a> --}}
-            </article>
-            <article class="col-sm-4">
-                <div data-aos="fade-up" class="position-relative min-height-cards card-creditos"
-                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span
-                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
-                            class="font-size-cards">2</span>
-                    </div>
-                    <div class="position-absolute min-height-cards left-cards"
-                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
-                        <div class="icons-creditos">
-                            <div>
-                                <img src="{{ asset('img/iconovip.webp') }}" loading="lazy" alt="creditos vip en ecuador">
-                            </div>
-                            <div>
-                                <h3 class="mt-3 mb-4">Créditos <br> VIP</h3>
-                                <p style="padding-right: 20%">Obtenga su primera casa o departamento.</p>
-                                <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <p><a href="{{ route('web.credito.vip') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
-                                    <p><a href="{{ route('web.credito.vip') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                    {{-- </a> --}}
+                </article>
+                <article class="col-sm-4">
+                    <div data-aos="fade-up" class="position-relative min-height-cards card-creditos"
+                        style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                        <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                            <span
+                                style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
+                                class="font-size-cards">2</span>
+                        </div>
+                        <div class="position-absolute min-height-cards left-cards"
+                            style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                            <div class="icons-creditos">
+                                <div>
+                                    <img src="{{ asset('img/iconovip.webp') }}" loading="lazy" alt="creditos vip en ecuador">
+                                </div>
+                                <div>
+                                    <h4 class="mt-3 mb-4">Créditos <br> VIP</h4>
+                                    <p style="padding-right: 20%">Obtenga su primera casa o departamento.</p>
+                                    <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                        <p><a href="{{ route('web.credito.vip') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
+                                        <p><a href="{{ route('web.credito.vip') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </article>
-            <article class="col-sm-4">
-                <div data-aos="fade-left" class="position-relative min-height-cards card-creditos"
-                    style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
-                    <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
-                        <span
-                            style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
-                            class="font-size-cards">3</span>
-                    </div>
-                    <div class="position-absolute min-height-cards left-cards"
-                        style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
-                        <div class="icons-creditos">
-                            <div>
-                                <img src="{{ asset('img/iconoconsumo.webp') }}" loading="lazy" alt="creditos de consumo en ecuador">
-                            </div>
-                            <div>
-                                <h3 class="mt-3 mb-4">Créditos <br> de Consumo</h3>
-                                <p style="padding-right: 20%">Solvente sus gastos personales fácilmente.</p>
-                                <div style="padding-right: 25%" class="d-flex justify-content-between">
-                                    <p><a href="{{ route('web.credito.consumo') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
-                                    <p><a href="{{ route('web.credito.consumo') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                </article>
+                <article class="col-sm-4">
+                    <div data-aos="fade-left" class="position-relative min-height-cards card-creditos"
+                        style="height: 300px; box-shadow: 10px 11px 8px -5px rgba(0,0,0,0.36);">
+                        <div class="position-absolute right-cards" style="bottom: 0px; right: 45px;">
+                            <span
+                                style="font-family: 'Montserrat', sans-serif; font-size: 170px; font-weight: 900; color: #676667; opacity: 12%"
+                                class="font-size-cards">3</span>
+                        </div>
+                        <div class="position-absolute min-height-cards left-cards"
+                            style="top: 0px; left: 45px; height: 300px; display: flex; align-items: center">
+                            <div class="icons-creditos">
+                                <div>
+                                    <img src="{{ asset('img/iconoconsumo.webp') }}" loading="lazy" alt="creditos de consumo en ecuador">
+                                </div>
+                                <div>
+                                    <h4 class="mt-3 mb-4">Créditos <br> de Consumo</h4>
+                                    <p style="padding-right: 20%">Solvente sus gastos personales fácilmente.</p>
+                                    <div style="padding-right: 25%" class="d-flex justify-content-between">
+                                        <p><a href="{{ route('web.credito.consumo') }}" style="font-size: small; text-decoration: none; color: #676667">MAS INFO</a></p>
+                                        <p><a href="{{ route('web.credito.consumo') }}"><i style="text-decoration: none; color: #676667" class="fa-solid fa-arrow-right"></i></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </section>
         </section>
-        {{-- <section class="row justify-content-center my-5">
-            <a class="btn btn-danger rounded-pill w-auto" href="{{ route('web.creditos') }}">MÁS INFORMACIÓN</a>
-        </section> --}}
-    </section>
+    </div>
 
     <section class="container pt-5">
         <section class="row">
