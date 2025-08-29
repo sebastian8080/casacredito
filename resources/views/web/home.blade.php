@@ -209,31 +209,62 @@
             <h2 class="our-properties">Nuestras <span>Propiedades</span></h2>
             <p class="text-muted">Descubre nuestro catálogo de propiedades en venta o renta</p>
         </div>
-        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
             @foreach ($properties as $property)
-                <div class="col">
-                    <div class="card h-100 shadow-sm"> <img src="https://grupohousing.com/uploads/listing/600/{{explode('|', $property->images)[0]}}" class="" alt="{{ $property->listing_title }}">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <span class="float-start badge rounded-pill bg-danger">{{ $property->listingType->type_title }}</span>
-                                <span class="float-start badge rounded-pill bg-danger">{{ ucwords(str_replace('-', ' ', $property->listingtypestatus)) }}</span>
+                <a href="{{ route('web.property.by.slug', $property->slug)}}" style="text-decoration: none">
+                    <div class="col">
+                        <div class="card h-100 shadow-lg border-0 rounded-3 overflow-hidden">
+                            
+                            <!-- Imagen con código de propiedad -->
+                            <div class="position-relative">
+                                <img src="https://grupohousing.com/uploads/listing/600/{{ explode('|', $property->images)[0] }}"
+                                    width="100%"
+                                    height="200px"
+                                    style="object-fit: cover"
+                                    alt="{{ $property->listing_title }}">
+            
+                                <!-- Código de propiedad en la esquina -->
+                                <span class="position-absolute top-0 start-0 m-2 px-2 py-1 rounded bg-danger text-white fw-bold shadow-sm small">
+                                    COD: {{ $property->product_code }}
+                                </span>
+            
+                                <!-- Estado / Tipo en la esquina opuesta -->
+                                <span class="position-absolute top-0 end-0 m-2 px-2 py-1 rounded bg-dark text-white small">
+                                    {{ $property->listingType->type_title }}
+                                </span>
                             </div>
-                            <div>
-                                <br>
-                                <h3>{{ strpos($property->address, ',') !== false ? $property->address : $property->sector . ", " . $property->city . ", " . $property->state }}</h3>
-                                <h4 class="card-title">{{ ucfirst(strtolower($property->listing_title)) }}</h4>
-                                <h5 class="m-0">&dollar;{{ number_format($property->property_price)}}</h5> 
+            
+                            <div class="card-body">
+                                <!-- Dirección -->
+                                <h3 class="text-muted mb-1">
+                                    {{ strpos($property->address, ',') !== false 
+                                        ? $property->address 
+                                        : $property->sector . ", " . $property->city . ", " . $property->state }}
+                                </h3>
+            
+                                <!-- Título -->
+                                <h4 class="card-title text-dark fw-semibold">
+                                    {{ ucfirst(strtolower($property->listing_title)) }}
+                                </h4>
+            
+                                <!-- Precio -->
+                                <h5 class="text-danger fw-bold">
+                                    &dollar;{{ number_format($property->property_price) }}
+                                </h5>
                             </div>
-                        </div>
-                        <div class="card-footer bg-light">
-                            <div class="text-center"> 
-                                <a href="{{ route('web.property.by.slug', $property->slug)}}" class="btn btn-outline-danger">Ver propiedad</a> 
-                            </div>
+            
+                            <!-- Footer con botón -->
+                            {{-- <div class="card-footer bg-white border-0 text-center pb-3">
+                                <a href="{{ route('web.property.by.slug', $property->slug)}}" 
+                                class="btn btn-danger px-4 rounded-pill shadow-sm">
+                                    Ver propiedad
+                                </a>
+                            </div> --}}
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
-        </div>
+        </div>        
         <div class="row justify-content-center mt-5">
             <a class="btn btn-danger w-auto" href="/propiedades">Ver todas las propiedades</a>
         </div>
