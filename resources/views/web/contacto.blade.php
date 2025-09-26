@@ -148,7 +148,7 @@
                                     style="font-family: 'Bitter', 'serif';font-weight: 600; font-size: 18px; color: #676667">
                                     Número de teléfono</p>
                                 <p style="font-family: 'Montserrat', 'serif'; font-size: 15px" class="my-0"><a
-                                        class="links-style" href="tel:+593967867998">096-786-7998</a>
+                                        class="links-style" href="tel:+593995265213">099-526-5213</a>
                             </div>
                         </div>
                     </div>

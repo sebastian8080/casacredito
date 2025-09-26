@@ -580,10 +580,10 @@
                                             </div>
                                             <div class="col-sm-5 d-flex justify-content-between align-items-center gap-2">
                                                 <div class="w-100">
-                                                    <a class="btn w-100 btn-block rounded-pill btn-call border" href="tel:+593967867998">Llamar</a>
+                                                    <a class="btn w-100 btn-block rounded-pill btn-call border" href="tel:+593995265213">Llamar</a>
                                                 </div>
                                                 <div class="w-100">
-                                                    <a class="btn w-100 btn-block rounded-pill btn-whatsapp border" href="https://wa.me/593967867998?text=Hola%2C%20Casa%20Credito%20estoy%20interesado%20en%20comprar%20esta%20propiedad%3A%20${propertie.product_code || ''}">WhatsApp</a>
+                                                    <a class="btn w-100 btn-block rounded-pill btn-whatsapp border" href="https://wa.me/593995265213?text=Hola%2C%20Casa%20Credito%20estoy%20interesado%20en%20comprar%20esta%20propiedad%3A%20${propertie.product_code || ''}">WhatsApp</a>
                                                 </div>
                                             </div>
                                         </div>
