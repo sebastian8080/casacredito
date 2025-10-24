@@ -537,14 +537,31 @@
 
                         let { address = '', city = '', state = '' } = propertie;
 
+                        const toTitleCase = (str) => {
+                            return str
+                                .toLowerCase()
+                                .split(' ')
+                                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                                .join(' ')
+                                .trim();
+                        };
+
                         if (address.includes(',')) {
-                            return address.trim();
+                            return address
+                                .split(',')
+                                .map(part => toTitleCase(part))
+                                .join(', ')
+                                .trim();
                         }
 
-                        const parts = [address, city, state].filter(part => part && part.trim() !== '');
+                        const parts = [address, city, state]
+                            .filter(part => part && part.trim() !== '')
+                            .map(toTitleCase);
+
                         return parts.join(', ');
-                        
                     }
+
+                    let html = "";
 
                     data.data.forEach(propertie => {
                         // Construcción manual del HTML
@@ -553,7 +570,7 @@
                         let title = capitalizeFirstLetter(propertie.listing_title);
                         let description = capitalizeFirstLetter(propertie.meta_description);
 
-                        const propertyHTML = `
+                        html  += `
                             <section class="row my-4 border rounded shadow-sm">
                                 <article class="col-sm-4 m-0 p-0">
                                     <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
@@ -607,8 +624,11 @@
                                 </article>
                             </section>
                         `;
-                        propertiesList.innerHTML += propertyHTML;
+                        //propertiesList.innerHTML += propertyHTML;
                     });
+
+                    propertiesList.innerHTML = html;
+                    
                     loading = false;
                     loadingIndicator.style.display = 'none';
                 } else {
