@@ -549,7 +549,25 @@
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
                                     <div class="info-cards">
-                                        <h2>${propertie.address || ''}, ${propertie.city || ''}, ${propertie.state || ''}</h2>
+                                        <h2>${
+                                        (() => {
+                                            const address = (propertie.address || '').trim();
+                                            const city = (propertie.city || '').trim();
+                                            const state = (propertie.state || '').trim();
+
+                                            const cap = str => str.replace(/\b\w/g, c => c.toUpperCase()).toLowerCase().replace(/(^|\s)\S/g, c => c.toUpperCase());
+
+                                            if (address.includes(',')) {
+                                            return address
+                                                .split(',')
+                                                .map(p => cap(p.trim()))
+                                                .join(', ');
+                                            }
+
+                                            const parts = [address, city, state].filter(Boolean).map(cap);
+                                            return parts.join(', ');
+                                        })()
+                                        }</h2>
                                         <a href="/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
                                             <h3>${title || ''}</h3>
                                         </a>
