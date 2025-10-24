@@ -561,8 +561,6 @@
                         return parts.join(', ');
                     }
 
-                    let html = "";
-
                     data.data.forEach(propertie => {
                         // Construcción manual del HTML
                         const images = propertie.images ? propertie.images.split('|') : [];
@@ -570,7 +568,7 @@
                         let title = capitalizeFirstLetter(propertie.listing_title);
                         let description = capitalizeFirstLetter(propertie.meta_description);
 
-                        html  += `
+                        const propertyHTML = `
                             <section class="row my-4 border rounded shadow-sm">
                                 <article class="col-sm-4 m-0 p-0">
                                     <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
@@ -579,7 +577,7 @@
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
                                     <div class="info-cards">
-                                        <h2>${propertie.address || ''}, ${propertie.city || ''}, ${propertie.state || ''}</h2>
+                                        <h2>${buildAddress(propertie)}</h2>
                                         <a href="/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
                                             <h3>${title || ''}</h3>
                                         </a>
@@ -624,11 +622,8 @@
                                 </article>
                             </section>
                         `;
-                        //propertiesList.innerHTML += propertyHTML;
+                        propertiesList.innerHTML += propertyHTML;
                     });
-
-                    propertiesList.innerHTML = html;
-                    
                     loading = false;
                     loadingIndicator.style.display = 'none';
                 } else {
