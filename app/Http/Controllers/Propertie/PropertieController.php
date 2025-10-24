@@ -81,23 +81,24 @@ class PropertieController extends Controller
 
     // }
 
-    public function showPropertiesPage(Request $request, $search = null) {
+    public function showPropertiesPage(Request $request, $search = null)
+    {
 
         $apiUrl = env('API_BASE_URL');
         $initialPage = $request->get('page', 1);
-    
+
         $cleanedSearch = $search ? str_replace('-en-', '-', $search) : null;
         $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
-    
+
         $propertyType = null;
         $operationType = null;
         $location = null;
-    
+
         $propertyTypes = ['casas', 'departamentos', 'terrenos', 'quintas', 'haciendas'];
         $operationTypes = ['venta', 'renta', 'alquiler'];
-    
+
         $twoWordProperties = ['casas comerciales', 'locales comerciales'];
-    
+
         foreach ($twoWordProperties as $twoWordProperty) {
             if (str_contains($cleanedSearch, str_replace(' ', '-', $twoWordProperty))) {
                 $propertyType = $twoWordProperty;
@@ -105,9 +106,9 @@ class PropertieController extends Controller
                 break;
             }
         }
-    
+
         $searchTerms = $cleanedSearch ? explode('-', $cleanedSearch) : [];
-    
+
         foreach ($searchTerms as $term) {
             $lowerTerm = strtolower($term);
             if (!$propertyType && in_array($lowerTerm, $propertyTypes)) {
@@ -118,18 +119,18 @@ class PropertieController extends Controller
                 $location = $location ? $location . ' ' . $term : $term;
             }
         }
-    
+
         $queryParams = [
             'property_type' => $propertyType,
             'listing_title' => $operationType, // Cambiado a listingtypestatus
             'location_code' => $location,
             'page' => $initialPage,
         ];
-    
+
         $response = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
         ])->get($apiUrl . '/list-activated-properties', $queryParams);
-    
+
         //return $response->json();
 
         if ($response->successful()) {
@@ -140,16 +141,17 @@ class PropertieController extends Controller
         }
     }
 
-    public function getPropertieBySlug($slug){
+    public function getPropertieBySlug($slug)
+    {
 
         $apiUrl = env('API_BASE_URL');
 
         $response_details = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
-        ])->get($apiUrl."/get-details");
+        ])->get($apiUrl . "/get-details");
 
         $details = $response_details->json();
-        
+
         $response = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
         ])->get($apiUrl . "/get-property-by-slug/{$slug}");
@@ -185,10 +187,11 @@ class PropertieController extends Controller
         return view('web.properties.show', compact('property', 'images', 'property_type', 'property_transaction', 'details', 'services', 'general_characteristics', 'environments'));
     }
 
-    public function getServices(){
+    public function getServices()
+    {
 
         $apiUrl = env('API_BASE_URL');
-        
+
         $response_services = Http::withHeaders([
             'api-key' => 'Cc2022*@Notify'
         ])->get($apiUrl . "/get-services");
@@ -196,10 +199,10 @@ class PropertieController extends Controller
         $services = $response_services->json();
 
         return $services;
-
     }
 
-    public function getGeneralCharacteristics(){
+    public function getGeneralCharacteristics()
+    {
 
         $apiUrl = env('API_BASE_URL');
 
@@ -212,7 +215,8 @@ class PropertieController extends Controller
         return $general_characteristics;
     }
 
-    public function getEnvironments(){
+    public function getEnvironments()
+    {
 
         $apiUrl = env('API_BASE_URL');
 
@@ -223,7 +227,6 @@ class PropertieController extends Controller
         $environments = $response_environments->json();
 
         return $environments;
-
     }
 
     public function sendPropertyInquiry(Request $request)
@@ -269,13 +272,17 @@ class PropertieController extends Controller
             </div>
         ";
 
+        $to = "info@casacredito.com";
+
         // Configurar el encabezado del correo
-        $headers = "From: " . $email . "\r\n";
-        $headers .= "Reply-To: " . $email . "\r\n";
+        $headers = "From: leads@casacredito.com\r\n";
+        $headers .= "Reply-To: info@casacredito.com\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
+        mail('sebas31051999@gmail.com', 'Nueva consulta de propiedad', $emailContent, $headers);
+
         // Enviar el correo
-        if (mail('sebas31051999@gmail.com', 'Nueva consulta de propiedad', $emailContent, $headers)) {
+        if (mail($to, 'Nueva consulta de propiedad', $emailContent, $headers)) {
             return back()->with('success', 'Su consulta ha sido enviada correctamente.');
         } else {
             return back()->with('error', 'Hubo un error al enviar su consulta. Intente nuevamente.');
