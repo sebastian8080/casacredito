@@ -533,34 +533,6 @@
                     //Cambiando h1 y title
                     generateMetaData(newUrl, data.total);
 
-                    function buildAddress(propertie) {
-
-                        let { address = '', city = '', state = '' } = propertie;
-
-                        const toTitleCase = (str) => {
-                            return str
-                                .toLowerCase()
-                                .split(' ')
-                                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-                                .join(' ')
-                                .trim();
-                        };
-
-                        if (address.includes(',')) {
-                            return address
-                                .split(',')
-                                .map(part => toTitleCase(part))
-                                .join(', ')
-                                .trim();
-                        }
-
-                        const parts = [address, city, state]
-                            .filter(part => part && part.trim() !== '')
-                            .map(toTitleCase);
-
-                        return parts.join(', ');
-                    }
-
                     data.data.forEach(propertie => {
                         // Construcción manual del HTML
                         const images = propertie.images ? propertie.images.split('|') : [];
@@ -577,7 +549,7 @@
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
                                     <div class="info-cards">
-                                        <h2>${buildAddress(propertie)}</h2>
+                                        <h2>${propertie.address || ''}, ${propertie.city || ''}, ${propertie.state || ''}</h2>
                                         <a href="/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
                                             <h3>${title || ''}</h3>
                                         </a>
