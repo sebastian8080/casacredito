@@ -94,6 +94,22 @@
         .font-family-montserrat{
             font-family: 'Montserrat', 'serif';
         }
+
+        .content-navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 5px;
+        }
+
+        @media only screen and (max-width: 990px){
+            .content-navbar{
+                display: block !important;
+                width: 100% !important;
+            }
+        }
+
     </style>
 </head>
 @php
@@ -105,18 +121,17 @@
     <!-- End Google Tag Manager (noscript) -->
     <header class="shadow-sm w-full">
         <nav class="navbar navbar-expand-lg bg-white w-100" style="z-index: 10; position: fixed; top: 0px">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('web.home') }}">
-                    <img width="130px" height="55px" src="{{ asset('img/logo-casa-credito.png') }}" alt="">
-                </a>
-              <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="color: #ffffff"></span>
-              </button>
-              <div class="collapse navbar-collapse w-100" id="navbarNav">
+            <div class="content-navbar">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a class="navbar-brand" href="{{ route('web.home') }}">
+                        <img width="130px" height="55px" src="{{ asset('img/logo-casa-credito.png') }}" alt="">
+                    </a>
+                  <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="height: min-content">
+                    <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+                  </button>
+                </div>
+              <div class="collapse navbar-collapse w-100 px-4 py-2" id="navbarNav">
                 <ul class="navbar-nav d-flex gap-4 justify-content-end w-100">
-                  {{-- <li class="nav-item">
-                    <a class="nav-link @if(Request::is('/')) active @endif fw-bold font-family-montserrat hover-links-navbar" aria-current="page" href="{{ route('web.home') }}">INICIO</a>
-                  </li> --}}
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.properties') }}">PROPIEDADES</a>
                   </li>
@@ -126,7 +141,7 @@
                       SERVICIOS
                     </a>
                     <ul class="dropdown-menu border-0 border-bottom" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item font-family-montserrat" href="{{ route('web.creditos') }}">CRÉDITOS</a></li>
+                      <li><a class="dropdown-item font-family-montserrat" href="{{ route('web.creditos.hipoetacarios') }}">CRÉDITOS</a></li>
                     </ul>
                   </li>
                   @else
@@ -159,9 +174,9 @@
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.avaluo') }}">AVALÚOS</a>
                   </li>
-                  {{-- <li class="nav-item">
+                  <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.notaria') }}">NOTARÍA USA</a>
-                  </li> --}}
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link fw-bold font-family-montserrat hover-links-navbar" href="{{ route('web.about') }}">NOSOTROS</a>
                   </li>
@@ -311,7 +326,7 @@
                     </div>
                 </section>
                 <section class="row d-flex alig-items-center justify-content-center text-center pb-4">
-                    <span class="text-white">Casa Crédito 2024 | <a style="text-decoration: none" class="text-white fw-bold" href="{{ route('web.politicas') }}">Políticas de Privacidad</a></span>
+                    <span class="text-white">Casa Crédito 2025 | <a style="text-decoration: none" class="text-white fw-bold" href="{{ route('web.politicas') }}">Políticas de Privacidad</a></span>
                 </section>
             </section>
         </section>
