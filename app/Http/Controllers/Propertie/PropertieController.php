@@ -143,38 +143,44 @@ class PropertieController extends Controller
 
     public function getPropertieBySlug($slug)
     {
-
         $apiUrl = env('API_BASE_URL');
+        $apiKey = 'Cc2022*@Notify';
 
         $response_details = Http::withHeaders([
-            'api-key' => 'Cc2022*@Notify'
+            'api-key' => $apiKey
         ])->get($apiUrl . "/get-details");
-
         $details = $response_details->json();
 
         $response = Http::withHeaders([
-            'api-key' => 'Cc2022*@Notify'
+            'api-key' => $apiKey
         ])->get($apiUrl . "/get-property-by-slug/{$slug}");
 
-        // Maneja posibles errores
-        if ($response->failed()) {
-            return abort(404, 'Property not found');
+        if ($response->status() !== 200 || $response->failed()) {
+            return redirect()->route('web.properties')->with('error', 'Propiedad no encontrada (HTTP Error).');
         }
 
-        // Decodifica la respuesta JSON
         $property = $response->json();
 
-        // Procesar la cadena de imágenes
-        $images = explode('|', $property['images']);
+        if (isset($property['found']) && $property['found'] === false) {
+            return redirect()->route('web.properties')->with('error', 'Propiedad no encontrada (API Flag).');
+        }
+
+        $images = isset($property['images']) ? explode('|', $property['images']) : [];
+
+        $listingType = data_get($property, 'listingtype');
+
+        if (!$listingType) {
+            return redirect()->route('web.properties')->with('error', 'La propiedad está incompleta.');
+        }
 
         $response_type = Http::withHeaders([
-            'api-key' => 'Cc2022*@Notify'
-        ])->get($apiUrl . "/type-of-property/{$property['listingtype']}");
+            'api-key' => $apiKey
+        ])->get($apiUrl . "/type-of-property/{$listingType}");
 
         $property_type = $response_type->json();
 
         $response_transaction = Http::withHeaders([
-            'api-key' => 'Cc2022*@Notify'
+            'api-key' => $apiKey
         ])->get($apiUrl . "/transaction-property-type/{$property['listingtypestatus']}");
 
         $property_transaction = $response_transaction->json();
@@ -183,7 +189,6 @@ class PropertieController extends Controller
         $general_characteristics = $this->getGeneralCharacteristics();
         $environments = $this->getEnvironments();
 
-        // Devuelve la vista Blade con los datos de la propiedad
         return view('web.properties.show', compact('property', 'images', 'property_type', 'property_transaction', 'details', 'services', 'general_characteristics', 'environments'));
     }
 

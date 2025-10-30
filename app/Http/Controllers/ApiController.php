@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
-    
-    public function listActivatedProperties(Request $request){
+
+    public function listActivatedProperties(Request $request)
+    {
 
         $query = Property::where('status', '1');
 
@@ -60,9 +61,9 @@ class ApiController extends Controller
             $locationCode = $request->input('location_code');
             $query->where(function ($q) use ($locationCode) {
                 $q->where('address', 'LIKE', '%' . $locationCode . '%')
-                ->orWhere('city', 'LIKE', '%' . $locationCode . '%')
-                ->orWhere('state', 'LIKE', '%' . $locationCode . '%')
-                ->orWhere('product_code', 'LIKE', '%' . $locationCode . '%');
+                    ->orWhere('city', 'LIKE', '%' . $locationCode . '%')
+                    ->orWhere('state', 'LIKE', '%' . $locationCode . '%')
+                    ->orWhere('product_code', 'LIKE', '%' . $locationCode . '%');
             });
         }
 
@@ -117,9 +118,9 @@ class ApiController extends Controller
                     $q->where(function ($subquery) use ($locationKeywords) {
                         foreach ($locationKeywords as $location) {
                             $subquery->orWhere('address', 'LIKE', '%' . $location . '%')
-                                    ->orWhere('city', 'LIKE', '%' . $location . '%')
-                                    ->orWhere('state', 'LIKE', '%' . $location . '%')
-                                    ->orWhere('listing_title', 'LIKE', '%' . $location . '%');
+                                ->orWhere('city', 'LIKE', '%' . $location . '%')
+                                ->orWhere('state', 'LIKE', '%' . $location . '%')
+                                ->orWhere('listing_title', 'LIKE', '%' . $location . '%');
                         }
                     });
                 }
@@ -145,7 +146,7 @@ class ApiController extends Controller
         }
 
         if ($operation != "") {
-            $query->where('listingtypestatus', 'LIKE', '%'.$operation.'%');
+            $query->where('listingtypestatus', 'LIKE', '%' . $operation . '%');
         }
 
         if ($request->has('product_code') && $request->product_code != null) {
@@ -185,55 +186,65 @@ class ApiController extends Controller
         return response()->json($properties);
     }
 
-    public function getPropertieBySlug($slug){
+    public function getPropertieBySlug($slug)
+    {
+        $propertie = Property::where('slug', $slug)
+            ->where('status', 1)
+            ->where('available', 1)
+            ->first();
 
-        $propertie = Property::where('slug', $slug)->first();
-
-        return response()->json($propertie);
-
+        if ($propertie) {
+            return response()->json($propertie);
+        } else {
+            return response()->json([
+                'message' => 'Propiedad no encontrada o no disponible.',
+                'found' => false
+            ], 404);
+        }
     }
 
-    public function getDetails(){
+    public function getDetails()
+    {
 
         $details = DB::table('listing_characteristics')->get();
 
         return response()->json($details);
-
     }
 
-    public function getServices(){
+    public function getServices()
+    {
 
         $services = DB::table('listing_services')->get();
 
         return response()->json($services);
-
     }
 
-    public function getGeneralCharacteristics(){
+    public function getGeneralCharacteristics()
+    {
 
         $general_characteristics = DB::table('listing_general_characteristics')->get();
 
         return response()->json($general_characteristics);
-
     }
 
-    public function getEnvironments(){
+    public function getEnvironments()
+    {
 
         $environments = DB::table('listing_environments')->get();
 
         return response()->json($environments);
-        
     }
 
-    public function getPropertyType($type){
+    public function getPropertyType($type)
+    {
 
         $property_type = DB::table('listing_types')->where('id', $type)->first();
 
         return response()->json($property_type);
-
     }
 
-    public function getTransactionType($transaction){
+    public function getTransactionType($transaction)
+    {
 
         $id_transaction = 0;
 
@@ -247,15 +258,14 @@ class ApiController extends Controller
             case 'alquilar':
                 $id_transaction = 2;
                 break;
-            
+
             case 'proyectos':
                 $id_transaction = 3;
                 break;
         }
-        
+
         $property_transaction = DB::table('listing_status')->where('id', $id_transaction)->first();
 
         return response()->json($property_transaction);
     }
-
 }
