@@ -47,6 +47,8 @@ Route::get('/notaria-estados-unidos', [WebController::class, 'showNotaryPage'])-
 Route::get('/blog', [WebController::class, 'blog'])->name('web.blog');
 Route::get('/blog/{slug}', [WebController::class, 'showArticle'])->name('web.article');
 
+Route::get('/politicas-de-privacidad', [WebController::class, 'politicas'])->name('web.politicas');
+
 Route::get('/getcities/{idState}', [WebController::class, 'getcities'])->name('getcities');
 Route::post('/sendlead', [WebController::class, 'sendlead'])->name('sendlead');
 Route::post('/sendleadpost', [WebController::class, 'sendLeadFromPost'])->name('sendlead.post'); //RUTA PARA ENVIAR LA INFORMACION DEL FORMULARIO QUE SE ENCUENTRA EN LOS ARTICULOS
@@ -54,15 +56,14 @@ Route::post('/sendleadpost', [WebController::class, 'sendLeadFromPost'])->name('
 Auth::routes(['register' => false]);
 
 
-Route::middleware(['auth'])->prefix('home')->group(function(){
-    
+Route::middleware(['auth'])->prefix('home')->group(function () {
+
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    
+
     //BLOG
     Route::get('/blog', [App\Http\Controllers\ArticleController::class, 'index'])->name('home.blog');
     Route::get('/blog/create', [App\Http\Controllers\ArticleController::class, 'create'])->name('home.blog.create');
     Route::post('/blog/store', [App\Http\Controllers\ArticleController::class, 'store'])->name('home.blog.store');
     Route::get('/blog/edit/{article}', [\App\Http\Controllers\ArticleController::class, 'edit'])->name('home.blog.edit');
     Route::post('/blog/edit/update/{article}', [\App\Http\Controllers\ArticleController::class, 'update'])->name('home.blog.update');
-
 });
