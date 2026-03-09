@@ -216,7 +216,7 @@
     {{-- Hero Section --}}
     <section class="politicas-hero">
         <div class="container" data-aos="fade-up" data-aos-duration="600">
-            <span class="badge-fecha">Última actualización: Enero 2025</span>
+            <span class="badge-fecha">Última actualización: Enero 2026</span>
             <h1>Políticas de Privacidad</h1>
             <p class="mt-2" style="max-width: 560px;">
                 En Casa Crédito, la protección de tu información personal es un compromiso fundamental. 
