@@ -231,6 +231,21 @@ class WebController extends Controller
         return view('web.politicas');
     }
 
+    public function terminos()
+    {
+        return view('web.terminos');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('web.en.privacy-policy');
+    }
+
+    public function termsConditions()
+    {
+        return view('web.en.terms-conditions');
+    }
+
     public function showNotaryPage()
     {
         return view('web.notaria.index');

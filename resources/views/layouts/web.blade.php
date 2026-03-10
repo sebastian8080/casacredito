@@ -326,7 +326,7 @@
                     </div>
                 </section>
                 <section class="row d-flex alig-items-center justify-content-center text-center pb-4">
-                    <span class="text-white">Casa Crédito 2025 | <a style="text-decoration: none" class="text-white fw-bold" href="{{ route('web.politicas') }}">Políticas de Privacidad</a></span>
+                    <span class="text-white">Casa Crédito 2025 | <a style="text-decoration: none" class="text-white fw-bold" href="{{ route('web.politicas') }}">Políticas de Privacidad</a> | <a style="text-decoration: none" class="text-white fw-bold" href="{{ route('web.terminos') }}">Términos y Condiciones</a></span>
                 </section>
             </section>
         </section>
