@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Propertie;
 
 use App\Http\Controllers\Controller;
+use App\Traits\ResolvesPropertyImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class PropertieController extends Controller
 {
+    use ResolvesPropertyImages;
 
     // public function showPropertiesPage(Request $request, $search = null){
 
@@ -165,7 +167,13 @@ class PropertieController extends Controller
             return redirect()->route('web.properties')->with('error', 'Propiedad no encontrada (API Flag).');
         }
 
-        $images = isset($property['images']) ? explode('|', $property['images']) : [];
+        $images = isset($property['images'])
+            ? collect(explode('|', $property['images']))
+                ->filter()
+                ->map(fn($img) => $this->resolveImageUrl(trim($img), null))
+                ->values()
+                ->all()
+            : [];
 
         $listingType = data_get($property, 'listingtype');
 

@@ -16,7 +16,7 @@
             <div class="carousel-inner">
                 @foreach($images as $index => $image)
                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <img style="object-fit: contain !important" src="https://grupohousing.com/uploads/listing/{{$image}}" @if($index > 0) loading="lazy" @endif class="d-block w-100 carousel-image" alt="Property Image">
+                        <img style="object-fit: contain !important" src="{{ $image }}" @if($index > 0) loading="lazy" @endif class="d-block w-100 carousel-image" alt="Property Image">
                     </div>
                 @endforeach
             </div>

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Cache;
 
 trait ResolvesPropertyImages
 {
-    private function resolveImageUrl(string $image, string $size = '600'): string
+    private function resolveImageUrl(string $image, ?string $size = '600'): string
     {
         $s3Url = 'https://grupohousing.s3.amazonaws.com/listings/' . $image;
 
@@ -23,7 +23,8 @@ trait ResolvesPropertyImages
             return $s3Url;
         }
 
-        return 'https://grupohousing.com/uploads/listing/' . $size . '/' . $image;
+        $sizePath = $size ? $size . '/' : '';
+        return 'https://grupohousing.com/uploads/listing/' . $sizePath . $image;
     }
 
     private function resolvePropertyImages(string $images): string
