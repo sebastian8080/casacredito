@@ -75,8 +75,12 @@
                 <div class="prop-header">
                     <h1 class="prop-title">{{ $property['listing_title'] }}</h1>
                     <div class="prop-meta">
+                        @if(!empty($property_type['type_title']))
                         <span class="prop-badge prop-badge--type">{{ $property_type['type_title'] }}</span>
+                        @endif
+                        @if(!empty($property_transaction['status_title']))
                         <span class="prop-badge prop-badge--trans">{{ $property_transaction['status_title'] }}</span>
+                        @endif
                         <span class="prop-badge prop-badge--code">
                             <i class="fa-solid fa-tag"></i> COD: {{ $property['product_code'] }}
                         </span>
