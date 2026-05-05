@@ -1,346 +1,337 @@
 @extends('layouts.web')
 
 @section('head')
-    <title>{{ $property['listing_title'] }}</title>
-    <meta name="description" content="{{ $property['meta_description']}}">
-    <meta name="canonical" content="{{ Request::url() }}">
-
+    <title>{{ $property['listing_title'] }} | Casa Crédito</title>
+    <meta name="description" content="{{ $property['meta_description'] }}">
+    <link rel="canonical" href="{{ Request::url() }}">
     <link rel="stylesheet" href="{{ asset('css/property-styles.css') }}">
+    @if(count($images) > 0)
+    <link rel="preload" as="image" href="{{ $images[0] }}">
+    @endif
 @endsection
 
 @section('content')
-    <section class="container">
+<div class="prop-page">
 
-        <!-- Carousel -->
-        <div id="propertyCarousel" class="carousel slide">
+    {{-- Galería full-width --}}
+    <div class="prop-gallery">
+    <div class="prop-gallery-inner">
+        <div id="propertyCarousel" class="carousel slide" data-bs-ride="false">
             <div class="carousel-inner">
                 @foreach($images as $index => $image)
                     <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <img style="object-fit: contain !important" src="{{ $image }}" @if($index > 0) loading="lazy" @endif class="d-block w-100 carousel-image" alt="Property Image">
+                        <img
+                            src="{{ $image }}"
+                            class="prop-main-img d-block w-100"
+                            alt="{{ $property['listing_title'] }} - imagen {{ $index + 1 }}"
+                            @if($index === 0) fetchpriority="high" @else loading="lazy" @endif
+                        >
                     </div>
                 @endforeach
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
+
+            @if(count($images) > 1)
+            <button class="prop-carousel-btn prop-carousel-btn--prev" type="button" data-bs-target="#propertyCarousel" data-bs-slide="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="visually-hidden">Anterior</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
+            <button class="prop-carousel-btn prop-carousel-btn--next" type="button" data-bs-target="#propertyCarousel" data-bs-slide="next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <span class="visually-hidden">Siguiente</span>
             </button>
+            <div class="prop-img-counter">
+                <i class="fa-regular fa-image"></i>
+                <span id="imgCurrent">1</span> / {{ count($images) }}
+            </div>
+            @endif
         </div>
 
-        <div class="row">
-            <div class="col-sm-8">
+        @if(count($images) > 1)
+        <div class="prop-thumbs" id="propThumbs" role="tablist">
+            @foreach($images as $index => $image)
+                <button
+                    type="button"
+                    class="prop-thumb {{ $index === 0 ? 'active' : '' }}"
+                    data-bs-target="#propertyCarousel"
+                    data-bs-slide-to="{{ $index }}"
+                    aria-label="Ver imagen {{ $index + 1 }}"
+                >
+                    <img src="{{ $image }}" loading="lazy" alt="Imagen {{ $index + 1 }}">
+                </button>
+            @endforeach
+        </div>
+        @endif
+    </div>{{-- /.prop-gallery-inner --}}
+    </div>{{-- /.prop-gallery --}}
 
-                <div class="mt-4 mb-4">
-                    <h1>{{ $property['listing_title'] }}</h1>
+    {{-- Contenido principal --}}
+    <section class="container prop-content">
+        <div class="row g-4">
+
+            {{-- Columna izquierda --}}
+            <div class="col-lg-8">
+
+                {{-- Título y badges --}}
+                <div class="prop-header">
+                    <h1 class="prop-title">{{ $property['listing_title'] }}</h1>
+                    <div class="prop-meta">
+                        <span class="prop-badge prop-badge--type">{{ $property_type['type_title'] }}</span>
+                        <span class="prop-badge prop-badge--trans">{{ $property_transaction['status_title'] }}</span>
+                        <span class="prop-badge prop-badge--code">
+                            <i class="fa-solid fa-tag"></i> COD: {{ $property['product_code'] }}
+                        </span>
+                    </div>
                 </div>
 
-                <div class="mt-4 d-flex justify-content-between align-items-center">
-                    <div>
-                        <h2>Precio</h2>
-                        <h3 class="property-price">${{ number_format($property['property_price']) }}</h3>
+                {{-- Precio y ubicación --}}
+                <div class="prop-price-location">
+                    <div class="prop-price-block">
+                        <span class="prop-price-label">Precio</span>
+                        <span class="prop-price">${{ number_format($property['property_price']) }}</span>
                     </div>
-                    <div>
-                        <p class="bg-danger text-white px-3 py-2 rounded property-code">COD: {{ $property['product_code'] }}</p>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <h2>Ubicación</h2>
-                    <div class="d-flex gap-2">
-                        <h3 class="location-property">{{ $property['address'] }}, {{ $property['city'] }}, {{ $property['state']}}</h3>
-                        <p class="property-type px-3 rounded shadow-sm d-flex align-items-center">{{ $property_type['type_title'] }}</p>
-                        <p class="property-type px-3 rounded shadow-sm d-flex align-items-center">{{ $property_transaction['status_title'] }}</p>
+                    <div class="prop-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{ $property['address'] }}, {{ $property['city'] }}, {{ $property['state'] }}</span>
                     </div>
                 </div>
 
-                <div class="mt-4">
-                    <div>
-                        <h2>Descripción</h2>
-                        <h3 class="property-description">{{ $property['listing_description'] }}</h3>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <h2>Características</h2>
-                    <div class="d-flex justify-content-between align-items-center">
-                        @if($property['bedroom']>0)
-                        <div class="text-center">
-                            <img width="70px" src="{{ asset('img/dormitorios.webp') }}" alt="Icono de dormitorios">
-                            <h3 class="characteristics-property">{{ $property['bedroom'] }} Hab.</h3>
+                {{-- Características destacadas --}}
+                @php
+                    $stats = [
+                        ['key' => 'bedroom',           'icon' => 'dormitorios.webp',    'label' => 'Habitaciones'],
+                        ['key' => 'bathroom',          'icon' => 'banio.webp',           'label' => 'Baños'],
+                        ['key' => 'garage',            'icon' => 'estacionamiento.webp', 'label' => 'Estacionamientos'],
+                        ['key' => 'construction_area', 'icon' => 'area.webp',            'label' => 'm²'],
+                    ];
+                    $hasStats = collect($stats)->filter(fn($s) => $property[$s['key']] > 0)->isNotEmpty();
+                @endphp
+                @if($hasStats)
+                <div class="prop-stats">
+                    @foreach($stats as $stat)
+                        @if($property[$stat['key']] > 0)
+                        <div class="prop-stat-card">
+                            <img src="{{ asset('img/' . $stat['icon']) }}" width="44" height="44" alt="{{ $stat['label'] }}">
+                            <span class="prop-stat-value">{{ $property[$stat['key']] }}</span>
+                            <span class="prop-stat-label">{{ $stat['label'] }}</span>
                         </div>
                         @endif
-                        @if($property['bathroom']>0)
-                        <div class="text-center">
-                            <img width="70px" src="{{ asset('img/banio.webp') }}" alt="Icono de Baños">
-                            <h3 class="characteristics-property">{{ $property['bathroom'] }} {{ $property['bathroom'] > 1 ? 'Baños' : 'Baño'}}</h3>
-                        </div>
-                        @endif
-                        @if($property['garage']>0)
-                        <div class="text-center">
-                            <img width="70px" src="{{ asset('img/estacionamiento.webp') }}" alt="Icono de Estacionamiento">
-                            <h3 class="characteristics-property">{{ $property['garage'] }} {{ $property['garage'] > 1 ? 'Estacionamientos' : 'Estacionamiento'}}</>
-                        </div>
-                        @endif
-                        @if($property['construction_area']>0)
-                        <div class="text-center">
-                            <img width="70px" src="{{ asset('img/area.webp') }}" alt="Icono de Area">
-                            <h3 class="characteristics-property">{{ $property['construction_area'] }} m<sup>2</sup></>
-                        </div>
-                        @endif
-                    </div>
+                    @endforeach
+                </div>
+                @endif
+
+                {{-- Descripción --}}
+                <div class="prop-section">
+                    <h2 class="prop-section-title">Descripción</h2>
+                    <p class="prop-description">{{ $property['listing_description'] }}</p>
                 </div>
 
-                <div class="mt-4">
-                    @if (is_array(json_decode($property['heading_details'])))
-                    <div style="border: none; background-color: transparent;" class="card my-4">
-                        <div class="card-body" style="margin: -16px">
-                            <h2 class="card-title pb-2"
-                                style="border-bottom: 1px solid #B0BEC5;">
-                                <i class="fas fa-home"></i>
-                                Detalles
-                            </h2>
-                            @foreach (json_decode($property['heading_details']) as $dets)
-                                <div class="row" style="padding-left: 7px">
-                                    <?php unset($dets[0]);
-                                    $printControl = 0; ?>
-                                    @for ($i = 1; $i < count($dets); $i++)
-                                        @if ($printControl == 0)
-                                            <?php $printControl = 1; ?>
-                                            <div class="col-lg-3 col-md-4 col-6 p-1">
-                                                <span>
-                                                    @foreach ($details as $detail)
-                                                        @if ($detail['id'] == $dets[$i])
-                                                            {{ $detail['charac_titile'] }} @if ($detail['id'] == $dets[$i] && $detail['id'] == 86)
-                                                                <span style="background-color: #242B40"
-                                                                    class="text-white px-2">
-                                                                    {{ $dets[$i + 1] }}</span>
-                                                            @endif
-                                                        @endif
-                                                    @endforeach
-                                                </span>
-                                            </div>
-                                        @else
-                                            <?php $printControl = 0; ?>
+                {{-- Detalles --}}
+                @if(is_array(json_decode($property['heading_details'])))
+                <div class="prop-section">
+                    <h2 class="prop-section-title">Detalles</h2>
+                    <div class="prop-features-grid">
+                        @foreach(json_decode($property['heading_details']) as $dets)
+                            @php $printControl = 0; @endphp
+                            @for($i = 1; $i < count($dets); $i++)
+                                @if($printControl === 0)
+                                    @php $printControl = 1; @endphp
+                                    @foreach($details as $detail)
+                                        @if($detail['id'] == $dets[$i])
+                                        <div class="prop-feature-item">
+                                            <i class="fa-solid fa-check"></i>
+                                            <span>{{ $detail['charac_titile'] }}
+                                                @if($detail['id'] == 86)
+                                                    <strong>{{ $dets[$i + 1] }}</strong>
+                                                @endif
+                                            </span>
+                                        </div>
                                         @endif
-                                    @endfor
-                                    {{-- @endforeach     --}}
+                                    @endforeach
+                                @else
+                                    @php $printControl = 0; @endphp
+                                @endif
+                            @endfor
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
+                {{-- Servicios --}}
+                @if(count(array_filter(explode(',', $property['listinglistservices']))) > 0)
+                <div class="prop-section">
+                    <h2 class="prop-section-title">Servicios</h2>
+                    <div class="prop-features-grid">
+                        @foreach(array_filter(explode(',', $property['listinglistservices'])) as $serv)
+                            @foreach($services as $service)
+                                @if($service['id'] == $serv)
+                                <div class="prop-feature-item">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>{{ $service['charac_titile'] }}
+                                        @if($serv == 8 && $property['num_pisos'] > 0)
+                                            <strong>{{ $property['num_pisos'] }}</strong>
+                                        @endif
+                                        @if($serv == 7 && $property['niv_constr'] > 0)
+                                            <strong>{{ $property['niv_constr'] }}</strong>
+                                        @endif
+                                        @if($serv == 15 && $property['pisos_constr'] > 0)
+                                            <strong>{{ $property['pisos_constr'] }}</strong>
+                                        @endif
+                                    </span>
                                 </div>
+                                @endif
                             @endforeach
-                        </div>
+                        @endforeach
                     </div>
-                    @endif
                 </div>
+                @endif
 
-                <div class="mt-4">
-                    @if (count(array_filter(explode(',', $property['listinglistservices']))) > 0)
-                        <div style="border: none; background-color: transparent;" class="card my-4">
-                            <div class="card-body" style="margin: -16px">
-                                <h2 class="card-title h6 pb-2" style="font-size: 23px; font-weight: 500; border-bottom: 1px solid #B0BEC5;">
-                                    <i class="fas fa-home" style="font-size: 28px; color: #242B40;"></i>
-                                    Servicios
-                                </h2>
-                                <div class="row" style="padding-left: 7px">
-                                    @foreach (array_filter(explode(',', $property['listinglistservices'])) as $serv)
-                                        <div class="col-lg-3 col-md-4 col-6 p-1">
-                                            <span class="text-muted small">
-                                                @foreach ($services as $service)
-                                                    @if ($service['id'] == $serv)
-                                                        {{ $service['charac_titile'] }}
-                                                    @endif 
-                                                    @if ($service['id'] == $serv && $serv == 8 && $property['num_pisos'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property->num_pisos }}</b>
-                                                    @endif 
-                                                    @if ($service['id'] == $serv && $serv == 7 && $property['niv_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['niv_constr'] }}</b>
-                                                    @endif 
-                                                    @if ($service['id'] == $serv && $serv == 15 && $property['pisos_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['pisos_constr'] }}</b>
-                                                    @endif
-                                                @endforeach
-                                            </span>
-                                        </div>
-                                    @endforeach
+                {{-- Características generales --}}
+                @if(count(array_filter(explode(',', $property['listinggeneralcharacteristics']))) > 0)
+                <div class="prop-section">
+                    <h2 class="prop-section-title">Características Generales</h2>
+                    <div class="prop-features-grid">
+                        @foreach(array_filter(explode(',', $property['listinggeneralcharacteristics'])) as $char)
+                            @foreach($general_characteristics as $gc)
+                                @if($gc['id'] == $char)
+                                <div class="prop-feature-item">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>{{ $gc['title'] }}
+                                        @if($char == 8 && $property['num_pisos'] > 0)
+                                            <strong>{{ $property['num_pisos'] }}</strong>
+                                        @endif
+                                        @if($char == 7 && $property['niv_constr'] > 0)
+                                            <strong>{{ $property['niv_constr'] }}</strong>
+                                        @endif
+                                        @if($char == 15 && $property['pisos_constr'] > 0)
+                                            <strong>{{ $property['pisos_constr'] }}</strong>
+                                        @endif
+                                    </span>
                                 </div>
-                            </div>
-                        </div>
-                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
+                @endif
 
-                <div class="mt-4">
-                    @if (count(array_filter(explode(',', $property['listinggeneralcharacteristics']))) > 0)
-                        <div style="border: none; background-color: transparent;" class="card my-4">
-                            <div class="card-body" style="margin: -16px">
-                                <h2 class="card-title h6 pb-2" style="font-size: 23px; font-weight: 500; border-bottom: 1px solid #B0BEC5;">
-                                    <i class="fas fa-home" style="font-size: 28px; color: #242B40;"></i>
-                                    Características Generales
-                                </h2>
-                                <div class="row" style="padding-left: 7px">
-                                    @foreach (array_filter(explode(',', $property['listinggeneralcharacteristics'])) as $char)
-                                        <div class="col-lg-3 col-md-4 col-6 p-1">
-                                            <span class="text-muted small">
-                                                @foreach ($general_characteristics as $general_characteristic)
-                                                    @if ($general_characteristic['id'] == $char)
-                                                        {{ $general_characteristic['title'] }}
-                                                    @endif 
-                                                    @if ($general_characteristic['id'] == $char && $char == 8 && $property['num_pisos'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['num_pisos'] }}</b>
-                                                    @endif 
-                                                    @if ($general_characteristic['id'] == $char && $char == 7 && $property['niv_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['niv_constr'] }}</b>
-                                                    @endif 
-                                                    @if ($general_characteristic['id'] == $char && $char == 15 && $property['pisos_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['pisos_constr'] }}</b>
-                                                    @endif
-                                                @endforeach
-                                            </span>
-                                        </div>
-                                    @endforeach
+                {{-- Ambientes --}}
+                @if(count(array_filter(explode(',', $property['listingenvironments']))) > 0)
+                <div class="prop-section">
+                    <h2 class="prop-section-title">Ambientes</h2>
+                    <div class="prop-features-grid">
+                        @foreach(array_filter(explode(',', $property['listingenvironments'])) as $env)
+                            @foreach($environments as $environment)
+                                @if($environment['id'] == $env)
+                                <div class="prop-feature-item">
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>{{ $environment['title'] }}
+                                        @if($env == 8 && $property['num_pisos'] > 0)
+                                            <strong>{{ $property['num_pisos'] }}</strong>
+                                        @endif
+                                        @if($env == 7 && $property['niv_constr'] > 0)
+                                            <strong>{{ $property['niv_constr'] }}</strong>
+                                        @endif
+                                        @if($env == 15 && $property['pisos_constr'] > 0)
+                                            <strong>{{ $property['pisos_constr'] }}</strong>
+                                        @endif
+                                    </span>
                                 </div>
-                            </div>
-                        </div>
-                    @endif
+                                @endif
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
+                @endif
 
-                <div class="mt-4">
-                    @if (count(array_filter(explode(',', $property['listingenvironments']))) > 0)
-                        <div style="border: none; background-color: transparent;" class="card my-4">
-                            <div class="card-body" style="margin: -16px">
-                                <h2 class="card-title h6 pb-2" style="font-size: 23px; font-weight: 500; border-bottom: 1px solid #B0BEC5;">
-                                    <i class="fas fa-home" style="font-size: 28px; color: #242B40;"></i>
-                                    Ambientes
-                                </h2>
-                                <div class="row" style="padding-left: 7px">
-                                    @foreach (array_filter(explode(',', $property['listingenvironments'])) as $env)
-                                        <div class="col-lg-3 col-md-4 col-6 p-1">
-                                            <span class="text-muted small">
-                                                @foreach ($environments as $enviroment)
-                                                    @if ($enviroment['id'] == $env)
-                                                        {{ $enviroment['title'] }}
-                                                    @endif 
-                                                    @if ($enviroment['id'] == $env && $env == 8 && $property['num_pisos'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['num_pisos'] }}</b>
-                                                    @endif 
-                                                    @if ($enviroment['id'] == $env && $env == 7 && $property['niv_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['niv_constr'] }}</b>
-                                                    @endif 
-                                                    @if ($enviroment['id'] == $env && $env == 15 && $property['pisos_constr'] > 0)
-                                                        <b class="text-white px-1" style="background-color: #242B40">{{ $property['pisos_constr'] }}</b>
-                                                    @endif
-                                                @endforeach
-                                            </span>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
+                {{-- CTA WhatsApp (solo mobile, debajo del contenido) --}}
+                <a href="https://api.whatsapp.com/send?phone=593983849073&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
+                   class="prop-wa-cta d-lg-none">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+                </a>
 
             </div>
-            <div class="col-sm-4">
-                <article class="border-form shadow">
-                    <div class="header_form">
-                        <p class="m-0">${{ number_format($property['property_price']) }}</p>
+
+            {{-- Columna derecha: formulario --}}
+            <div class="col-lg-4">
+                <div class="prop-contact-card">
+                    <div class="prop-contact-header">
+                        <span class="prop-contact-price">${{ number_format($property['property_price']) }}</span>
                     </div>
-                    <div class="text-form text-center mt-4">
-                        <h2>¿Te interesa esta propiedad?</h2>
-                        <h3>Proporciónanos tus datos y te contactaremos</h3>
-                    </div>
-                    <div class="d-flex justify-content-center">
+
+                    <div class="prop-contact-body">
+                        <h2 class="prop-contact-title">¿Te interesa esta propiedad?</h2>
+                        <p class="prop-contact-subtitle">Déjanos tus datos y te contactamos</p>
+
                         <form action="{{ route('send.property.inquiry') }}" method="POST" id="formDetailProp">
-
                             @csrf
-
-                            <div class="form-group">
-                                <input type="text" id="fname" name="fname" placeholder="Nombre" class="w-100"
-                                    style="border: none; border-bottom: 1px solid #242B40" required>
-                                <input type="text" id="flastname" name="flastname" placeholder="Apellido"
-                                    class="w-100 mt-4" style="border: none; border-bottom: 1px solid #242B40" required>
-                                <input type="hidden" id="interestDetail" name="interest">
+                            <div class="prop-form-group">
+                                <input type="text" name="fname" placeholder="Nombre" class="prop-input" required>
                             </div>
-
-                            <div class="form-group mt-4 w-100">
-                                <input type="number" id="tlf" name="tlf" placeholder="Teléfono"
-                                    class="w-100" style="border: none; border-bottom: 1px solid #242B40" required>
+                            <div class="prop-form-group">
+                                <input type="text" name="flastname" placeholder="Apellido" class="prop-input" required>
                             </div>
-
-                            <div class="form-group mt-4 w-100">
-                                <input type="email" id="email" name="email" placeholder="Correo electrónico"
-                                    class="w-100" style="border: none; border-bottom: 1px solid #242B40" required>
+                            <div class="prop-form-group">
+                                <input type="number" name="tlf" placeholder="Teléfono" class="prop-input" required>
                             </div>
-
-                            <div class="form-group mt-4 w-100">
-                                <textarea name="message" id="message" rows="3" placeholder="Mensaje" class="w-100"
-                                    style="border: none; border-bottom: 1px solid #242B40" required>Hola, me interesa este inmueble y quiero que me contacten. Gracias</textarea>
+                            <div class="prop-form-group">
+                                <input type="email" name="email" placeholder="Correo electrónico" class="prop-input" required>
                             </div>
-
+                            <div class="prop-form-group">
+                                <textarea name="message" rows="3" placeholder="Mensaje" class="prop-input" required>Hola, me interesa este inmueble y quiero que me contacten. Gracias</textarea>
+                            </div>
                             <input type="hidden" name="interest" value="{{ $property['product_code'] }}">
-
-                            <div class="form-group mt-4 w-100 d-flex justify-content-center">
-                                <button id="btnEnviar" type="submit" class="btn text-white rounded-pill"
-                                    style="background-color: #C61617;">ENVIAR</button>
-                            </div>
-
-                            <p class="text-center mt-4" style="font-size: x-large; font-weight: 600">Nuestros datos de
-                                contacto</p>
-
-                            <div class="d-flex gap-3 ms-4">
-                                <div class="rounded-circle d-flex justify-content-center align-items-center"
-                                    style="border: 1px solid #242b40a2; width: 30px; height: 30px">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <a style="text-decoration: none"
-                                    href="tel:+593983849073"
-                                    class="mt-1 ml-2 text-dark">098-384-9073</a>
-                            </div>
-
-                            <div class="d-flex gap-3 ms-4 mt-2">
-                                <div class="rounded-circle d-flex justify-content-center align-items-center"
-                                    style="border: 1px solid #242b40a2; width: 30px; height: 30px">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </div>
-                                <a style="text-decoration: none"
-                                    href="https://api.whatsapp.com/send?phone=593983849073&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
-                                    class="mt-1 ml-2 text-dark">098-384-9073</a>
-                            </div>
-                            <div class="d-flex gap-3 ms-4 mt-2">
-                                <div class="rounded-circle d-flex justify-content-center align-items-center"
-                                    style="border: 1px solid #242b40a2; width: 30px; height: 30px">
-                                    <img width="15px" src="{{ asset('img/email-icon.png') }}" alt="">
-                                </div>
-                                <a style="text-decoration: none" href="mailto:info@casacredito.com"
-                                    class="mt-2 text-dark ml-2">info@casacredito.com</a>
-                            </div>
-
-                            <div class="d-flex gap-3 ms-4 mt-2">
-                                <div class="rounded-circle d-flex justify-content-center align-items-center"
-                                    style="border: 1px solid #242b40a2; width: 30px; height: 30px">
-                                    <img width="15px" src="{{ asset('img/location-icon.png') }}" alt="">
-                                </div>
-                                <a style="text-decoration: none" class="mt-1 text-dark ml-2"
-                                    href="https://maps.app.goo.gl/g4G5hBDe9doEPJvx7">Remigio Tamariz Crespo y Av.
-                                    Solano</a>
-                            </div>
-
-                            <div class="form-group mb-2">
-                                <input type="hidden" name="g-recaptcha-response" id="recaptchaToken">
-
-                                @error('captcha')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            @error('captcha')
+                                <div class="text-danger small mb-2">{{ $message }}</div>
+                            @enderror
+                            <button type="submit" class="prop-submit-btn">Enviar consulta</button>
                         </form>
-                    </div>
-                </article>
-            </div>
-        </div>
 
+                        <div class="prop-divider"><span>o contáctanos directamente</span></div>
+
+                        <div class="prop-contact-links">
+                            <a href="tel:+593983849073" class="prop-contact-link">
+                                <div class="prop-contact-icon"><i class="fa-solid fa-phone"></i></div>
+                                <span>098-384-9073</span>
+                            </a>
+                            <a href="https://api.whatsapp.com/send?phone=593983849073&text=Hola%20*Casa%20Credito*,%20deseo%20consultar%20por%20esta%20propiedad:%20*{{ $property['product_code'] }}*"
+                               class="prop-contact-link prop-contact-link--wa">
+                                <div class="prop-contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                <span>WhatsApp</span>
+                            </a>
+                            <a href="mailto:info@casacredito.com" class="prop-contact-link">
+                                <div class="prop-contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <span>info@casacredito.com</span>
+                            </a>
+                            <a href="https://maps.app.goo.gl/g4G5hBDe9doEPJvx7" class="prop-contact-link" target="_blank" rel="noopener noreferrer">
+                                <div class="prop-contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <span>Remigio Tamariz y Av. Solano</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+</div>
 @endsection
 
 @section('scripts')
+<script>
+    (function () {
+        const carousel = document.getElementById('propertyCarousel');
+        if (!carousel) return;
 
+        const counter = document.getElementById('imgCurrent');
+        const thumbs  = document.querySelectorAll('.prop-thumb');
+
+        carousel.addEventListener('slid.bs.carousel', function (e) {
+            if (counter) counter.textContent = e.to + 1;
+            thumbs.forEach((t, i) => t.classList.toggle('active', i === e.to));
+            if (thumbs[e.to]) {
+                thumbs[e.to].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        });
+    })();
+</script>
 @endsection
