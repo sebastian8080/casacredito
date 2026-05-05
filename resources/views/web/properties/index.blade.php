@@ -535,7 +535,7 @@
 
                     data.data.forEach(propertie => {
                         // Construcción manual del HTML
-                        const images = propertie.images ? propertie.images.split('|') : [];
+                        const images = propertie.images ? propertie.images.split('|').filter(Boolean) : [];
                         const firstImage = images.length > 0 ? images[0] : null;
                         let title = capitalizeFirstLetter(propertie.listing_title);
                         let description = capitalizeFirstLetter(propertie.meta_description);
@@ -544,7 +544,7 @@
                             <section class="row my-4 border rounded shadow-sm">
                                 <article class="col-sm-4 m-0 p-0">
                                     <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
-                                        ${firstImage ? `<img width="100%" height="100%" src="https://grupohousing.com/uploads/listing/600/${firstImage}" alt="${propertie.listing_title}">` : `<p>No image available.</p>`}
+                                        ${firstImage ? `<img width="100%" height="100%" src="${firstImage}" alt="${propertie.listing_title}">` : `<p>No image available.</p>`}
                                     </a>
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
