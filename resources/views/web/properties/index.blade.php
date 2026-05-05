@@ -33,6 +33,17 @@
         font-size: 15px;
         font-weight: 400;
     }
+    .property-img-wrapper {
+        height: 280px;
+        overflow: hidden;
+    }
+    .property-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
     @media screen and (max-width: 992px){
         .info-cards{
             padding: 3.5rem 0 2rem 0;
@@ -42,6 +53,9 @@
         }
         .margin-bottom-icons{
             margin: 0px 0px 15px 0px;
+        }
+        .property-img-wrapper {
+            height: 220px;
         }
     }
 </style>
@@ -543,8 +557,8 @@
                         const propertyHTML = `
                             <section class="row my-4 border rounded shadow-sm">
                                 <article class="col-sm-4 m-0 p-0">
-                                    <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-flex text-dark" style="text-decoration: none">
-                                        ${firstImage ? `<img width="100%" height="100%" src="${firstImage}" alt="${propertie.listing_title}">` : `<p>No image available.</p>`}
+                                    <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-block text-dark property-img-wrapper" style="text-decoration: none">
+                                        ${firstImage ? `<img src="${firstImage}" alt="${propertie.listing_title}" loading="lazy">` : `<div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">Sin imagen</div>`}
                                     </a>
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
