@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\Blog\Article;
 use App\Models\Property;
+use App\Traits\ResolvesPropertyImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class WebController extends Controller
 {
+    use ResolvesPropertyImages;
+
     public function home()
     {
-
         $mobile = $this->isMobile();
 
         $states = DB::table('info_states')->where('country_id', 63)->get();
 
         $properties = Property::where('status', 1)->with('listingType')->orderBy('id', 'desc')->take(12)->get();
+
+        $properties->each(function ($property) {
+            if (!empty($property->images)) {
+                $property->images = $this->resolvePropertyImages($property->images);
+            }
+        });
 
         return view('web.home', compact('properties', 'states', 'mobile'));
     }

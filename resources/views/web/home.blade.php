@@ -217,10 +217,11 @@
                             
                             <!-- Imagen con código de propiedad -->
                             <div class="position-relative">
-                                <img src="https://grupohousing.com/uploads/listing/600/{{ explode('|', $property->images)[0] }}"
+                                <img src="{{ explode('|', $property->images)[0] }}"
                                     width="100%"
                                     height="200px"
                                     style="object-fit: cover"
+                                    loading="lazy"
                                     alt="{{ $property->listing_title }}">
             
                                 <!-- Código de propiedad en la esquina -->

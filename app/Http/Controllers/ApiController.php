@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use App\Traits\ResolvesPropertyImages;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
+    use ResolvesPropertyImages;
 
     public function listActivatedProperties(Request $request)
     {
@@ -271,33 +272,5 @@ class ApiController extends Controller
         $property_transaction = DB::table('listing_status')->where('id', $id_transaction)->first();
 
         return response()->json($property_transaction);
-    }
-
-    private function resolveImageUrl(string $image, string $size = '600'): string
-    {
-        $s3Url = 'https://grupohousing.s3.amazonaws.com/listings/' . $image;
-
-        $existsInS3 = Cache::remember('s3_exists_' . md5($image), 86400, function () use ($s3Url) {
-            try {
-                $headers = get_headers($s3Url, 1);
-                return $headers && strpos($headers[0], '200') !== false;
-            } catch (\Exception $e) {
-                return false;
-            }
-        });
-
-        if ($existsInS3) {
-            return $s3Url;
-        }
-
-        return 'https://grupohousing.com/uploads/listing/' . $size . '/' . $image;
-    }
-
-    private function resolvePropertyImages(string $images): string
-    {
-        return collect(explode('|', $images))
-            ->filter()
-            ->map(fn($image) => $this->resolveImageUrl(trim($image), '600'))
-            ->join('|');
     }
 }
