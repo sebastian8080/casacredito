@@ -4,7 +4,7 @@
     <title>{{ $property['listing_title'] }} | Casa Crédito</title>
     <meta name="description" content="{{ $property['meta_description'] }}">
     <link rel="canonical" href="{{ Request::url() }}">
-    <link rel="stylesheet" href="{{ asset('css/property-styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/property-styles.css?v=2') }}">
     @if(count($images) > 0)
     <link rel="preload" as="image" href="{{ $images[0] }}">
     @endif
