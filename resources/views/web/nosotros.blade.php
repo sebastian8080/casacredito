@@ -10,7 +10,7 @@
     <meta property="og:description"
         content="En Casa Crédito, somos expertos en créditos con un enfoque personalizado para cada cliente. Conoce más sobre nuestros valores, experiencia y cómo nuestros asesores pueden ayudarte a alcanzar tus metas financieras.">
     <meta property="og:image" content="{{ asset('img/bannernosotros.jpg') }}">
-    <meta property="og:url" content="https://www.casacredito.com/quienes-somos">
+    <meta property="og:url" content="{{Request::url()}}">
     <meta property="og:type" content="website">
     <title>Conoce a Casa Crédito | Quiénes Somos</title>
     <style>
@@ -157,12 +157,12 @@
         <section class="row mt-5 justify-content-center d-cards-desktop">
             <article class="col-sm-4" style="min-height: 600px">
                 <div class="position-relative">
-                    <img class="img-fluid" src="{{ asset('img/asesores/asesor1.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('img/asesores/anael-mosquera-casa-credito.webp') }}" alt="Asesora de Casa Credito Anael Mosquera">
                     <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white w-75 pt-2"
                         style="z-index: 1000 !important; bottom: -50px">
                         <p class="my-0"
                             style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                            Melissa Mora</p>
+                            Anael Mosquera</p>
                         <hr class="my-0 py-0 mx-5">
                         <p class="mt-2"
                             style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
@@ -172,12 +172,27 @@
             </article>
             <article class="col-sm-4" style="min-height: 600px">
                 <div class="position-relative">
-                    <img class="img-fluid" src="{{ asset('img/asesores/asesor5.jpg') }}" alt="">
+                    <img class="img-fluid" src="{{ asset('img/asesores/veronica-medina-casa-credito.webp') }}" alt="Asesora Veronica Medina - Casa Credito">
                     <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2"
                         style="z-index: 1000 !important">
                         <p class="my-0"
                             style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                            Andrea Hurtado</p>
+                            Verónica Medina</p>
+                        <hr class="my-0 py-0 mx-5">
+                        <p class="mt-2"
+                            style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
+                            Asesora de Créditos</p>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-4" style="min-height: 600px">
+                <div class="position-relative">
+                    <img class="img-fluid" src="{{ asset('img/asesores/diana-portilla-casa-credito.webp') }}" alt="Asesora Diana Portilla - Casa Credito">
+                    <div class="position-absolute top-100 start-50 translate-middle shadow text-center bg-white w-75 pt-2"
+                        style="z-index: 1000 !important">
+                        <p class="my-0"
+                            style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
+                            Diana Portilla</p>
                         <hr class="my-0 py-0 mx-5">
                         <p class="mt-2"
                             style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
@@ -192,12 +207,12 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active position-relative" style="height: 470px">
-                        <img class="d-block w-100" src="{{ asset('img/asesores/asesor1.jpg') }}" alt="">
+                        <img class="d-block w-100" src="{{ asset('img/asesores/anael-mosquera-casa-credito.webp') }}" alt="Asesora Anael Mosquera - Casa Credito">
                         <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1"
                             style="bottom: 0px; width: 90%">
                             <p class="my-0"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                                Melissa Mora</p>
+                                Anael Mosquera</p>
                             <hr class="my-0 py-0 mx-5">
                             <p class="mt-2"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
@@ -205,12 +220,25 @@
                         </div>
                     </div>
                     <div class="carousel-item position-relative" style="height: 470px">
-                        <img class="d-block w-100" src="{{ asset('img/asesores/asesor5.jpg') }}" alt="">
+                        <img class="d-block w-100" src="{{ asset('img/asesores/veronica-medina-casa-credito.webp') }}" alt="Asesora Veronica Medina - Casa Credito">
                         <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1"
                             style="bottom: 0px; width: 90%">
                             <p class="my-0"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
-                                Andrea Hurtado</p>
+                                Veronica Medina</p>
+                            <hr class="my-0 py-0 mx-5">
+                            <p class="mt-2"
+                                style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
+                                Asesora de Créditos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item position-relative" style="height: 470px">
+                        <img class="d-block w-100" src="{{ asset('img/asesores/diana-portilla-casa-credito.webp') }}" alt="Asesora Diana Portilla - Casa Credito">
+                        <div class="position-absolute start-50 translate-middle-x shadow text-center bg-white pt-2 mb-1"
+                            style="bottom: 0px; width: 90%">
+                            <p class="my-0"
+                                style="font-family: 'Bitter', 'serif'; font-style: italic; font-weight: 600; color: #676667; font-size: 35px">
+                                Diana Portilla</p>
                             <hr class="my-0 py-0 mx-5">
                             <p class="mt-2"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
