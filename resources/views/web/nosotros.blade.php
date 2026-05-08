@@ -181,7 +181,7 @@
                         <hr class="my-0 py-0 mx-5">
                         <p class="mt-2"
                             style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
-                            Asesora de Créditos</p>
+                            Asesora Comercial</p>
                     </div>
                 </div>
             </article>
@@ -229,7 +229,7 @@
                             <hr class="my-0 py-0 mx-5">
                             <p class="mt-2"
                                 style="font-family: 'Bitter', 'serif'; font-style: italic; color: #676667; font-size: 20px">
-                                Asesora de Créditos</p>
+                                Asesora Comercial</p>
                         </div>
                     </div>
                     <div class="carousel-item position-relative" style="height: 470px">
