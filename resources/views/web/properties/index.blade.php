@@ -631,7 +631,22 @@
                     loading = false;
                     loadingIndicator.style.display = 'none';
                 } else {
-                    loadingIndicator.innerHTML = '<p>No hay más propiedades para mostrar.</p>';
+                    const h1Element = document.querySelector("#dynamic-h1");
+                    const dynamicTextElement = document.querySelector("#dynamic-text");
+                    const codeValue = document.getElementById('code')?.value.trim();
+
+                    if (codeValue) {
+                        if (h1Element) h1Element.textContent = `No encontramos ninguna propiedad con el código "${codeValue}"`;
+                        if (dynamicTextElement) dynamicTextElement.textContent = 'Verifica el código e intenta nuevamente.';
+                    } else {
+                        if (h1Element) h1Element.textContent = 'No encontramos propiedades con esa búsqueda';
+                        if (dynamicTextElement) dynamicTextElement.textContent = 'Intenta con otros filtros o amplía tu búsqueda.';
+                    }
+
+                    prevBtn.classList.add('disabled');
+                    nextBtn.classList.add('disabled');
+                    loadingIndicator.style.display = 'none';
+                    document.getElementById('properties-list').innerHTML = '<p class="text-center text-muted py-5">No hay propiedades disponibles para mostrar.</p>';
                 }
             })
             .catch(error => {
