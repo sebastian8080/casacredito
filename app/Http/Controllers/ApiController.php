@@ -14,7 +14,7 @@ class ApiController extends Controller
     public function listActivatedProperties(Request $request)
     {
 
-        $query = Property::where('status', '1');
+        $query = Property::where('status', '1')->where('available', 1);
 
         // Lista de palabras a eliminar (stop words)
         $stopWords = ['de', 'en', 'para', 'y', 'a', 'el', 'la', 'los', 'las'];
