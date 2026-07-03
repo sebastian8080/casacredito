@@ -221,7 +221,7 @@
                                     width="100%"
                                     height="200px"
                                     style="object-fit: cover"
-                                    loading="lazy"
+                                    @if($loop->first) loading="eager" fetchpriority="high" @else loading="lazy" @endif
                                     alt="{{ $property->listing_title }}">
             
                                 <!-- Código de propiedad en la esquina -->

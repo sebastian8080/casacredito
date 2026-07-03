@@ -547,18 +547,19 @@
                     //Cambiando h1 y title
                     generateMetaData(newUrl, data.total);
 
-                    data.data.forEach(propertie => {
+                    data.data.forEach((propertie, index) => {
                         // Construcción manual del HTML
                         const images = propertie.images ? propertie.images.split('|').filter(Boolean) : [];
                         const firstImage = images.length > 0 ? images[0] : null;
                         let title = capitalizeFirstLetter(propertie.listing_title);
                         let description = capitalizeFirstLetter(propertie.meta_description);
+                        const imgLoadingAttrs = index === 0 ? `loading="eager" fetchpriority="high"` : `loading="lazy"`;
 
                         const propertyHTML = `
                             <section class="row my-4 border rounded shadow-sm">
                                 <article class="col-sm-4 m-0 p-0">
                                     <a href="https://casacredito.com/propiedad/${propertie.slug}" class="d-block text-dark property-img-wrapper" style="text-decoration: none">
-                                        ${firstImage ? `<img src="${firstImage}" alt="${propertie.listing_title}" loading="lazy">` : `<div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">Sin imagen</div>`}
+                                        ${firstImage ? `<img src="${firstImage}" alt="${propertie.listing_title}" ${imgLoadingAttrs}>` : `<div class="d-flex align-items-center justify-content-center h-100 bg-light text-muted">Sin imagen</div>`}
                                     </a>
                                 </article>
                                 <article class="col-sm-8 position-relative d-flex align-items-center">
