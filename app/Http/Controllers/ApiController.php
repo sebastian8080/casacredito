@@ -183,7 +183,7 @@ class ApiController extends Controller
 
         $properties->getCollection()->transform(function ($property) {
             if (!empty($property->images)) {
-                $property->images = $this->resolvePropertyImages($property->images);
+                $property->images = $this->resolveFirstPropertyImage($property->images);
             }
             return $property;
         });

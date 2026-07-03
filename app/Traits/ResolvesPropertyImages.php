@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 
 trait ResolvesPropertyImages
 {
@@ -12,8 +13,7 @@ trait ResolvesPropertyImages
 
         $existsInS3 = Cache::remember('s3_exists_' . md5($image), 86400, function () use ($s3Url) {
             try {
-                $headers = get_headers($s3Url, 1);
-                return $headers && strpos($headers[0], '200') !== false;
+                return Http::timeout(2)->connectTimeout(2)->head($s3Url)->successful();
             } catch (\Exception $e) {
                 return false;
             }
@@ -33,5 +33,12 @@ trait ResolvesPropertyImages
             ->filter()
             ->map(fn($image) => $this->resolveImageUrl(trim($image), '600'))
             ->join('|');
+    }
+
+    private function resolveFirstPropertyImage(string $images, ?string $size = '600'): string
+    {
+        $firstImage = collect(explode('|', $images))->filter()->first();
+
+        return $firstImage ? $this->resolveImageUrl(trim($firstImage), $size) : '';
     }
 }

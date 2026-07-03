@@ -23,7 +23,7 @@ class WebController extends Controller
 
         $properties->each(function ($property) {
             if (!empty($property->images)) {
-                $property->images = $this->resolvePropertyImages($property->images);
+                $property->images = $this->resolveFirstPropertyImage($property->images);
             }
         });
 
