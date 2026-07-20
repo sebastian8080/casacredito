@@ -13,7 +13,7 @@ trait ResolvesPropertyImages
 
         $existsInS3 = Cache::remember('s3_exists_' . md5($image), 86400, function () use ($s3Url) {
             try {
-                return Http::timeout(2)->connectTimeout(2)->head($s3Url)->successful();
+                return Http::timeout(2)->head($s3Url)->successful();
             } catch (\Exception $e) {
                 return false;
             }
